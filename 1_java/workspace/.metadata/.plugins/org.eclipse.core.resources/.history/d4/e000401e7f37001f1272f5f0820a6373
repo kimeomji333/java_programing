@@ -1,0 +1,18 @@
+package zoo;
+
+public class Ground {
+	public static void main(String[] args) {
+		//서로 다른 종류의 동물 세마리 울게하기 //사자, 고양이, 강아지
+		
+//		Animal animal = new Animal("고양이");
+		Cat mycat = new Cat("고양이");
+		Lion mylion = new Lion("사자");
+		Dog mydog = new Dog("강아지");
+		
+		mycat.crying();
+		mylion.crying();
+		mydog.crying();
+		
+		
+	}
+}

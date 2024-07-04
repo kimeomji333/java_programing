@@ -1,0 +1,14 @@
+package cafe;
+
+public class Manager {
+	
+	void openCafe(Cafe cafe) {
+		System.out.println("오픈");
+		System.out.println("원두 그라인딩");
+		cafe.drip();
+		cafe.sell();
+		cafe.clean();
+		System.out.println("--- 마감 ---");
+	}
+
+}

@@ -1,0 +1,16 @@
+package day04;
+
+public class StrTest {
+	public static void main(String[] args) {
+		String msg = "Hello World!!! ^-^";
+		
+		// 문자열1.split("문자열2"): 문자열1을 문자열2 기준으로 나누기
+		// 나뉘어진 값들이 담겨있는 String[] 반환
+		String[] arr1 = msg.split(" "); // 띄어쓰기를 기준으로 나누다. {"Hello", "World!!!"}
+		System.out.println(arr1[0]);
+		System.out.println(arr1[1]);
+		
+		String[] arr2 = msg.split("u");
+		System.out.println(arr2[0]);
+	}
+}

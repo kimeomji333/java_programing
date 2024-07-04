@@ -1,0 +1,11 @@
+package obj;
+
+public class ObjectTest2 {
+	public static void main(String[] args) {
+		String msg1 = "Hello";
+		String msg2 = "Hello";
+		
+		System.out.println(msg1 == msg2);
+	}
+
+}

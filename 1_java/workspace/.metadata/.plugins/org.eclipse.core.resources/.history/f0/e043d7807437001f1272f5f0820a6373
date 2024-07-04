@@ -1,0 +1,8 @@
+package road;
+
+public class Road3 {
+	public static void main(String[] args) {
+		SuperCar mycar = new SuperCar(); //상속받은 걸로 객체 만들었음
+		mycar.engineStart();
+	}
+}

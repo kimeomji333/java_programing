@@ -1,0 +1,35 @@
+package day05;
+
+public class ClassTest {
+	public static void main(String[] args) {
+		Car mycar = new Car(); // 객체화
+		
+		System.out.println(mycar); // day05.Car@6f2b958e
+		
+		mycar.model = "Ferrari";  
+		mycar.color = "Red";
+		mycar.price = 70000;
+		System.out.println(mycar.model);
+		
+		
+	}
+}
+
+class Car {
+	// 속성, 성징들을 변수로 선언
+	String carNum;
+	String model;
+	String color;
+	int price;
+	
+	// 기능 행위들은 메소드로 선언
+	void engineStart() {
+		System.out.println("시동 켜기");
+	}
+	
+	void engineStop() {
+		System.out.println("시동 끄기");
+		
+	}
+	
+}

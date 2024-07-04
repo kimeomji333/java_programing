@@ -1,0 +1,11 @@
+package day04;
+
+public class StrTest {
+	public static void main(String[] args) {
+		String msg = "Hello World!!! ^-^";
+		
+		String[] arr1 = msg.split(" "); // 띄어쓰기를 기준으로 나누다.
+		
+		System.out.println(arr1);
+	}
+}

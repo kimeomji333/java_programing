@@ -1,0 +1,19 @@
+package zoo;
+
+public class animal {
+	String name;
+
+	public animal() {
+	}
+	
+	
+	public animal(String name) {
+		this.name = name;
+	}
+
+
+	void crying() {
+		System.out.println(this.name + "의 울음소리");
+	}
+	
+}

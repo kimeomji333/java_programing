@@ -1,0 +1,18 @@
+package road;
+
+//1
+public class Road {
+	public static void main(String[] args) {
+		//자식의 객체도 부모타입의 배열에 담을 수 있다.
+		Car[] garage = { 
+				new Car("K7", "White", 4000),
+				new SuperCar("Ferrari", "Red", 70000), 
+				new SuperCar("Porsche", "Black", 50000)
+		};
+		
+		//부모타입의 변수에 담을 수 있다. 
+		Car temp = new SuperCar();
+		
+		temp.engineStart();
+	}
+}

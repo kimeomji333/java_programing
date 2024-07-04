@@ -1,0 +1,22 @@
+package obj;
+
+public class ObjectTest2 {
+	public static void main(String[] args) {
+		String msg1 = "Hello";
+		String msg2 = "Hello";
+		String msg3 = new String("Hello");
+		
+		System.out.println(msg1 == msg2); //true 
+		System.out.println(msg1.equals(msg2)); //true
+		System.out.println(msg1 == msg3); //false
+		System.out.println(msg1.equals(msg3)); //true
+		
+		TestData obj1 = new TestData(10, 0.0);
+		TestData obj2 = new TestData(10, 0.0);
+		
+		System.out.println(obj1 == obj2);  //false
+		System.out.println(obj1.equals(obj2));  //true
+		
+	}
+
+}

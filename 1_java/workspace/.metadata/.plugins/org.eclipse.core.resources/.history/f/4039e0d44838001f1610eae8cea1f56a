@@ -1,0 +1,52 @@
+package study;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Dicegame2 {
+	public static void main(String[] args) {
+		//주사위 숫자 맞히기 게임
+		//두 개의 주사위가 만들어낼 수 있는 모든 경우의 수를 랜덤으로 정하고, 
+		//합이 입련된 수와 같으면, "맞췄습니다." 출력 / 다르면, "틀렸습니다." 출력
+		//맞출 때까지 반복
+		//값을 맞추면 "계속 하시겠습니까?(y/n): " 가 출력되고 입력시 새로운 랜덤 수가 정해지고 처음부터 다시 시작
+		
+		//입력
+		Scanner sc = new Scanner(System.in);
+		
+		//반복문으로 게임 실행
+		System.out.println("주사위 숫자 맞히기 게임 스타드!");
+		while(true) {
+			
+			System.out.print("주사위 두 개의 합을 맞춰보세요(2~12입력): "); //난수 2 ~ 12까지 나옴
+			int userNum = sc.nextInt();
+			
+			
+			//주사위 2개의 합 최소2부터 최대12까지 난수 생성
+			Random r = new Random();
+			int randomNum = r.nextInt(11)+2;
+			
+			String conti = "";
+			//로직
+			if(randomNum == userNum) {
+				System.out.println("맞췄습니다.");
+				
+				//계속하기 여부
+				System.out.print("계속 하시겠습니까?(y/n)");
+				conti = sc.next();
+				
+				if(conti.equals("Y") || conti.equals("y")) {
+					//처음으로 가는 반복문 만들기
+					continue;
+				}
+				
+			} else {
+				System.out.println("틀렸습니다.");
+			}
+		} //while 닫
+		
+		//System.out.println("게임 종료");
+		
+	}
+
+}

@@ -1,0 +1,27 @@
+package zoo;
+
+public class Ground {
+	public static void main(String[] args) {
+//		Gangsa gangsa = new Gangsa("홍길동", "남", 20);
+//		Mosquito mosquito = new Mosquito("모기", "여자", 1);
+//		Otter otter = new Otter("수달", "남", 2);
+		
+		//배열에 담기
+		Animal[] cage = {
+				new Gangsa("홍길동", "남", 20),
+				new Mosquito("모기", "여자", 1),
+				new Otter("수달", "남", 2)
+		};
+		
+		for (int i = 0; i < cage.length; i++) {
+			//cage[i].makeSomeNoise();
+			if(cage[i] instanceof Mammal) {
+				((Mammal)cage[i]).breed();
+			}
+		}
+//		gangsa.makeSomeNoise();
+//		mosquito.makeSomeNoise();
+//		otter.makeSomeNoise();
+	}
+
+}

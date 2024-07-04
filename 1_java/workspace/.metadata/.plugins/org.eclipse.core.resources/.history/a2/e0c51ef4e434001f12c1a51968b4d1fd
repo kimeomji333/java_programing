@@ -1,0 +1,122 @@
+package day04;
+
+import java.util.Scanner;
+
+//3 이중for문 예제 - 별 찍기 접근방법
+public class NestedForEx2 {
+	public static void main(String[] args) {
+				
+		// 직각삼각형
+//		for(int j = 1; j <= 1; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//		
+//		for(int j = 1; j <= 2; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//		
+//		for(int j = 1; j <= 3; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//		
+//		for(int j = 1; j <= 4; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//		
+//		for(int j = 1; j <= 5; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//		
+//		
+//		// 이중 for문 이용하기
+//		for(int i = 1; i <= 5; i++) {
+//			for(int j = 1; j <= i; j++) {
+//				System.out.print("*");			
+//			}
+//			System.out.println();
+//		}
+		
+		
+		// 역직삼각형
+//		for(int j = 1; j <= 5; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//		
+//		for(int j = 1; j <= 4; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//
+//		for(int j = 1; j <= 3; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//		
+//		for(int j = 1; j <= 2; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//		
+//		for(int j = 1; j <= 1; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+		
+		
+		/*
+	 	학생수 입력 -> 과목수, 과목명 입력 받기 -> 첫 번째 학생 ~ n 번째 학생까지의 점수 입력받기
+	 	한 사람당 총점, 평균/ 전체 평균
+	 	각 과목별 평균
+		 */
+		
+		// 입력: 학생수, 과목수
+		Scanner sc = new Scanner(System.in);
+		System.out.println("학생수: ");
+		int stuCnt = sc.nextInt();
+		System.out.println("과목수: ");
+		int subCnt = sc.nextInt();
+		
+		
+		// 입력: 과목명
+		int[][] arrstu = new 
+		for(int i = 0; i < stuCnt.length(); i++) {
+			System.out.println();
+			
+		}
+		
+
+		// 입력: 점수
+
+		
+		// 출력
+
+		
+
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

@@ -1,0 +1,16 @@
+package road;
+
+//1
+public class Road1 {
+	public static void main(String[] args) {
+		Car mycar = new Car("Ferrari", "Red", 70000);
+		Car momcar = new Car("K7", "White", 4000);
+		Car dadcar = new Car(26000);
+		
+		Car[] garage = {mycar, momcar, dadcar};
+		
+		garage[0].engineStart();
+		
+	}
+}
+

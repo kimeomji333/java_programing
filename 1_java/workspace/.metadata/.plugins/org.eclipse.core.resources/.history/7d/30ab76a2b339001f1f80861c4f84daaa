@@ -1,0 +1,13 @@
+package obj;
+
+import java.util.Date;
+
+public class DateTest {
+	public static void main(String[] args) {
+		Date data = new Date();
+		System.out.println(data);
+		
+		System.out.println(data.getMonth());
+	}
+
+}

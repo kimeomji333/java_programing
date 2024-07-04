@@ -1,0 +1,21 @@
+package road;
+
+//8 상속
+public class SuperCar extends Car {
+	String mode;
+	
+	public SuperCar(String model, String color, int price) {
+		super(); //부모생성자
+		this.model = model;
+		this.color = color;
+		this.price = price;
+	}
+	
+	void roofOpen() {
+		System.out.println(this.model + "뚜껑 열기");
+	}
+	
+	void roofClose() {
+		System.out.println(this.model + "뚜껑 닫기");
+	}
+}

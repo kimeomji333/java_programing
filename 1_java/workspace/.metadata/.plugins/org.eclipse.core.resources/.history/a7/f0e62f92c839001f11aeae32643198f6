@@ -1,0 +1,13 @@
+package generic;
+
+public class GenericMain {
+	public static void main(String[] args) {
+		Save save1 = new Save();
+		save1.data = "Hello";
+		Save save2 = new Save();
+		save2.data = 10;
+		
+		System.out.println(((String)save1.data).length()));
+	}
+
+}

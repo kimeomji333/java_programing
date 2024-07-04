@@ -1,0 +1,33 @@
+package day04;
+
+//2
+public class NestedForEx {
+	public static void main(String[] args) {
+		// 이중for문 예제 - 별 찍기
+		/*
+		 	*****	*		*****			*
+		 	*****	**		****		   ***
+		 	*****	***		***	   	      *****
+		 	*****	****	**			 *******
+		 	*****	*****	*			*********
+		 	
+		 	국어점수 학생용으로 만들기
+		 	학생수 입력 -> 과목수, 과목명 입력 받기 -> 첫 번째 학생 ~ n 번째 학생까지의 점수 입력받기
+		 	한 사람당 총점, 평균/ 전체 평균
+		 	각 과목별 평균
+		 */
+		
+		for(int i = 0; i < 5; i++) {
+			System.out.println("*****");
+		}
+		System.out.println("------------");
+		
+		
+		for(int i = 0; i < 5; i++) {
+			for(int j = 0; j <= i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}

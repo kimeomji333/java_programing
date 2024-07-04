@@ -1,0 +1,30 @@
+package obj;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
+
+public class DateTest {
+	public static void main(String[] args) {
+		Date data = new Date();
+		System.out.println(data);	//Thu Jul 04 12:10:31 KST 2024
+		
+//		System.out.println(data.getMonth());	//6 (월은 0이 1월부터 시작)
+		//지역을 상징하는 고유한 정보를 가지고 있는 객체
+		ZoneId zone = ZoneId.systemDefault();
+		//			=	시간 정보를 가진 객체.지역에서.지역연월일정보
+		LocalDate ld = data.toInstant().atZone(zone).toLocalDate();
+		
+		System.out.println(ld);					//2024-07-04
+		System.out.println(ld.getYear());		//2024
+		System.out.println(ld.getMonthValue());	//7
+		System.out.println(ld.getDayOfMonth());	//4
+		
+		LocalDateTime ldt = data.toInstant().atZone(zone).toLocalDateTime();
+		System.out.println(ldt.getHour());
+		System.out.println(ldt.getMinute());
+		System.out.println(ldt.getSecond());
+	}
+
+}

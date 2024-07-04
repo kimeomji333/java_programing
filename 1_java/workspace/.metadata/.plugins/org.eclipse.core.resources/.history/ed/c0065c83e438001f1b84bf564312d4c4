@@ -1,0 +1,7 @@
+package pattern.single;
+
+public class HanRiver {
+	public static void main(String[] args) {
+		
+	}
+}

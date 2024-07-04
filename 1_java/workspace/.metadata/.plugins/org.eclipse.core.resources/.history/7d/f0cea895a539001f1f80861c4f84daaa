@@ -1,0 +1,22 @@
+package obj;
+
+public class TestData {
+	int intData;
+	double doubleData;
+	
+	public TestData(int intData, double doubleData) {
+		super(); //object을 상속받으니 뜸
+		this.intData = intData;
+		this.doubleData = doubleData;
+	}
+	
+	@Override
+	public String toString() {
+//		return super.toString();
+		//TestData(intData=10, doubleData=0.0)
+		return String.format("TestData(intData=%d, doubleData=%f)", intData, doubleData); //재정의 가능
+	}
+	
+	
+
+}

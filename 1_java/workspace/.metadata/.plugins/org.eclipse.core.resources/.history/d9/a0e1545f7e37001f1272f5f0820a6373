@@ -1,0 +1,15 @@
+package zoo;
+
+public class Lion extends Animal{
+
+	public Lion() {
+	}
+	
+	public Lion(String name) {
+		super(name);
+	}
+	
+	void crying() {
+		System.out.println("어흥");
+	}
+}

@@ -1,0 +1,136 @@
+package day04;
+
+import java.util.Scanner;
+
+//3 이중for문 예제 - 별 찍기 접근방법
+public class NestedForEx2 {
+	public static void main(String[] args) {
+				
+		// 직각삼각형
+//		for(int j = 1; j <= 1; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//		
+//		for(int j = 1; j <= 2; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//		
+//		for(int j = 1; j <= 3; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//		
+//		for(int j = 1; j <= 4; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//		
+//		for(int j = 1; j <= 5; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//		
+//		
+//		// 이중 for문 이용하기
+//		for(int i = 1; i <= 5; i++) {
+//			for(int j = 1; j <= i; j++) {
+//				System.out.print("*");			
+//			}
+//			System.out.println();
+//		}
+		
+		
+		// 역직삼각형
+//		for(int j = 1; j <= 5; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//		
+//		for(int j = 1; j <= 4; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//
+//		for(int j = 1; j <= 3; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//		
+//		for(int j = 1; j <= 2; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+//		
+//		for(int j = 1; j <= 1; j++) {
+//			System.out.print("*");
+//		}
+//		System.out.println();
+		
+		
+		/*
+	 	학생수 입력 -> 과목수, 과목명 입력 받기 -> 첫 번째 학생 ~ n 번째 학생까지의 점수 입력받기
+	 	한 사람당 총점, 평균/ 전체 평균
+	 	각 과목별 평균
+		 */
+		
+		// 입력: 학생수, 과목수
+		Scanner sc = new Scanner(System.in);
+		System.out.print("학생수를 입력하세요: ");
+		int stuCnt = sc.nextInt();
+		
+		System.out.print("과목수를 입력하세요: ");
+		int subjCnt = sc.nextInt();
+		
+		// 처리: 학생수, 과목수로 2차 배열  / 과목명 1차 배열
+		int[][] arrScore = new int[stuCnt][subjCnt];
+		String[] arrSubject = new String[subjCnt];
+		
+		for(int i = 0; i < subjCnt; i++) {
+			System.out.println(i+1 + "번째 과목명: ");
+			arrSubject[i] = sc.next();
+		}
+		
+		int[] arrSum1 = new int[stuCnt];
+		int[] arrSum2 = new int[subjCnt];
+		
+		for(int i = 0; i < stuCnt; i++)	{
+			for(int j = 0; j < subjCnt; j++) {
+				System.out.println(i+1 + "번째 학생의 " + arrSubject[j] + "점수" );
+				arrScore[i][j] = sc.nextInt();
+				arrSum1[i] += arrScore[i][j];
+				arrSum2[j] += arrScore[i][j];
+			}
+		}
+		
+		for(int i = 0; i < stuCnt; i++) {
+			System.out.println(i+1 + "번째 학생의 총점: " + arrSum1[i]);
+			System.out.println(i+1 + "번째 학생의 평균: " + arrSum1[i]/(double)subjCnt);
+		}
+		
+		for(int i = 0; i < subjCnt; i++) {
+			System.out.println(arrSubject[i] + " 과목의 평균: " + arrSum2[i]/(double)stuCnt);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

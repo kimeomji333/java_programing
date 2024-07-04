@@ -1,0 +1,17 @@
+package obj;
+
+public class TestData {
+	int intData;
+	double doubleData;
+	
+	public TestData(int intData, double doubleData) {
+		super(); //object
+		this.intData = intData;
+		this.doubleData = doubleData;
+	}
+	
+	
+	
+	
+
+}

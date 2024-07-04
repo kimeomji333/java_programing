@@ -1,0 +1,22 @@
+package day04;
+
+import java.util.Scanner;
+
+//5 메소드
+public class MethodTest {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		sc.next();
+		
+		MethodTest m = new MethodTest();
+		
+		
+		System.out.println("f(3) 호출 결과: " + m.f(3));
+	}
+	
+	//f(x) = 2x + 1
+	int f(int x) {
+		return 2*x + 1;
+	}
+
+}

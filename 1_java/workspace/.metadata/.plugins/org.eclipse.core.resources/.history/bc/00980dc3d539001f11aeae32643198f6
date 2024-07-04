@@ -1,0 +1,16 @@
+package collection;
+
+import java.util.ArrayList;
+
+public class ArListTest1 {
+	public static void main(String[] args) {
+		ArrayList<String> arData1 = new ArrayList<>();
+		
+		arData1.add("Hello");
+		arData1.add("Collection");
+		arData1.add("So");
+		arData1.add("EZ");
+		
+	}
+
+}
