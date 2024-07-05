@@ -31,7 +31,6 @@ public class SuperCar extends Car {
 		System.out.println(this.model + " 휘파람으로 시동 켜기");
 	}
 	
-	//@: 어노테이션
 	@Override
 	void engineStop() {
 		System.out.println(this.model + " 휘파람으로 시동 끄기");

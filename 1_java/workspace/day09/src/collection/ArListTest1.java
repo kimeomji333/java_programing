@@ -34,6 +34,7 @@ public class ArListTest1 {
 		
 		//ArrayList의 요소 삭제하기
 		arData1.remove(3);
+		System.out.println(arData1);	//[Hello, Collection, So]
 		//오버로딩 되어 있어서 값이나, 인덱스로도 삭제 가능
 		arData1.remove("So");
 		System.out.println(arData1);	//[Hello, Collection]
@@ -50,19 +51,8 @@ public class ArListTest1 {
 		
 		//remove(int index) 매개변수로 index로 들어오기 때문에 30번째 수를 찾게 된다. 박싱하는 과정이 필요함.
 		int data = 30;
-		arData2.remove((Integer)data);
+		arData2.remove((Integer)data); //박싱
 		System.out.println(arData2);	//[10, 20, 40, 50]
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 	}

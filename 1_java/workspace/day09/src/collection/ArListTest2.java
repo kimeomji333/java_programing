@@ -13,7 +13,7 @@ public class ArListTest2 {
 		list.add(new ArrayList<>());
 		
 		//실제 값 담기 : 내부 리스트들을 가져와서 그 리스트에 데이터 추가
-		//0행에는 값 3개 추가
+		//0행에는 값 3개 열 추가
 		list.get(0).add(10);
 		list.get(0).add(20);
 		list.get(0).add(30);

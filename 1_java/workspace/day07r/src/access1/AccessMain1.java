@@ -11,8 +11,8 @@ public class AccessMain1 {
 		
 //		obj.data3 = 300;
 		obj.setData3(300); //setter
-		
 		System.out.println(obj.getData3());		//300
+		
 		System.out.println(obj.data4);
 		
 	}

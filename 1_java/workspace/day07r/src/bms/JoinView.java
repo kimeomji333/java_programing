@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class JoinView {
 	public JoinView() {
-		// 화면 구현
+		//입력
 		Scanner sc = new Scanner(System.in);
 		System.out.println("1. 국민은행\n2. 신한은행\n3. 우리은행");
 		int bankChoice = sc.nextInt();
@@ -13,7 +13,7 @@ public class JoinView {
 		System.out.print("비밀번호: ");
 		String pw = sc.next();
 		
-		//처리 로직
+		//출력
 		BankManager manager = new BankManager();
 		String account = manager.join(bankChoice, name, pw);
 		if(account != null) {

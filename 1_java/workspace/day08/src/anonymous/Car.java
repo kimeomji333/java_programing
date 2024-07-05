@@ -1,6 +1,6 @@
 package anonymous;
 
-public abstract class Car { //추상클래스
+public abstract class Car {		//추상클래스
 	String model;
 	String color;
 	int price;
@@ -11,7 +11,7 @@ public abstract class Car { //추상클래스
 		this.price = price;
 	}
 	
-	abstract void engineStart();
+	abstract void engineStart();	//추상메소드
 	abstract void engineStop();
 
 }

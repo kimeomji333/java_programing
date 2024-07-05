@@ -27,8 +27,8 @@ public class BankManager {
 		//switch문 리팩토링
 		Bank[] makers = {
 				 new Kookmin(account, name, pw),
-				 new Kookmin(account, name, pw),
-				 new Kookmin(account, name, pw)
+				 new Shinhan(account, name, pw),
+				 new Woori(account, name, pw)
 		};
 		arUser[bankChoice-1][arCnt[bankChoice-1]] = makers[bankChoice-1];
 		arCnt[bankChoice-1]++;
@@ -39,11 +39,11 @@ public class BankManager {
 //			arCnt[0]++;
 //			break;
 //		case 2: 
-//			arUser[1][arCnt[1]] = new Kookmin(account, name, pw); //arCnt[1]: 신한은행의 회원수
+//			arUser[1][arCnt[1]] = new Shinhan(account, name, pw); //arCnt[1]: 신한은행의 회원수
 //			arCnt[1]++;
 //			break;
 //		case 3: 
-//			arUser[2][arCnt[2]] = new Kookmin(account, name, pw); //arCnt[2]: 우리은행의 회원수
+//			arUser[2][arCnt[2]] = new Woori(account, name, pw); //arCnt[2]: 우리은행의 회원수
 //			arCnt[2]++;
 //			break;
 //		}

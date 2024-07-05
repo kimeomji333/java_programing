@@ -3,10 +3,10 @@ package wrapper;
 public class WrapperTest2 {
 	public static void main(String[] args) {
 		Integer obj = 10;
-		f1(obj);
+		f1(obj);			//int 타입으로 호출한 메소드: 10
 		
 		int data = 10;
-		f2(data);
+		f2(data);			//Integer 타입으로 호출한 메소드: 10
 		
 		g(obj);				//Integer 타입으로 호출한 메소드: 10
 		g(data);			//int 타입으로 호출한 메소드: 10
@@ -38,7 +38,6 @@ public class WrapperTest2 {
 	//Object 타입의 매개변수가 선언되어 있다. 
 	//1. 아무 타입이나 넘겨
 	//2. 객체 하나 넘겨
-	//업캐스팅이 
 	static void g(Object obj) {
 		System.out.println("Object 타입으로 호출한 메소드: " + obj);
 	}

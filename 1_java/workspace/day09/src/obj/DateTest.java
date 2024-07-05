@@ -27,6 +27,7 @@ public class DateTest {
 		System.out.println(ldt.getMinute());
 		System.out.println(ldt.getSecond());
 		
+		//---------------------------------java--------------------------------------------
 		//↓현재 시간정보 객체를 만들 때 쉽게 사용할 수 있음(자바에서만). //위의 경우는 다른 언어와 협업시에 알아야함
 		LocalDateTime now = LocalDateTime.now(); 
 		

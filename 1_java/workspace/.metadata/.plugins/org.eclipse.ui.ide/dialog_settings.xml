@@ -8,15 +8,18 @@
 	<section name="ExternalProjectImportWizard">
 		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
-		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="true"/>
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value=""/>
 			<item value="D:\0900_KUJ\remind\day07"/>
 			<item value="D:\0900_KUJ\1_java\study\assingment"/>
 			<item value="D:\0900_KUJ\1_java\workspace\day01"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\user1\Documents\카카오톡 받은 파일\240705_java\day10.zip"/>
+			<item value="D:\0900_KUJ\remind\day07.zip"/>
 			<item value=""/>
 			<item value="D:\0900_KUJ\1_java\240628_java\day05.zip"/>
 		</list>
