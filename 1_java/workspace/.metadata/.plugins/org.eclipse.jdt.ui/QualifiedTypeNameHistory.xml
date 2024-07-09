@@ -1,18 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="zoo.Otter"/>
-    <fullyQualifiedTypeName name="mutli_inh.D"/>
-    <fullyQualifiedTypeName name="pattern.factory.Computer"/>
-    <fullyQualifiedTypeName name="pattern.factory.Camera"/>
-    <fullyQualifiedTypeName name="pattern.factory.Dryer"/>
-    <fullyQualifiedTypeName name="pattern.single.Bridge"/>
-    <fullyQualifiedTypeName name="inner.A"/>
-    <fullyQualifiedTypeName name="inner.B"/>
-    <fullyQualifiedTypeName name="inner.Out"/>
-    <fullyQualifiedTypeName name="inner.Out.In"/>
-    <fullyQualifiedTypeName name="anonymous.Car"/>
-    <fullyQualifiedTypeName name="cafe.Manager"/>
-    <fullyQualifiedTypeName name="cafe.Cafe"/>
     <fullyQualifiedTypeName name="java.util.InputMismatchException"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="obj.TestData"/>
@@ -38,7 +25,6 @@
     <fullyQualifiedTypeName name="net.nurigo.sdk.message.response.SingleMessageSentResponse"/>
     <fullyQualifiedTypeName name="net.nurigo.sdk.message.request.SingleMessageSendingRequest"/>
     <fullyQualifiedTypeName name="bmsEx.BankManager"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="thread.MyThread"/>
     <fullyQualifiedTypeName name="thread.MyRunnable"/>
@@ -51,13 +37,27 @@
     <fullyQualifiedTypeName name="java.io.FileInputStream"/>
     <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
     <fullyQualifiedTypeName name="java.io.OutputStream"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.io.FileWriter"/>
     <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="fms.Controller"/>
     <fullyQualifiedTypeName name="java.io.FileReader"/>
     <fullyQualifiedTypeName name="java.io.BufferedReader"/>
     <fullyQualifiedTypeName name="fms.Model"/>
+    <fullyQualifiedTypeName name="java.lang.ModuleLayer.Controller"/>
+    <fullyQualifiedTypeName name="view.JoinView"/>
+    <fullyQualifiedTypeName name="model.DBConnection"/>
+    <fullyQualifiedTypeName name="model.dto.UserDTO"/>
+    <fullyQualifiedTypeName name="controller.UserController"/>
+    <fullyQualifiedTypeName name="model.dao.UserDAO"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="view.AddProductView"/>
+    <fullyQualifiedTypeName name="model2.Session"/>
+    <fullyQualifiedTypeName name="model2.DBConnection"/>
+    <fullyQualifiedTypeName name="controller.ProductController"/>
+    <fullyQualifiedTypeName name="view.ModifyProductView"/>
+    <fullyQualifiedTypeName name="model.dto.ProductDTO"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="model.dao.ProductDAO"/>
 </qualifiedTypeNameHistroy>

@@ -1,9 +1,0 @@
-package bms;
-
-public class JoinView {
-	public JoinView() {
-		// 화면 구현
-	}
-	
-	
-}

@@ -1,0 +1,1 @@
+prodnum	prodname	prodprice	prodamount	prodinfo	likecnt	userid

@@ -29,7 +29,7 @@ public class BankManager2 {
 		
 		for(int i = 0; i < temp.size(); i++) {
 			if(temp.get(i).account.equals(account)) {
-				account = makeAcount(bankChoice);
+				account = makeAccount(bankChoice);
 				i = -1;
 			}
 		}

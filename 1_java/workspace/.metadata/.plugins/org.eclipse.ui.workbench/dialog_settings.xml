@@ -27,4 +27,8 @@
 			<item value="D:\0900_KUJ\teamproject\teamproject.zip"/>
 		</list>
 	</section>
+	<section name="FileSystemImportWizard">
+	</section>
+	<section name="ZipFileImportWizard">
+	</section>
 </section>
