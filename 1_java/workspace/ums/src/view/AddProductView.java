@@ -19,9 +19,11 @@ public class AddProductView {
 		System.out.print("상품 설명 : ");
 		String prodinfo = sc.nextLine();
 		
+		//가상의 번호(0)와 가상의 유저(null)로 일단 포장
 		ProductDTO product = new ProductDTO(0,prodname,Integer.parseInt(prodprice),
 				Integer.parseInt(prodamount),prodinfo,0,null);
 		
+		//포장된 객체 컨트롤러로 넘기기
 		if(controller.addProduct(product)) {
 			System.out.println(prodname + " 상품 추가 완료!");
 		}

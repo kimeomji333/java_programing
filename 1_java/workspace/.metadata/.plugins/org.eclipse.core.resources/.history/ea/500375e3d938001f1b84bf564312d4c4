@@ -1,5 +1,0 @@
-package mutli_inh;
-
-public class D extends C implements A,B {
-	
-}

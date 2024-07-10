@@ -42,6 +42,14 @@ public class UserDAO {
 		//API 이용해서 삽입!
 		return dbConnection.insert(data);
 	}
+
+	public boolean updateUser(String loginUser, String col, String newData) {
+		return dbConnection.update(loginUser, col, newData);
+	}
+
+	public void deleteUser(String loginUser) {
+		dbConnection.delete(loginUser);
+	}
 }
 
 

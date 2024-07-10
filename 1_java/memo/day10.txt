@@ -56,14 +56,3 @@ API(Application Programming Interface)
 	
 	CoolSMS https://coolsms.co.kr/
 	깃허브> sdk-4.2.7.jar 다운 https://github.com/coolsms/coolsms-java-examples
-
-	
-오늘 해야 할 일
-- bms 코드 연습하기
-- bms 코드 컬렉션fw로 리팩토링 연습하기
-- day5 school
-- day7 bms
-- day8 전체
-- day10 api
-
-	

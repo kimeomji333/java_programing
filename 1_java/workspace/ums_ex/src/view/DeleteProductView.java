@@ -26,7 +26,7 @@ public class DeleteProductView {
 			int prodnum = sc.nextInt();
 			
 			if(controller.deleteProduct(prodnum)) {
-				System.out.println(prodnum + "SUCCESS to delete!");
+				System.out.println(prodnum + ", SUCCESS to delete!");
 			} else {
 				System.out.println("FAIL to delete! try again!");
 			}

@@ -12,18 +12,18 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value=""/>
 			<item value="C:\Users\user1\Documents\카카오톡 받은 파일\240709_java\ums"/>
 			<item value="C:\Users\user1\Documents\카카오톡 받은 파일\240708_java\day11"/>
 			<item value="C:\Users\user1\Documents\카카오톡 받은 파일\ums"/>
-			<item value=""/>
 			<item value="D:\0900_KUJ\remind\day07"/>
 			<item value="D:\0900_KUJ\1_java\study\assingment"/>
 			<item value="D:\0900_KUJ\1_java\workspace\day01"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="C:\Users\user1\Documents\카카오톡 받은 파일\ums.zip"/>
 			<item value="C:\Users\user1\Documents\카카오톡 받은 파일\240709_java\ums.zip"/>
 			<item value="C:\Users\user1\Documents\카카오톡 받은 파일\240708_java\day11.zip"/>
-			<item value="C:\Users\user1\Documents\카카오톡 받은 파일\ums.zip"/>
 			<item value="C:\Users\user1\Documents\카카오톡 받은 파일\240705_java\day10.zip"/>
 			<item value="D:\0900_KUJ\remind\day07.zip"/>
 			<item value=""/>

@@ -1,6 +1,0 @@
-package pattern.single;
-
-public class Company {
-	static Bridge bridge;
-	
-}

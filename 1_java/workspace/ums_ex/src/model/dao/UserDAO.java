@@ -30,4 +30,12 @@ public class UserDAO {
 		return connection.insert(data);
 	}
 
+	public void deleteUser(String loginUser) {
+		connection.delete(loginUser);
+	}
+
+	public boolean updateUser(String loginUser, String col, String newData) {
+		return connection.update(loginUser, col, newData);
+	}
+
 }

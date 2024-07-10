@@ -1,5 +1,0 @@
-package mutli_inh;
-
-public interface A {
-
-}

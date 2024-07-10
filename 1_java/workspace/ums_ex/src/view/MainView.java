@@ -17,7 +17,7 @@ public class MainView {
 			
 			int choice = sc.nextInt();
 			if(choice == 7) {
-				System.out.println(Session.getData("loginUser")+ "you choose log_out! See you again!");
+				System.out.println(Session.getData("loginUser")+ ", you choose log_out! See you again!");
 				Session.setData("loginUser", null);
 				break;
 			}

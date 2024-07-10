@@ -37,9 +37,11 @@ public class MainView {
 				break;
 			case 5:
 				//상품 검색
+				new SearchView();
 				break;
 			case 6:
 				//내 정보 수정
+				new MyInfoView();
 				break;
 			}
 		}

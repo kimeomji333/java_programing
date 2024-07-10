@@ -18,5 +18,4 @@ public class D extends C implements A,B {
 		super.f();   //상속받은 c 클래스의 메소드 호출
 	}
 }
-//interface A,B만 상속 받은 경우 재정의를 해야하는데, 
 

@@ -1,3 +1,4 @@
 userid	userpw	username	userage	userphone	useraddr
-apple	abcd1234	김사과	10	01012341234	서울시 강남구 역삼동
+apple	abcd1234	김사과	10	01099999999	서울시 강남구 역삼동
 banana	abcd1234	반하나	20	01011111111	서울시 강남구 대치동
+cherry	1111	cherry choi	30	01022222222	seoul gangnum

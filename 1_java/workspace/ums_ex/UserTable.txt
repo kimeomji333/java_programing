@@ -1,3 +1,4 @@
 userid	userpw	username	userage	userphone	useraddr
 apple	1111	apple kim	10	01011111111	seoul
 banana	2222	banana park	20	01022222222	seoul
+cherry	3333	cherry choi	30	01088888888	seoul

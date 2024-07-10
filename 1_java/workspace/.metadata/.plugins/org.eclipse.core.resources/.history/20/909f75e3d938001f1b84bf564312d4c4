@@ -1,9 +1,0 @@
-package mutli_inh;
-
-//다중 상속
-public class MultiMain {
-	public static void main(String[] args) {
-		D obj = new D();
-		obj.f();
-	}
-}
