@@ -1,3 +1,5 @@
+24-07-11 목요일
+
 DB(데이터베이스)
 	데이터들의 집합소(저장소)
 	단순한 하나의 파일
@@ -75,9 +77,9 @@ SQL문
 
 SQL문의 종류
 	DDL
-	DML(Data Manipulation Language)
-	TCL(Transaction Control Language) - DML문에 의한 데이터의 변경 사항을 데이터베이스에 영구히 반영하거나 취소하기 위해 트랜잭션을 제어하는 구문
-	DCL - 계정 관련된 명렁
+	DML(Data Manipulation Language) - 테이블에 저장된 데이터를 조작(조회, 입력, 수정, 삭제)하기 위한 구문
+	TCL(Transaction Control Language) - DML문에 의한 데이터의 변경 사항을 데이터베이스에 영구히 반영하거나 취소하기 위해 트랜잭션을 제어하는 구문(COMMIT, ROLLBACK, SAVEPOINT)
+	DCL(Data Control Language) - 계정 관련된 명령? 데이터에 대한 권한을 부여하거나 취소하기 위한 구문
 
 
 DDL
@@ -95,7 +97,7 @@ DDL
 			ex) decimal(4,2) --> -99.99 ~ 99.99
 	-------------------------------------------------------------------	
 	문자열형
-		char(n)		: n바이트의 문자열(고정형), 빈 자리는 확보된 채 남겨둔다. (정확하게 고정된 문자의 크기가 들어올때, 주민번호, 핸드폰 번호, 성별, ...)
+		char(n)		: n바이트의 문자열(고정형), 빈 자리는 확보된 채 남겨둔다. (정확하게 고정된 문자의 크기가 들어올 때 사용, 주민번호, 핸드폰 번호, 성별, ...)
 			ex) char(4) ---> [    ] ---> 'A'를 넣으면 ---> [A   ]
 
 	-------------------------------------------------------------------
@@ -139,16 +141,17 @@ DDL
 		컬럼삭제
 			drop 컬럼명;
 
-alter 잘 사용하지 않음 - 추가하는 것보단 drop 후, create문을 새롭게 실행하는 것이 낫겠다.
-컬럼을 만드는 것이 테이블 설계이다.
+	alter 잘 사용하지 않음 - 추가하는 것보단 drop 후, create문을 새롭게 실행하는 것이 낫겠다.
+
+	컬럼을 만드는 것이 테이블 설계이다.
 
 제약 조건
 	데이터 관리시 특정한 조건에 맞는 데이터만 삽입될 수 있도록 걸어놓는 조건
--> primary key
-	새로 만드는 테이블 -> create문 안에 제약조건 추가
-	기존 테이블 -> alter/ add constraint (노추천)
--> foreign key
-	constraint 제약조건명 foreign key(제약조건을 줄 컬럼명) references 참고할테이블(참고할컬럼)
+	-> primary key
+		새로 만드는 테이블 -> create문 안에 제약조건 추가
+		기존 테이블 -> alter/ add constraint (노추천)
+	-> foreign key
+		constraint 제약조건명 foreign key(제약조건을 줄 컬럼명) references 참고할테이블(참고할컬럼)
 	
 관계성을 맺은 테이블
 	foreign key 제약조건을 부여한 테이블은 자식 테이블
