@@ -1,22 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.lang.String"/>
-    <fullyQualifiedTypeName name="obj.TestData"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
-    <fullyQualifiedTypeName name="java.time.ZoneId"/>
-    <fullyQualifiedTypeName name="java.time.LocalDate"/>
-    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
-    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
-    <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="generic.GClassTest"/>
-    <fullyQualifiedTypeName name="generic.GMethodTest"/>
-    <fullyQualifiedTypeName name="generic.GInterTest"/>
-    <fullyQualifiedTypeName name="generic.Save"/>
-    <fullyQualifiedTypeName name="collection.User"/>
-    <fullyQualifiedTypeName name="java.util.Set"/>
-    <fullyQualifiedTypeName name="java.util.Collection"/>
-    <fullyQualifiedTypeName name="java.util.Iterator"/>
-    <fullyQualifiedTypeName name="java.util.HashSet"/>
     <fullyQualifiedTypeName name="net.nurigo.sdk.message.service.DefaultMessageService"/>
     <fullyQualifiedTypeName name="net.nurigo.sdk.NurigoApp"/>
     <fullyQualifiedTypeName name="api.PhoneCheck"/>
@@ -33,8 +16,6 @@
     <fullyQualifiedTypeName name="fileio.ReaderTest"/>
     <fullyQualifiedTypeName name="java.net.URL"/>
     <fullyQualifiedTypeName name="java.io.InputStream"/>
-    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
-    <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
     <fullyQualifiedTypeName name="java.io.OutputStream"/>
     <fullyQualifiedTypeName name="java.io.FileWriter"/>
     <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
@@ -52,7 +33,6 @@
     <fullyQualifiedTypeName name="model2.DBConnection"/>
     <fullyQualifiedTypeName name="controller.UserController"/>
     <fullyQualifiedTypeName name="model2.Session"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="model.dao.ProductDAO"/>
     <fullyQualifiedTypeName name="model.dto.ProductDTO"/>
     <fullyQualifiedTypeName name="model.dao.UserDAO"/>
@@ -60,4 +40,24 @@
     <fullyQualifiedTypeName name="model.DBConnection"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="model.dto.UserDTO"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="map.MemberHashMap"/>
+    <fullyQualifiedTypeName name="map.Member"/>
+    <fullyQualifiedTypeName name="innerclass.InnerTest"/>
+    <fullyQualifiedTypeName name="innerclass.OutClass"/>
+    <fullyQualifiedTypeName name="lambda.MyNumber"/>
+    <fullyQualifiedTypeName name="lambda.StringConCatImpl"/>
+    <fullyQualifiedTypeName name="lambda.StringConcat"/>
+    <fullyQualifiedTypeName name="lambda.PrintString"/>
+    <fullyQualifiedTypeName name="exception.AutoCloseTest"/>
+    <fullyQualifiedTypeName name="exception.ThrowsException"/>
+    <fullyQualifiedTypeName name="exception.IDFormatTest"/>
+    <fullyQualifiedTypeName name="java.io.Console"/>
+    <fullyQualifiedTypeName name="stream.inputstream.ConsoleTest"/>
+    <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+    <fullyQualifiedTypeName name="stream.inputstream.FileInputStreamTest3"/>
+    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
+    <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
 </qualifiedTypeNameHistroy>
