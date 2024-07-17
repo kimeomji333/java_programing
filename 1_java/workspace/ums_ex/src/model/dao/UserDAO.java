@@ -1,41 +1,96 @@
 package model.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.dto.UserDTO;
 import model2.DBConnection;
 
 public class UserDAO {
-	DBConnection connection;
+	Connection conn;
+	PreparedStatement ps;
+	ResultSet rs;
 	
 	public UserDAO() {
-		connection = new DBConnection("UserTable.txt");
+		conn = DBConnection.getConnection();
 	}
 	
+	//조회
 	public UserDTO getUserByUserid(String userid) {
-		//검색 -> 결과가 있다면 객체로 만들어서 리턴, 없다면 null 리턴
-		ArrayList<String[]> result = connection.select(0, userid);
+		String sql = "select * from user where userid= ?";
 		
-		if(result.size() > 0) {
-			String[] line = result.get(0);
-			UserDTO user = new UserDTO(line[0], line[1], line[2], Integer.parseInt(line[3]), line[4], line[5]);
-			return user;
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, userid);
+			rs= ps.executeQuery();
+			
+			if(rs.next()) {
+				UserDTO user = new UserDTO(
+						rs.getString("userid"),
+						rs.getString("userpw"),
+						rs.getString("username"),
+						rs.getInt("userage"),
+						rs.getString("userphone"),
+						rs.getString("useraddr")
+				);
+				return user;
+			}
+			
+		} catch (SQLException e) {
 		}
+		
 		return null;
 	}
 
+	//삽입
 	public boolean insertUser(UserDTO user) {
-		//넘겨진 정보로 삽입할 형태의 문자열 생성 -> //API 이용해서 삽입!
-		String data = String.format("%s\t%s\t%s\t%d\t%s\t%s", user.getUserid(), user.getUserpw(), user.getUsername(), user.getUserage(), user.getUserphone(), user.getUseraddr());
-		return connection.insert(data);
+		String sql = "insert into user values(?,?,?,?,?,?)";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, user.getUserid());
+			ps.setString(2, user.getUserpw());
+			ps.setString(3, user.getUsername());
+			ps.setInt(4, user.getUserage());
+			ps.setString(5, user.getUserphone());
+			ps.setString(6, user.getUseraddr());
+			
+			return ps.executeUpdate() == 1;
+		} catch (SQLException e) {
+		}
+		
+		return false;
 	}
 
+	//삭제
 	public void deleteUser(String loginUser) {
-		connection.delete(loginUser);
+		String sql = "delete from user where userid = ?";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, loginUser);
+		} catch (SQLException e) {
+		}
+		
 	}
 
+	//수정
 	public boolean updateUser(String loginUser, String col, String newData) {
-		return connection.update(loginUser, col, newData);
+		String sql = "update user set " + col + " = ? where userid = ?";
+		
+		try {
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, newData);
+			ps.setString(2, loginUser);
+			
+			return ps.executeUpdate() == 1;
+		} catch (SQLException e) {
+		}
+		
+		return false;
 	}
 
 }

@@ -59,4 +59,5 @@ public class JDBCTest1 {
 }
 
 //try-catch문 자동완성: alt + shift + z
-//설계도, 정보 준비, 다리 준비, 데이터 준비, 쿼리문, 택배차 준비, 출발, 결과확인
+//설계도(Class.forName), 정보 준비(목적자, root, pw), 다리 준비(DriverManager를 이용한 Connection 객체), 데이터 준비(data), 
+//쿼리문(sql), 택배차 준비(PreparedStatement), 출발(executeUpdate), 결과확인(조건문)

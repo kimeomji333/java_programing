@@ -10,10 +10,8 @@ public class ProductController {
 
 	public boolean addProduct(ProductDTO product) {
 		ProductDAO pdao = new ProductDAO();
-		int newNum = pdao.getNewNum();
 		String loginUser = (String)Session.getData("loginUser");
 		
-		product.setProdnum(newNum);
 		product.setUserid(loginUser);
 		
 		return pdao.insertProduct(product);
@@ -38,7 +36,7 @@ public class ProductController {
 
 	public ArrayList<ProductDTO> search(String keyword) {
 		ProductDAO pdao = new ProductDAO();
-		ArrayList<ProductDTO> list = pdao.getAllProduct();
+		ArrayList<ProductDTO> list = pdao.getProductByKeyword(keyword);
 		if(list == null) {
 			return null;
 		} else {

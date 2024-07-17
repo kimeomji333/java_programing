@@ -1,3 +1,0 @@
-prodnum	prodname	prodprice	prodamount	prodinfo	likecnt	userid
-1	사과	90	10	사과는 맛있다	0	banana
-2	샤인머스켓	50000	1	알이 크고 당도가 높습니다.	0	apple
