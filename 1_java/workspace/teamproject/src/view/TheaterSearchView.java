@@ -8,14 +8,14 @@ import model.dto.TheaterDTO;
 
 //영화관 검색(위치)
 //"CGV강남"으로 검색된 결과
-//서울특별시 강남구 역삼동 814-6 스타플렉스 | 6관 | 874석
+//서울특별시 강남구 역삼동 814-6 스타플렉스 | cgv강남1관 | 74석
 public class TheaterSearchView {
 	public TheaterSearchView() {
 		MovieController controller = new MovieController();
 		Scanner sc = new Scanner(System.in);
 		
 		//입력
-		System.out.print("검색할 영화관 이름을 입력하세요: ");
+		System.out.print("검색할 영화관을 입력하세요: ");
 		String theaterName = sc.nextLine();
 		
 		//처리
@@ -27,18 +27,14 @@ public class TheaterSearchView {
 		} else {
 			for(TheaterDTO th : theaterList) {
 				
-				System.out.printf("",
+				System.out.printf("%s | %s | %d석",
 						th.getTheaterAddr(),
+						th.getTheaterName(),
 						th.getSeatCnt()
-
 				);
 			}
 			System.out.println("===============================");
-			
-			
 		}
-		
-		
 		
 	}
 }
