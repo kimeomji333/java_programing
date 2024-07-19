@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 태그 - 1</title>
+</head>
+<body>
+    <h2>이미지 태그 - 1</h2>
+    <h3>절대 경로</h3>
+    <!-- 절대경로 -->
+    <!-- D:\에 있는 이미지 파일 경로를 읽기 때문에 이미지 출력 가능(라이브서버로 하면 이미지 출력 불가) -->
+    <img src="D:\0900_KUJ\3.html\workspace\day02\apple.png" alt="한 입 베어진 사과">
+    <img src="https://www.yyg.go.kr/contents/68/img_apple01_2.jpg?build_20240517001?quality=50" alt="사과 농장">
+
+    <h3>상대 경로</h3>
+    <!-- 상대경로1 -->
+    <!-- 현재 문서가 위치한 디렉토리를 기준으로 이미지 파일의 위치 -->
+    <img src="./apple.png" alt="한 입 베어진 사과">
+    <!-- ./ 는 현재 경로로 생략 가능 -->
+    <img src="images/instagram.png" alt="">
+
+    <button type="button" onclick="location.href='index.html'">뒤로가기</button>
+</body>
+</html>
