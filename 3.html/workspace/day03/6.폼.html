@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼</title>
+    <link rel="icon" href="./favicon.ico">
+</head>
+
+<body>
+    <h2>폼</h2>
+
+    <!-- get은 url에 데이터가 들어가 있는 쿼리스트링 방식 -->
+    <form action="/user/join" method="get">
+
+        <!-- input의 name: back site 에서 날라온 데이터들을 구별하기 위해서 사용 -->
+        <!-- input:text에서 value="기본값"는 텍스트 필드의 기본값이 미리 입력된다. -->
+        <p>
+            text : <input type="text" name="userId" value="apple" disabled>
+        </p>
+
+
+        <p>
+            password: <input type="password" name="userPw" id="" placeholder="비밀번호를 입력하세요." size="30" maxlength="12"
+                required>
+        </p>
+
+
+        <!-- radio의 경우 하나만 체크하기 위해서 name을 지정해준다. 대신 value를 적어서 구분 -->
+        <p>
+        <fieldset>
+            radio:
+            <label>남자
+                <input type="radio" name="userGender" id="" value="M" checked>
+            </label>
+            <p>
+                <label for="W">여자</label>
+            </p>
+            <p>
+                <input type="radio" name="userGender" id="" value="W">
+            </p>
+        </fieldset>
+        </p>
+
+
+        <p>
+            checkbox: <input type="checkbox" name="blood" id="" value="A">
+            <input type="checkbox" name="blood" id="" value="B">
+            <input type="checkbox" name="blood" id="" value="O">
+            <input type="checkbox" name="blood" id="" value="AB">
+        </p>
+
+
+        <!-- 못생겨서 따로 디자인이 들어감 -->
+        <p>
+            file: <input type="file" name="" id="">
+        </p>
+
+
+        <p>
+            email: <input type="email" name="" id="" value="apple@juice.com" readonly>
+        </p>
+
+        <p>
+            url: <input type="url" name="" id="">
+        </p>
+
+        <p>
+            tel: <input type="tel" name="" id="">
+        </p>
+
+        <p>
+            date: <input type="date" name="" id="">
+        </p>
+
+        <p>
+            number: <input type="number" step="5" max="100" min="0">
+        </p>
+
+        <!-- 헥사코드(16진수)로 바뀌어서 간다 -->
+        <p>
+            color: <input type="color" name="" id="">
+        </p>
+
+        <p>
+            search: <input type="search" name="" id="">
+        </p>
+
+        <p>
+            range: <input type="range" step="2" max="10" min="0">
+        </p>
+
+        <p>
+            <select name="lang" id="">
+                <option value="backend">Today</option>
+                <option value="dbms">I</option>
+                <option value="frontend" label="need">need</option>
+                <option value="">a</option>
+                <option value="">coffee</option>
+            </select>
+        </p>
+
+        <!-- 줄바꿈을 하면 바뀌니깐 주의하기. -->
+        <p>
+            <textarea name="content" cols="10" rows="10" id="">
+                hello
+            </textarea>
+        </p>
+
+        <!-- input:button에서 value="button에 새겨진 문자열". 속해있는 form을 제출한다. -->
+        <P>
+            submit: <input type="submit" value="회원가입">
+            reset: <input type="reset" value="초기화">
+            button: <input type="button" value="아무 기능없는 버튼">
+        </P>
+    </form>
+</body>
+
+</html>
+
+<!-- disabled: 수정할 수도, 데이터를 보낼 수도 없어진다. -->
+<!-- readonly: 읽을 수는 있음 -->
+<!-- placeholder:  -->
