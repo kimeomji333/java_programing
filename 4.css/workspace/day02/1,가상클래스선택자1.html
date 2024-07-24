@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상클래스 선택자 1</title>
+<style>
+    /* 띄어쓰기 의미 : ~안의 */
+    .list > li:first-child{
+        color: deeppink;
+    }
+    .list > li:last-child{
+        color: deepskyblue;
+    }
+    .list > li:nth-child(2){
+        color: coral;
+    }
+    .list > li:nth-child(even){
+        background: aliceblue;
+    }
+    .list > li:nth-child(odd){
+        background: cornflowerblue;
+    }
+    .list > li:nth-child(3n){
+        font-size: 24px;
+    }
+    /* n에다가 0부터 넣어보기 */
+    /* 3이상 7이하 */
+    :nth-child(n+3):nth-child(-n+7){
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <h2>가상클래스 선택자 1</h2>
+    <ul class="list">
+        <li>김사과</li>
+        <li>반하나</li>
+        <li>이체리</li>
+        <li>차두리</li>
+    </ul>
+</body>
+</html>

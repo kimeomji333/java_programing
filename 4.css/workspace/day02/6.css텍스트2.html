@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 텍스트 2</title>
+<style>
+    p{
+        border: 3px solid black;
+        padding: 10px;
+        margin: 20px;
+    }
+    [class|=align] {
+        color: red;
+    }
+    [class^=indent]{
+        color: blue;
+    }
+    [class$=line]{
+        color: green;
+    }
+    .align-left{ text-align: left; }
+    .align-right{ text-align: right; }
+    .align-center{ text-align: center; }
+    .align-justify{ text-align: justify; }
+
+    /* 들여쓰기 */
+    .indent1{
+        text-indent: 5%;
+    }
+    .indent2{
+        /* text-indent: -5px; 
+            내용은 존재하지만, 보이지 않음. 접근성 때문에 사용한다. 그 위에 이미지를 띄우는 형식으로*/
+        text-indent: -9999px;
+    }
+    .small-line{ line-height: 0.7; }
+    .big-line{ line-height: 2; }
+    .px-line{ line-height: 20px; }
+    .per-line{ line-height: 67%; }
+    
+</style>
+</head>
+<body>
+    <h2>CSS 텍스트 2</h2>
+    <p class="align-left">
+        I’m like some kind of Supernova
+        Watch out Look at me go Core So hot hot
+    </p>
+    <p class="align-right">
+        I’m like some kind of Supernova
+        Watch out Look at me go Core So hot hot
+    </p>
+    <p class="align-center">
+        I’m like some kind of Supernova
+        Watch out Look at me go Core So hot hot
+    </p>
+    <p class="align-justify">
+        I’m like some kind of Supernova
+        Watch out Look at me go Core So hot hot
+    </p>
+
+    <p class="indent1">
+        I’m like some kind of Supernova
+        Watch out Look at me go Core So hot hot
+    </p>
+    <p class="indent2">
+        I’m like some kind of Supernova
+        Watch out Look at me go Core So hot hot
+    </p>
+
+    <p class="small-line">
+        I’m like some kind of Supernova
+        Watch out Look at me go Core So hot hot
+    </p>
+    <p class="big-line">
+        I’m like some kind of Supernova
+        Watch out Look at me go Core So hot hot
+    </p>
+    <p class="px-line">
+        I’m like some kind of Supernova
+        Watch out Look at me go Core So hot hot
+    </p>
+    <p class="per-line">
+        I’m like some kind of Supernova
+        Watch out Look at me go Core So hot hot
+    </p>
+</body>
+</html>

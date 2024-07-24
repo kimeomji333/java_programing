@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 텍스트 6</title>
+<style>
+    .content{
+        border: 2px solid red;
+        width: 400px;
+        padding: 10px;
+        white-space: nowrap;
+        /* overflow: scroll; */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .content:hover{
+        white-space: normal;
+        overflow: visible;
+    }
+</style>
+</head>
+<body>
+    <h2>CSS 텍스트 6</h2>
+    <P class="content">
+        I’m like some kind of Supernova
+        Watch out Look at me go Core So hot hot
+    </P>
+</body>
+</html>

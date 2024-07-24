@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 텍스트 7</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+<style>
+    @font-face {
+    font-family: 'Cafe24Meongi-W-v1.0';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Meongi-W-v1.0.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    }   
+
+    h2{
+        font-family: "Black Han Sans", sans-serif;
+        font-weight: 400;
+    }
+    p{
+        /* font-size: 20px; */
+        /* 32px */
+        font-size: 200%;
+        font-family: 'Cafe24Meongi-W-v1.0';
+    }
+    .em{
+        /* 부모 태그(32px)의 1.5배 */
+        font-size: 1.5em;
+    }
+    .rem{
+        /* html 태크의 기준(16px)으로 1.5배 */
+        font-size: 1.5rem;
+    }
+
+    /* 각각의 왼=오 같은 말 */
+    .normal{ font-weight: normal; font-weight: 400; }
+    .bold{ font-weight: bold; font-weight: 700;}
+    .extrabold{ font-weight: bolder; font-weight: 900;}
+</style>
+</head>
+<body>
+    <h2>CSS 텍스트 7</h2>
+    <p class="normal">
+        <span class="em">뭐야 only Englich ... so sad... </span><br>
+        I’m like some kind of Supernova
+        Watch out Look at me go Core So hot hot
+    </p>
+    <p class="bold">
+        <span class="rem">su su su Supernova </span><br>
+        I’m like some kind of Supernova
+        Watch out Look at me go Core So hot hot
+    </p>
+    <p class="extrabold">
+        su su su Supernova <br>
+        I’m like some kind of Supernova
+        Watch out Look at me go Core So hot hot
+    </p>
+</body>
+</html>
