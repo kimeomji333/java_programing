@@ -6,17 +6,20 @@
     <title>CSS 컬러</title>
 <style>
     body{
-        background-color: gold;
+        background-image: url(./backgroundpicture.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-size: 600px 600px;
     }
     #color1{
-        width: 200px; height: 200px;
+        width: 200px; height: 100px;
         /* background-color: transparent; */
         background-color: #81d4fa;
         /* rgb가 똑같으면 줄여 쓸 수 있당 히히 */
         color: #f00;
     }
     #color2{
-        width: 200px; height: 200px;
+        width: 400px; height: 100px;
         padding: 20px;
         border: 1px solid rgb(255,64,169);
         background-color: rgba(255, 255, 255, 0.5);
@@ -26,6 +29,12 @@
 <body>
     <h2>CSS 컬러</h2>
     <div id="color1">첫 번째 컬러 적용</div>
-    <div id="color2">두 번째 컬러 적용</div>
+    <div id="color2">두 번째 컬러 적용
+        <ul>
+            <li>
+                RGBA의 a는 알파로 투명도의 정보를 의미한다. 
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
