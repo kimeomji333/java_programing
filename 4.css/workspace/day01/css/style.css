@@ -1,6 +1,7 @@
 /* 파일 전체가 css 문법 적용 */
 h2 {
     font-size: 20px;
+    color: red;
 }
 p {
     font-size: 20px;
