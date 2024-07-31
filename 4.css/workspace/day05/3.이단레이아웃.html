@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이단 레이아웃</title>
+    <style>
+        * {
+            box-sizing: border-box; margin: 0; padding: 0;
+        }
+        #wrap{
+            width: 1000px;
+            margin: 0 auto;
+        }
+        header{
+            padding: 20px;
+            background-color: beige;
+            margin-bottom: 20px;
+        }
+        #contents{
+            background-color: aliceblue;
+            margin-bottom: 20px;
+            height: 300px;
+        }
+        #contents section{
+            border: 1px solid red;
+            width: 700px;
+            float: left;
+            height: 300px;
+            background-color: thistle;
+        }
+        #contents section article:first-child{
+            margin-bottom: 20px;
+            height: 150px;
+            padding: 10px;
+        }
+        #contents section article:last-child{
+            height: 130px;
+            padding: 10px;
+        }
+        #contents section article p{
+            border: 1px solid green;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+        #contents aside{
+            border: 1px solid blue;
+            /* width: 300px;
+            float: left; */
+            /* 사이에 여백없이 float left로 하면되고,
+                사이에 여백을 가지고 싶다면 아래와 같이 */
+            width: 280px;
+            float: right;
+            height: 300px;
+        }
+        footer{
+            /* clear: both; */
+            background-color: lightsteelblue;
+            text-align: center;
+        }
+        .clear::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <!-- 큰 박스로 div#wrap -->
+    <div id="wrap">
+
+        <!-- 시맨틱(semantic) 태그: 의미를 알 수 있는 태그들 -->
+        <header>
+            <h1>사이트 제목</h1>
+        </header>
+
+        <!-- div 다음 요소에 clear를 하려면, 
+            그 전에 class로 clear를 달아 놓는다. 
+            그 다음 가상요소에게 css 적용-->
+        <div id="contents" class="clear">
+            <!-- 실제 본문 -->
+            <section>
+                <article>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus necessitatibus exercitationem debitis quia cum nulla qui voluptatem, esse nihil, sit earum. Incidunt ratione est porro, iure fugiat quia iste tempore?
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus necessitatibus exercitationem debitis quia cum nulla qui voluptatem, esse nihil, sit earum. Incidunt ratione est porro, iure fugiat quia iste tempore?
+                    </p>
+                </article>
+                <article>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur accusamus porro voluptatum, minus quam asperiores omnis fugit molestias facere officiis delectus! Non debitis dolores ipsam quos labore assumenda quae laboriosam!
+                    </p>
+                </article>
+            </section>
+
+            <!-- 본문의 측면 -->
+            <aside>
+                <h2>본문의 측면 - 광고</h2>
+                <p>
+                    광고주님 여기에 광고를 주시옵소서
+                </p>
+                <p>
+                    광고 내용은 다음과 같습니다. Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat vitae voluptates mollitia aut ad laborum eveniet, suscipit molestiae nesciunt facere eligendi tempora eaque qui voluptate vero rem aspernatur sit assumenda!
+                </p>
+            </aside>
+        </div>
+
+        <footer>
+            <h2>푸터</h2>
+            <p>
+                &copy;UJ Company
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

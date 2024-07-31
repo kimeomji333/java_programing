@@ -1,0 +1,125 @@
+*{
+    box-sizing: border-box; margin: 0; padding: 0;
+}
+
+#wrap{
+    width: 1000px;
+    margin: 0 auto;
+}
+
+
+
+/* header */
+img{
+    width: 50px; height: 50px;
+}
+header{
+    border: 3px solid black;
+    width: 1000px; height: 100px;
+    margin: 20px; padding: 10px;
+}
+.div1, .div2, .div3{
+    border: 1px solid black;
+}
+.div1, .div2, .div3{
+    height: 50px;
+    margin: 10px; 
+    float: left;
+}
+.div1{
+    width: 50px; 
+    margin-right: 1px;
+}
+.div2{
+    width: 750px; 
+    margin-right: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.div3{
+    width: 130px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.menu{
+    border: 2px solid black;
+    margin-right: 10px;
+    width: 100px; height: 30px;
+    text-align: center;
+}
+[type=button] {
+    width: 100px;
+}
+
+
+
+/* contents - section */
+#contents{
+    border: 3px solid #000;
+    width: 1000px; height: 700px;
+    margin: 20px; padding: 10px;
+}
+#contents section{
+    border: 2px solid red;
+    width: 600px; height: 670px;
+    float: left;
+}
+#contents section article:first-child p{
+    border: 2px solid green;
+    margin: 20px; padding: 10px;
+    height: 150px;
+}
+table{
+    margin-left: 20px;
+    width: 350px; height: 250px;
+    float: left;
+}
+#contents section article:last-child .rac1{
+    border: 1px solid #000;
+    margin-right: 20px; padding: 10px;
+    width: 180px; height: 150px;
+    float: right;
+}
+#contents section article:last-child .rac2{
+    border: 1px solid #000;
+    margin-right: 20px;
+    margin: 20px; padding: 10px;
+    width: 70px; height: 100px;
+    float: left;
+}
+#contents section article:last-child .rac3{
+    border: 1px solid #000;
+    margin: 20px; padding: 10px;
+    width: 70px; height: 100px;
+    float: right;
+}
+
+/* contents - aside */
+#contents aside{
+    border: 2px solid red;
+    width: 350px; height: 670px;
+    float: right;
+}
+#contents aside .can1{
+    border: 1px solid #000;
+    width: 300px; height: 400px;
+    margin: 20px; padding: 10px;
+}
+#contents aside .can2{
+    border: 1px solid #000;
+    width: 300px; height: 200px;
+    margin: 20px; padding: 10px;
+}
+
+
+/* footer */
+footer{
+    border: 3px solid black;
+    width: 1000px; height: 50px;
+    margin: 20px; padding: 10px;
+    text-align: center;
+}

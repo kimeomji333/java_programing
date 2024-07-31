@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>삼단 레이아웃</title>
+    <style>
+        *{
+            box-sizing: border-box; margin: 0; padding: 0;
+        }
+        #wrap{
+            width: 1000px;
+            /* 가운데 정렬 */
+            margin: 0 auto;
+        }
+        #contents > *{
+            height: 300px;
+            padding: 20px;
+        }
+        header{
+            height: 120px;
+            /* padding: 40px; */
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            line-height: 120px;
+        }
+        #contents{
+            background-color: #fff;
+            margin-bottom: 20px;
+            height: 300px;
+        }
+        #contents section{
+            border: 1px solid #000;
+            width: 560px; height: 300px;
+            padding: 20px;
+            margin-right: 20px;
+            float: left;
+            background-color: lightgreen;
+        }
+        #contents aside:first-child{
+            border: 1px solid #000;
+            width: 200px; height: 300px;
+            padding: 20px;
+            margin-right: 20px;
+            float: left;
+            background-color: skyblue;
+        }
+        #contents aside:last-child{
+            border: 1px solid #000;
+            width: 200px; height: 300px;
+            padding: 20px;
+            float: left;
+            background-color: skyblue;
+        }
+        footer{
+            border: 1px solid #000;
+            width: 1000px; height: 120px;
+            padding: 20px;
+            float: left;
+            background-color: lightgrey;
+        }
+        #contents aside ul{
+            /* padding: 20px; */
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+        .clear::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <h1>사이트 제목</h1>
+        </header>
+
+        <div id="contents" class="clear">
+            <aside>
+                <h2>사이드바</h2>
+                <ul>
+                    <li>항목1</li>
+                    <li>항목2</li>
+                    <li>항목3</li>
+                    <li>항목4</li>
+                </ul>
+            </aside>
+            
+            <section>
+                <h2>본문</h2>
+                <article>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem non rerum, quibusdam aliquam nisi, suscipit recusandae velit distinctio vitae reprehenderit corporis, ab laborum aut odit sint qui sed harum debitis.
+                    </p>
+                </article>
+                <article>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit itaque saepe sapiente vel, vero laudantium dolorem cum tempore eligendi ratione necessitatibus quaerat magni architecto magnam doloribus. Facilis perferendis sit repellat!
+                    </p>
+                </article>
+            </section>
+            
+            <aside>
+                <h2>사이드바</h2>
+                <ul>
+                    <li>항목1</li>
+                    <li>항목2</li>
+                    <li>항목3</li>
+                    <li>항목4</li>
+                </ul>
+            </aside>
+        </div>
+
+        <footer>
+            <h2>푸터</h2>
+            <p>
+                저작권 정보<br>
+                연락처 등
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

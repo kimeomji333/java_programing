@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>절대위치 지정방식</title>
+    <style>
+        #wrap{
+            width: 500px; height: 500px;
+            border: 2px solid darkgreen;
+            /* 자식 중에 position: absolute가 있으면, 부모요소의 위치를 지정해준다. */
+            position: relative;
+        }
+        .box{
+            width: 50px; height: 50px;
+            background-color: beige;
+            border: 1px solid black;
+            color: black;
+            /* 뷰포트 기준이기 때문에, 1번 자리에 겹쳐서 마지막은 5번이 보이게 되는 것 */
+            position: absolute;
+        }
+        #ab2{
+            top: 0; right: 0;
+        }
+        #ab3{
+            left: 0; bottom: 0;
+        }
+        #ab4{
+            right: 0; bottom: 0;
+        }
+        #ab5{
+            /* border크기까지 고려해서 250-26= 224 가 정중앙이 된다.  */
+            /* 레이아웃을 짜기 위해서 position을 사용하는 것(요소배치할 때)이 아니다.  */
+            top: 224px; left: 224px;
+        }
+    </style>
+</head>
+<body>
+    <h2>절대위치 지정방식</h2>
+    <div id="wrap">
+        <div class="box" id="ab1">1</div>
+        <div class="box" id="ab2">2</div>
+        <div class="box" id="ab3">3</div>
+        <div class="box" id="ab4">4</div>
+        <div class="box" id="ab5">5</div>
+    </div>
+</body>
+</html>

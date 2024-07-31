@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>폼</title>
     <style>
-        [type=text], [type=password]{
+        [type=text],
+        [type=password] {
             box-sizing: border-box;
             width: 100%;
             padding: 10px 20px;
@@ -13,35 +15,87 @@
             margin: 5px 0;
             border: 4px solid black;
         }
-        [type=text]{
+
+        [type=text] {
             border-radius: 50px;
         }
-        [type=text]:hover{
+
+        [type=text]:hover {
             background-color: lemonchiffon;
         }
-        [type=text]:focus{
+
+        [type=text]:focus {
             border: 4px dashed red;
             outline: none;
             background-color: mistyrose;
         }
-        [type=password]{
-            border: none; outline: none;
+
+        [type=password] {
+            border: none;
+            outline: none;
             border-bottom: 2px solid black;
             border-radius: 5px;
             box-shadow: 2px 2px 5px dodgerblue;
         }
-        [type=password]:focus{
+
+        [type=password]:focus {
             border-bottom-color: red;
         }
-        select{
+
+        select {
             box-sizing: border-box;
-            width: 300px; padding: 10px; margin: 5px 10px;
+            width: 300px;
+            padding: 10px;
+            margin: 5px 10px;
             border: 2px solid yellowgreen;
             border-radius: 5px;
-            font-weight: bold; background-color: azure;
+            font-weight: bold;
+            background-color: azure;
+        }
+
+        option {
+            padding: 10px;
+        }
+
+        textarea {
+            box-sizing: border-box;
+            width: 100%;
+            height: 200px;
+            padding: 15px;
+            font-size: 20px;
+            border: 3px solid rgb(180, 212, 63);
+            border-radius: 10px;
+            outline: none;
+            resize: none;
+        }
+
+        [type=radio] {
+            appearance: none;
+        }
+        [type=radio]+label{
+            background: url() no-repeat;
+            background-size: 21px;
+            padding-left: 25px;
+            background-position: 0 0;
+        }
+        [type=radio]:checked+label{
+            background-position: 0 -21px;
+        }
+        [type=button],[type=submit],[type=reset]{
+            width: 150px; color: brown;
+            background: aliceblue url(images/p6.jpg) no-repeat;
+            background-size: 22px;
+            background-position: 10px;
+            border: 1px solid black;
+            font-weight: bold;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
+
 <body>
     <form action="">
         <p>
@@ -79,4 +133,5 @@
         </p>
     </form>
 </body>
+
 </html>
