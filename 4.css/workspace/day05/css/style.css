@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box; margin: 0; padding: 0;
+    cursor: url(../images/mouse.png) 1 1, auto;
 }
 
 #wrap{
@@ -113,6 +114,9 @@ table{
     border: 1px solid #000;
     width: 300px; height: 200px;
     margin: 20px; padding: 10px;
+}
+#contents aside img{
+    width: 140px; height: 180px;
 }
 
 
