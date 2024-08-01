@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation 2</title>
+    <style>
+        .box{
+            margin: 100px; width: 100px; height: 100px;
+            background-color: gold;
+            animation: rotation 1.5s infinite alternate;
+            line-height: 100px;
+            text-align: center;
+        }
+        /* perspective: 보고 있는 대상을 어디 거리에서 보고 있는지에 따라서 상자 크기인 200px 보다 작으면 내가 상자 가까이 있는 듯한 느낌을 주게된다. */
+        @keyframes rotation{
+            0%{
+                transform: perspective(200px) rotateX(0deg) rotateY(180deg);
+                opacity: 1;
+            }
+            50%{
+                transform: rotateX(0deg) rotateY(0deg);
+                opacity: 0.5;
+            }
+            100%{
+                transform: perspective(200px) rotateX(180deg) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>animation 2</h2>
+    <div class="box">👀✌</div>
+</body>
+</html>

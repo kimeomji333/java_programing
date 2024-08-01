@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미디어 쿼리 1</title>
+    <style>
+        h2::before{
+            content:"1. ";
+        }
+        h2::after{
+            content:" - 기본";
+        }
+        #lyric{
+            width: 1400px;
+            border: 1px solid gray;
+        }
+
+        /* media 밖 공통, 큰 */
+        /* max기준 큰->작 순으로 */
+        /* 
+            데스크탑
+            1920 ~ 1024 이 사이 숫자면 데스크탑이라고 생각
+        */
+        @media screen and (max-width:1280px) {
+            body{
+                background-color: grey;
+            }
+            h2::before{
+                content:"2. ";
+            }
+            h2::after{
+                content: " - 0px ~ 1280px";
+            }
+            #lyric{
+                width: 1000px;
+            }
+        }
+
+        @media screen and (max-width:1024px) {
+            body{
+                background-color: beige;
+            }
+            h2::before{
+                content: "3. ";
+            }
+            h2::after{
+                content: " - 0px ~ 1024px";
+            }
+        }
+
+        /* 
+            노트북
+            768 ~ 960 (650 ~ 1024 혼용기기)
+        */
+        @media screen and (max-width:960px) {
+            body{
+                background-color: pink;
+                color: darkblue;
+            }
+            h2::before{
+                content: "4. ";
+            }
+            h2::after{
+                content: " - 0px ~ 960px";
+            }
+            #lyric{
+                width: 750px;
+            }
+        }
+
+        /* 
+            테블릿
+            580 ~ 768
+        */
+        @media screen and (max-width:768px) {
+            body{
+                background-color: cadetblue;
+                color: aliceblue;
+            }
+            h2::before{
+                content: "5. ";
+            }
+            h2::after{
+                content: " - 0px ~ 768px";
+            }
+            #lyric{
+                width: 90%;
+            }
+        }
+
+        /* 
+            모바일
+            0 ~ 580
+        */
+        @media screen and (max-width:580px) {
+            body{
+                background-color: wheat;
+                color: red;
+            }
+            h2::before{
+                content: "6. ";
+            }
+            h2::after{
+                content: " - 0px ~ 580px";
+            }
+        }
+
+        @media screen and (max-width:376px) and (min-width:360px){
+            body{
+                background-color: honeydew;
+                color: chocolate;
+            }
+            h2::before{
+                content: "7. ";
+            }
+            h2::after{
+                content: " - 360px ~ 376px";
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>미디어 쿼리</h2>
+    <p>
+        미디어 쿼리는 화면 크기에 따른 각각의 속성 값을 지정하여, 여러개의 화면을 구성하는 기술이다.
+    </p>
+    <div id="lyric">나랏말싸미 듕긱에 달아 문자와로 서르 사맛디 아니할쎄</div>
+</body>
+</html>

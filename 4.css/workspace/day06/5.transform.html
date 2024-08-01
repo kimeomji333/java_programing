@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform</title>
+    <style>
+        p{
+            width: 400px; height: 20px;
+            border: 3px solid #000;
+            padding: 20px;
+            margin-left: 150px;
+        }
+
+        /* position과 다른 점은 원래 만들어진 상태에서 변형이 일어난다.  */
+        #trans1{
+            background-color: deepskyblue;
+            transform: translate(30px, 30px);
+        }
+        #trans2{
+            background-color: beige;
+            /* transform: rotateX(50deg);
+            transform: rotateY(50deg);
+            transform: rotateZ(50deg); */
+            transform: rotate(50deg);
+        }
+        #trans3{
+            background-color: palevioletred;
+            transform: scale(1.5, 0.9);
+        }
+        #trans4{
+            background-color: gold;
+            transform: skew(60deg, 13deg);
+        }
+        #trans4:hover{
+            transform: skew(60deg, 15deg) scale(1.2);
+        }
+        #gradient{
+            /* 적용이 안될 시의 코드 - 벤더 프리픽스 - 표준 코드 순으로 작성 */
+            background: darkblue;
+            /* safari, chrome, edge, whale, .. */
+            background: -webkit-linear-gradient(left, red, darkblue);
+            /* firefox */
+            background: -moz-linear-gradient(left, red, darkblue);
+            /* opera */
+            background: -o-linear-gradient(left, red, darkblue);
+            /* 표준 코드 */
+            background: linear-gradient(left, red, darkblue);
+        }
+    </style>
+</head>
+<body>
+    <h2>transform</h2>
+    <p>original</p>
+    <p id="trans1">translate</p>
+    <p id="trans2">rotate</p>
+    <p id="trans3">scale</p>
+    <p id="trans4">skew</p>
+    <p id="gradient">gradient</p>
+</body>
+</html>
