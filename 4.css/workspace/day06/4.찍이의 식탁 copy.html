@@ -5,14 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>찍이의 식탁</title>
     <style>
-        @font-face {
-            font-family: 'HancomMalangMalang-Regular';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-1@1.0/HancomMalangMalang-Regular.woff2') format('woff2');
-            font-weight: 400;
-            font-style: normal;
-        }
         /* 초기설정, 레이아웃 먼저 */
-        *{margin: 0; padding: 0; box-sizing: border-box; font-family: 'HancomMalangMalang-Regular'; }
+        *{margin: 0; padding: 0; box-sizing: border-box; }
         #wrap{
             width: 100%;
             margin: 0 auto;
@@ -20,16 +14,16 @@
         #menus{
            display: flex; /* Flexbox로 자식 요소 반응형으로 */
            flex-wrap: wrap;
-           justify-content: center; 
-           align-items: center;
+           justify-content: space-between;  /* Flexbox 요소들 양 끝 정렬 */
         }
         #menu1, #menu2, #menu3, #menu4, #menu5{
             border: 1px solid #000;
-            margin: 1%; 
+            margin: 10px; 
             margin-bottom: 5px;
-            width: 30%; height: 300px;
+            width: 400px; height: 300px;
             position: relative;  /* 기준점 설정하기 위해! 자식요소h2 배치 때  */
             overflow: hidden;
+            flex-grow: 1;
         }
         #menus h2{
             color: white;
@@ -51,70 +45,25 @@
         }
         #menu4{
             background: url(images/dish4.jpg) no-repeat center center / cover;
-            margin-left: 3%;
         }
         #menu5{
             background: url(images/dish5.jpg) no-repeat center center / cover;
-            flex-grow: 1;
-            margin-right: 3%;
-        }
-        h1{
-            background-color: tomato;
-            padding: 10px;
-            text-align: center;
-        }
-        footer{
-            background-color: bisque;
-            padding: 10px;
-            text-align: center;
-            margin: 3%; margin-top: 10px;
-        }
-        footer::after{
-            content: "ver. pc";
+            flex-grow: 2;
         }
 
         /* 미디어쿼리 */
         /* 태블릿 */
-        @media screen and (max-width:768px) {
-            footer::after{
-                content: "ver. tablet";
-            }
-            #menu1, #menu2, #menu3, #menu4, #menu5{
-                width: 40%;
-            }
-            #menu4{
-                margin-left: 1%;
-            }
-            #menu5{
-                margin-left: 9%;
-                margin-right: 9%;
-            }
-            footer{
-                margin: 9%; margin-top: 10px;
-            }
-        }
+        /* @media screen and(max-width:768px) {
+        } */
         /* 핸드폰 */
-        @media screen and (max-width:580px) {
-            footer::after{
-                content: "ver. cell phone";
-            }
-            #menu1, #menu2, #menu3, #menu4, #menu5{
-                width: 50%;
-            }
-            #menu5{
-                flex-grow: 0;
-            }
-            footer{
-                margin: 25%; margin-top: 10px;
-            }
-        }
-        
+        /* @media screen and(max-width:580px) {
+        } */
     </style>
 </head>
 <body>
     <div id="wrap">
         <header>
-            <h1> 찍이의 식탁 ฅʕ•̫͡•ʔฅ</h1>
+            <!-- <h1>찍이의 식탁</h1> -->
         </header>
         <div id="menus">
             <div id="menu1"><h2>밥/죽</h2></div>
@@ -124,7 +73,7 @@
             <div id="menu5"><h2>음료/칵테일</h2></div>
         </div>
         <footer>
-            <p>찍이의 식탁</p>
+            <!-- <p>찍이의 식탁</p> -->
         </footer>
     </div>
 </body>
