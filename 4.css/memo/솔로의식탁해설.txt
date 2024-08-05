@@ -1,0 +1,41 @@
+24-08-05 월요일 
+
+- 솔로의 식탁 -
+전체를 잡고, 세부적인 내용은 우선순위로 고쳐나가기
+예를 들면, 
+
+1번
+#menus > div로 한꺼번에
+사진도 img1.jpg
+
+#menus > #menu2 에서 사진 하나씩 넣어준다.
+#menus > #menu3
+#menus > #menu4
+#menus > #menu5
+
+2번
+세부적인 margin-left 퍼센트로 맞추기 보다는, 전체적으로 보고 나머지를 퍼센트를 이용한다. 
+
+나중에 해설코드 다시 보면서 내 코드와 비교해보기.
+
+3번
+핸드폰에서 더 간단해서 먼저 시작하고, 
+media 뭐리로 나머지 pc, phone 사이즈에 따라서 조율
+
+
+
+- 투어 -
+나중에는 데이터베이스에서 데이터 긁어오는 것까지
+
+scope 속성
+scope="col" 로 읽을 때, 행으로 읽을 수 있기 함.
+
+border-collapse: collapse -> table의 테두리와 td의 데두리 사이의 간격을 없앤다. 겹치는 부분은 한 줄로 나타낸다.
+박스로 되어 있기 때문에 겹치는 부분은 border-bottom이 들어가지 않으니, ~~space:0를 이용해서 간격을 없애준다. 
+그래서 표보다는 div를 더 선호하는 편
+
+크기 조정하기 위해서 display: inline-block;으로 
+
+vertical-align:middle ->inline 또는 table 셀박스에서의 수직 정렬을 지정한다.
+대부분 이미지와 텍스트 같은 요소에서 중간 배치하기 위해 많이 사용
+ex. 텍스트 요소에는 line-height, img태그에 vertical-align을 주면서 사용
