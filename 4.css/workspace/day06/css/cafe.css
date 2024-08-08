@@ -1,0 +1,113 @@
+#wrap{ width: 100%; margin: 0 auto; }
+nav{
+    height: 50px;
+    background-color: black;
+}
+nav > ul{
+    list-style: none;
+    margin: 0px; padding: 3px;
+}
+nav ul li{
+    display: inline-block;
+    margin: 12px 20px;
+}
+a{ text-decoration: none; }
+a:link, a:visited{ color: white; }
+a:hover, a:active{ color: yellow; }
+header{
+    width: 100%; height: 300px;
+    background: url(../images/header.jpg) no-repeat center/cover;
+    margin: 0;
+}
+.photo{ display: none };
+section{
+    position: relative;
+    width: 100%;
+    padding: 15px 5%;
+}
+
+/* 왜 absolute 적용이 안되는거지? */
+.page-title{
+    position: absolute;
+    top: 20px; left: 0;
+    padding: 30px 50px;
+}
+.page-title h1{
+    /* margin-bottom: 30px; */
+}
+.content{
+    width: 90%;
+    margin: 80px auto 10px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+/* section 이면서 odd번째 자식인거 */
+section:nth-child(odd){
+    background-color: gold;
+}
+footer{
+    background-color: black;
+    width: 100%; height: 100px;
+}
+footer p{
+    color: white;
+    text-align: center;
+    line-height: 100px;
+}
+@media screen and (min-width:768px) {
+    header{ height: 400px;}
+    #intro, #map{
+        box-sizing: border-box;
+        width: 50%;
+        float: left;
+        margin: 0;
+        height: 300px;
+    }
+    #choice{
+        clear: both;
+    }
+}
+@media screen and (min-width:1024px) {
+    #wrap{
+        width: 1000px;
+    }
+    header{height: 450px;}
+    #intro, #map, #choice{
+        box-sizing: border-box;
+        width: 100%;
+        height: 400px;
+        padding: 15px 5%;
+    }
+    .photo{
+        display: block;
+        width: 40%;
+        margin-top: 20px;
+    }
+    .photo img{
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        margin-bottom: 30px;
+    }
+    #intro .photo, #map .photo{
+        float: left;
+        margin-right: 5%;
+    }
+    .text{
+        width: 45%;
+    }
+    #intro .text, #map .text{
+        float:right;
+    }
+    #choice .photo{
+        float: right;
+        margin-left: 5%;
+    }
+    #choice .text{
+        float: left;
+    }
+    #choice .photo img{
+        border:1px solid white; border-radius: 50%;
+    }
+    footer{ clear: both; }
+}

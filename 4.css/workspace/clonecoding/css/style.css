@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    height: auto;
+    font-family: 'LINESeedKR-Bd'; 
+}
+#wrap{
+    width: 100%;
+    margin: 0 auto;
+}
+ul{
+    display: flex;
+    list-style: none;
+    padding: 0; margin: 0;
+}
+li{
+    margin: 0 10px;
+}
+
+
+/* header */
+.header_area{
+    background-color: #ff6b00;
+    width: 100%; height: 64px;
+    padding: 0 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header ul li{
+    display: flex;
+    align-items: center;
+}
+.header_word > ul > li {
+    padding: 0 15px;
+}
+.header_left{
+    padding: 0 16px;
+}
+header li img{
+    width: 24px; height: 24px; 
+    filter: invert(1) brightness(2); /* 색상반전 */
+} 
+header li img.no-filter{
+    width: 32px; height: 32px;
+    filter: none;
+}
+.header_word{
+    color: white;
+}
+#circle{
+    border: 1px solid white;
+    border-radius: 18px;
+    padding: 7px 9px;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+}
+#header_newneek{
+    font-weight: bold;
+    color: white;
+    font-size: 1.6rem; 
+}
+
+
+
+
+/* main */
+/* 전체 페이지 레이아웃 */
+.container{
+    width: 100%; height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+}
+.main_area{
+    background-color: silver;
+    width: 60%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+}
+aside{
+    width: 14%; height: 100%;
+    margin: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.aside-left img{
+    width: 60px; height: 60px;
+    margin-top: 10px;
+    border-radius: 50%;
+}
+.aside-left p{
+    margin-top: 15px;
+    text-align: center;
+}
+
+
+/* footer */
+footer{
+    width: 100%;
+    display: flex;
+    float: left;
+}

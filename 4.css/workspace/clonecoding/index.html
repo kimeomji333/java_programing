@@ -4,58 +4,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NEWNEEK CLONE CODING</title>
-    <style>
-        /* 먼저 초기 설정, 레이아웃 225,107,0*/ 
-
-    </style>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <!-- 레이아웃을 짜보자. navigation, wrap(header, div.container, footer) -->
-    
-    
-    <div class="wrap">
+    <div id="wrap">
         <!-- header -->
         <header>
             <div class="header_area clear">
-
-                <!-- header의 왼쪽 -->
-                <ul class="header_cont1">
-                    <li role="button">
-                        <img src="" alt="메뉴">
-                    </li>
-                    <li>
-                        <a href="/">
-                            <img src="" alt="NEWNEEK">
-                        </a>
-                    </li>
-                </ul>
-                <!-- header의 오른쪽 -->
-                <ul class="header_cont2">
-                    <li>
-                        <a href="/search">
-                            <img src="" alt="돋보기">
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/notification">
-
-                        </a><img src="" alt="종">
-                    </li>
-                    <li>
-                        <button>
-                            <a href=""></a>
-                        </button>
-                    </li>
-
-                </ul>
+                <div class="header_word">
+                    <ul>
+                        <li id="header_newneek">NEWNEEK</li>
+                        <li>홈</li>
+                        <li>시리즈</li>
+                        <li>그라운드</li>
+                        <li>아엠뉴</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li><img src="./images/searching.png" alt="찾기"></li>
+                        <li> <img src="./images/bell.png" alt="알림"></li>
+                        <li class="header_word" id="circle">로그인</li>
+                    </ul>
+                </div>
             </div>
         </header>
 
-        <!-- container -->
-        <div class="container"></div>
+        <!-- main -->
+         <div class="container">
+
+            <!-- aside left -->
+            <aside class="aside-left">
+                <img src="./images/hedgehog.png" alt="뉴닉마스코트 고슴도치">
+                <p>세상이 궁금해?<br>쉽고 재밌는 지식 플랫폼, 뉴닉!</p>
+                <button></button>
+            </aside>
+
+            <!-- main -->
+            <main class="main_area clear">
+                <div>
+                    <!-- <div class="main1">
+                        <img src="./images/newneek_banner-new-home.gif" alt="">
+                        <img src="./images/newneek_banner_mobile.gif" alt="">
+                    </div> -->
+                    <div class="main2">
+                        <div>
+                            추천
+                        </div>
+                        <div>
+                            아티클
+                        </div>
+                        <div>
+                            포스트
+                        </div>
+                    </div>
+                    <div class="main3">
+                        <!-- 지금 뜨는 뉴스 -->
+                        <div class="main3_1">
+                            <div class="title">
+                                <strong>지금 뜨는 뉴스</strong>
+                                <div>더보기</div>
+                                <img src="./images/closedangle.png" alt="더보기꺽쇠" width="16" height="16">
+                            </div>
+                            <div class="content"></div>
+                        </div>
+                        <!-- 뉴뉴컵 참여작 -->
+                        <div class="main3_2">
+                            <div class="title">
+                                <strong>뉴뉴컵 참여작</strong>
+                                <div>더보기</div>
+                                <img src="./images/closedangle.png" alt="더보기꺽쇠" width="16" height="16">
+                            </div>
+                            <div class="content"></div>
+                        </div>
+                        <!-- 뉴닉 아티클 -->
+                        <div class="main3_3">
+                            <div class="title">
+                                <strong>뉴닉 아티클</strong>
+                                <div>더보기</div>
+                                <img src="./images/closedangle.png" alt="더보기꺽쇠" width="16" height="16">
+                            </div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <!-- 추천 아티클 -->
+                        <div class="main3_4">
+                            <div class="title">
+                                <strong>추천 아티클</strong>
+                                <p>뉴닉이 선정한 다양한 주제의 지식을 둘러보세요</p>
+                            </div>
+                            <div class="content">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <!-- 추천 포스트 -->
+                        <div class="main3_5">
+                            <div class="title">
+                                <strong>추천 포스트</strong>
+                                <div>더보기</div>
+                                <img src="./images/closedangle.png" alt="더보기꺽쇠" width="16" height="16">
+                            </div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </main>
+                
+            <!-- aside right -->
+            <aside class="aside-right"></aside>
+                 
+         </div>
 
         <!-- footer -->
-        <footer></footer>
+        <footer>
+            <div class="footer_area">
+                <p>NEWNEEK</p>
+                <div>
+                    <div class="order1">
+                        <strong>(주)뉴닉</strong>
+                        <address>
+                            대표: 김소연 | 사업자 등록번호: 632-81-01159 | 통신판매업 신고번호: 2020-서울마포-2938 <br>
+                            서울특별시 마포구 어울마당로 35, 5층 (04048)
+                        </address>
+                    </div>
+                    <nav class="order2">
+                        <div>
+                            <strong>뉴닉</strong>
+                            <ul>
+                                <li>뉴닉 소개</li>
+                                <li>뉴스레터 구독</li>
+                                <li>제휴</li>
+                                <li>채용</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>소식</strong>
+                            <ul>
+                                <li>인스타그램</li>
+                                <li>X</li>
+                                <li>네이버 블로그</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>서비스</strong>
+                            <ul>
+                                <li>서비스 이용약관</li>
+                                <li>개인정보처리방침</li>
+                                <li>고객센터</li>
+                                <li>앱 다운로드</li>
+                            </ul>
+                        </div>
+                     
+                    </nav>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 </html>

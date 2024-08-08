@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습 2</title>
+    <style>
+        .redTest{
+            background-color: red;
+        }
+        /* .star::before{
+            content: '★';
+        } */
+    </style>
+</head>
+<body>
+    <h2>실습 2</h2>
+    <table border="1">
+        <caption>요금표</caption>
+        <tr>
+            <th>구분</th>
+            <th>요금</th>
+        </tr>
+        <tr id="child">
+            <td>아동</td>
+            <td>무료</td>
+        </tr>
+        <tr id="teen">
+            <td>청소년</td>
+            <td>2000원</td>
+        </tr>
+        <tr id="adult">
+            <td>성인</td>
+            <td>5000원</td>
+        </tr>
+    </table>
+</body>
+<script>
+    let data = window.prompt("아동, 청소년, 성인 중에 하나를 입력하세요");
+    let rowId;
+    if(data === "아동") {
+        rowId = "child";
+    } else if(data === "청소년") {
+        rowId = "teen";
+    } else if(data === "성인") {
+        rowId = "adult";
+    }
+
+    if(rowId) {
+        document.getElementById(rowId).classList.add("redTest");
+
+        //별을 따로 추가해보자
+        let firstCell = document.getElementById(rowId).getElementsByTagName('td')[0];
+        firstCell.innerHTML = '★' + firstCell.innerHTML;
+    } else {
+        alert("잘못된 입력입니다. '아동', '청소년', '성인' 중 하나를 입력해주세요.");
+    }
+
+</script>
+</html>
