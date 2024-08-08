@@ -28,7 +28,7 @@ li{
 .header_area{
     background-color: #ff6b00;
     width: 100%; height: 64px;
-    padding: 0 200px;
+    padding: 0 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -57,10 +57,9 @@ header li img.no-filter{
 #circle{
     border: 1px solid white;
     border-radius: 18px;
-    padding: 7px 9px;
+    padding: 6px 10px;
     display: inline-block;
     text-align: center;
-    font-weight: bold;
 }
 #header_newneek{
     font-weight: bold;
@@ -81,19 +80,19 @@ header li img.no-filter{
 }
 .main_area{
     background-color: silver;
-    width: 60%; height: 100%;
+    width: 50%; height: 100%;
     display: flex;
     flex-direction: column;
     padding: 10px;
     box-sizing: border-box;
 }
 aside{
-    width: 14%; height: 100%;
+    width: 19%; height: 100%;
     margin: 10px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 10px 0;
     box-sizing: border-box;
 }
 .aside-left img{
@@ -105,7 +104,24 @@ aside{
     margin-top: 15px;
     text-align: center;
 }
+.aside-left button{
+    border: 1px solid #ff6b00;
+    color: white;
+    background-color: #ff6b00;
+    margin-top: 15px;
+    border-radius: 8px;
+    padding: 10px;
+}
+.aside-right{
+    margin: 10px 0;
+}
+.aside-right img{
+    width: 238px; height: 77px;
+}
 
+.aside-right.article{
+    
+}
 
 /* footer */
 footer{
