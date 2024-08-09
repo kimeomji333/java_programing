@@ -60,7 +60,7 @@
 
 
 String 객체
-	문자열을 쉡게 만들고 다룰 수 있게 함
+	문자열을 쉽게 만들고 다룰 수 있게 함
 
 	const str = "문자열";
 	const str = new String("문자열");
