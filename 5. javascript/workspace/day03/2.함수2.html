@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 2</title>
+</head>
+<body>
+    <h2>함수 2</h2>
+
+</body>
+<script>
+    // 디폴트 함수
+    f1();
+    f1(10);
+    function f1(num1=0, num2=num1){
+        // 아래와 같이 작성하지 않고도 매개변수에 바로 기본값을 넣어준다. 다른 값이 들어오면 그걸로 매개변수가 된다.
+        // if(!num1){
+        //     num1 = 0;
+        // }
+        console.log(num1+num2);
+    }
+
+    // f2함수에 몇개의 매개변수가 들어올지 모를 때 배열로 가져옴
+    f2(10);
+    f2(10,20,30,40,50);
+    function f2(num1, num2, ...data){
+        // console.log(data);
+        console.log(`처음으로 넘겨진 매개값: ${num1}`);
+        for (let i = 0; i < data.length; i++) {
+            console.log(`data 배열 ${i}에 담긴 값: ${data[i]}`);            
+        }
+
+    }
+    
+    // 함수도 하나의 값, 객체라서 함수를 변수에 대입할 수 있다. 
+    // 이름이 생략된 익명의 함수
+    const f3 = function(){
+        console.log("f3() 호출!");
+    }
+    // f3이라는 변수가 만들어지기 전에서는 함수 호출할 수 없게 된다.
+    f3();
+
+    // 화살표함수(람다식)
+    const f4 = (num1, num2) => {
+        console.log("두 수의 합을 구하는 화살표 함수!")
+        return num1+num2;
+    }
+    let result = f4(10,20);
+    console.log(`result : ${result}`);
+
+
+</script>
+</html>

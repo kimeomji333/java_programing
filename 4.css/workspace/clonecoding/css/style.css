@@ -126,8 +126,8 @@ header li img.no-filter{
     width: 238px; padding: 16px;
     min-height: 100px;
     display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
 }
 /* .oneminnew div{
 
@@ -138,11 +138,17 @@ header li img.no-filter{
 }
 .oneminnew-title{
     display: flex;
+    position: relative;
+    box-sizing: border-box;
+    /* padding-top: 10px; */
     /* align-items: center; */
-    /* margin-bottom: 8px; */
+}
+#one-title{
+    margin-bottom: 8px;
 }
 .oneminnew-content{
     font-size: 14px;
+    height: 20px;
     word-wrap: break-word;
 }
 

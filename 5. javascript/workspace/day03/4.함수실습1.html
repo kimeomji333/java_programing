@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 실습 - 1</title>
+</head>
+<body>
+    <h2>함수 실습 - 1</h2>
+    <input type="button" value="주사위 게임하기" onclick="dicegamestart()">
+    <input type="button" value="가위바위보 게임하기" onclick="rsp3()">
+    <p id="result"></p>
+</body>
+<script>
+    // 1. 주사위 게임
+    // 랜덤한 주사위 숫자를 하나 정해놓고 1 ~ 6
+
+    // 프롬프트로 그 숫자를 맞추면 성공
+    // ------프롬프트창--------
+    // 숫자를 입력하세요
+    // -----------------------
+
+    // --------알럿창----------
+    // 3이 아닙니다.
+    // -----------------------
+    
+    // -----------------------
+    // 정답입니다! 게임을 종료합니다!
+    // -----------------------
+    function dicegamestart(){
+        let randomNum = Math.ceil(Math.random()*6);
+        console.log(randomNum);
+    
+        while(true) {
+            let data = prompt("숫자를 입력하세요");
+    
+            if(data == null) {
+                alert("게임이 취소되었습니다.");
+                break;
+            }
+            if(data == randomNum) {
+               alert("정답입니다! 게임을 종료합니다!");
+               break;
+            } else {
+               alert(data + "이 아닙니다.");
+            }
+        }
+    }
+
+    // 2. 가위바위보 게임
+    // 매번 컴퓨터는 가위, 바위, 보 중 하나를 선택
+    // 프롬프트로 입력을 해서 이기면 성공
+
+    // ------------------------
+    // 가위, 바위, 보 중 하나를 선택하세요
+    // ------------------------
+
+    // ------------------------------
+    // 컴퓨터 : 보 / 나 : 바위
+    // 졌습니다!
+    // ------------------------------
+    // ------------------------------
+    // 컴퓨터 : 보 / 나 : 보
+    // 비겼습니다!
+    // ------------------------------
+    // ------------------------------
+    // 컴퓨터 : 보 / 나 : 가위
+    // 이겼습니다! 게임을 종료합니다!
+    // ------------------------------
+
+    // 이러한 과정들을 p태그에 나올 수 있도록 result에 적음(결과를)
+    
+    // 컴퓨터: rsp 중에 하나를 랜덤으로 뽑는다.
+    // 생각나는 방법1: 배열에 넣어서 하나를 뽑는다. 반복문을 돌면서 같은 string 인지 비교연산한다.
+    // 방법2: 랜덤수 1~3을 만들어서 맵구조로 해당하는 rsp을 대응해준다.
+    function rsp(){
+        const rspArr = ['가위', '바위', '보'];
+        let str = "";
+        while(true) {
+            let randomRSP = Math.floor(Math.random()*rspArr.length);
+            const com = rspArr[randomRSP];
+            console.log(com);
+
+            let user = prompt("가위, 바위, 보 중에 하나를 입력하세요");
+
+            if(user == com) {
+                //비기는 경우
+                str += `컴퓨터 : ${com} / 나 : ${user} <br>비겼습니다.<br>`;
+            } else if(user == '가위' && com == '바위' || user == '바위' && com == '보' || user == '보' && com == '가위') {
+                //지는 경우
+                str += `컴퓨터 : ${com} / 나 : ${user} <br>졌습니다.<br>`;
+            } else if(user == '가위' && com == '보' || user == '바위' && com == '가위' || user == '보' && com == '바위') {
+                //이기는 경우
+                str += `컴퓨터 : ${com} / 나 : ${user} <br>이겼습니다. 게임을 종료합니다.<br>`;
+                break;
+            } 
+        }
+        const result = document.getElementById("result");
+        result.innerHTML = str;
+    }
+
+    // 쌤 풀이
+    function rsp2(){
+        const index = ["가위","바위","보"]
+        let str = "";
+        while(true){
+            let com = Math.floor(Math.random()*3);
+            let user = prompt("가위, 바위, 보 중 하나를 입력하세요")
+
+            for(let i=0;i<index.length;i++){
+                if(user == index[i]){
+                    user = i;
+                    break;
+                }
+            }
+            if(user == com){
+                //비김
+                str += `컴퓨터 : ${index[com]} / 나 : ${index[user]}<br>비겼습니다<br>`
+            }
+            else if(com == user+1 || com == user-2){
+                //짐
+                str += `컴퓨터 : ${index[com]} / 나 : ${index[user]}<br>졌습니다<br>`
+            }
+            else if(user == com+1 || user == com-2){
+                //이김
+                str += `컴퓨터 : ${index[com]} / 나 : ${index[user]}<br>이겼습니다! 게임을 종료합니다!<br>`
+                break;
+            }
+        }
+        const result = document.getElementById("result");
+        result.innerHTML = str;
+    }
+
+    function rsp3(){
+        const arr = ['가위', '바위', '보'];
+        let str = "";
+        
+        while(true){
+            let user = prompt("가위, 바위, 보 중 하나를 작성해주세요.");
+            let com = Math.floor(Math.random()*arr.length);
+            console.log(arr[com]);
+    
+            // for문을 이용해서 문자열이 같다면, 입력 받은 rsp를 인덱스로 변환 
+            for(let i=0; i<arr.length; i++) {
+                if(user == arr[i]) {
+                    user = i; 
+                    break;
+                }
+            }
+    
+            if(user == com) {
+                str += `컴퓨터: ${arr[com]} / 나: ${arr[user]} <br>비겼습니다<br>`;
+            } 
+            else if(user == com-1 || user == com+2) {
+                // 지는 경우 : 가위0-바위1, 바위1-보2, 보2-가위0
+                str += `컴퓨터: ${arr[com]} / 나: ${arr[user]} <br>졌습니다<br>`;
+            } 
+            else if(user == com+1 || user == com-2) {
+                // 이기는 경우 : 가위0-보2, 바위1-가위0, 보2-바위1
+                str += `컴퓨터: ${arr[com]} / 나: ${arr[user]} <br>이겼습니다. 게임을 종료합니다.<br>`;
+                break;
+            }
+        }
+
+        // html에 요소 적기
+        const result = document.getElementById("result");
+        result.innerHTML = str;
+    }
+</script>
+</html>
