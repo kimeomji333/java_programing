@@ -78,7 +78,7 @@ String 객체
 Math 객체
 	수학에 관련된 여러 메소드들을 가지고 있는 객체
 
-	min(0
+	min()
 	max()
 	floor()
 	ceil()
