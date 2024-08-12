@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 실습</title>
+    <link rel="stylesheet" href="./css/object_task.css">
+</head>
+<body>
+    <fieldset>
+		<legend>자동차 주행</legend>
+		<textarea id="status">현재 상태 표시</textarea>
+		<img src="./images/출발전.png" id="carImage"> <input placeholder="비밀번호 입력" id="inputPw">
+		<button onclick="attemptEngineStart()">시동 켜기</button>
+		<button onclick="mycar.engineStop();">시동 끄기</button>
+		<button onclick="history.go(0);">초기화</button>
+	</fieldset>
+</body>
+<script>
+	const initPw = prompt("자동차 초기 비밀번호 입력");
+	const status = document.getElementById("status");
+	const input = document.getElementById("inputPw");
+	let incorrectAttempts = 0;
+	const maxAttempts = 3;
+
+	// 객체 정의
+	const mycar = {
+		model:"Rubicon", color:"Black", price:4000,
+		engineRunning: false,
+		engineStart: function(){
+			if(this.engineRunning){
+				// input.style.visibility = "visible";
+				status.value = "시동이 이미 켜져 있습니다.";
+				return;
+			}
+			this.engineRunning = true;
+			status.value = "시동 켜짐";
+			document.getElementById("carImage").src = "./images/시동켜기.gif";
+		},
+		engineStop: function(){
+			if(!(this.engineRunning)){
+				status.value = "시동이 이미 껴져 있습니다.";
+				return;
+			}
+			this.engineRunning = false;
+			status.value = "시동 꺼짐";
+			document.getElementById("carImage").src = "./images/시동끄기.gif";
+		}
+	};
+
+	function attemptEngineStart(){
+		const password = input.value;
+	
+		if(password === initPw){
+			mycar.engineStart();
+			incorrectAttempts = 0;
+		}
+		else{
+			if(incorrectAttempts < maxAttempts) {
+				incorrectAttempts++;
+				status.value = `비밀번호 오류 : ${incorrectAttempts}회`;
+			} 
+			else{
+				status.value = "경찰 출동";
+				document.getElementById("carImage").src = "./images/경찰.png";
+			}
+		}
+		input.value = "";
+	}
+</script>
+</html>

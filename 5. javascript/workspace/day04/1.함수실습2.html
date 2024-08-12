@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수실습 2</title>
+</head>
+<body>
+    <h2>함수실습 2</h2>
+    <table border="1">
+        <caption>요금표</caption>
+        <tr>
+            <th>구분</th>
+            <th>요금</th>
+        </tr>
+        <tr id="kid">
+            <td id="kid-txt">아동</td>
+            <td>무료</td>
+        </tr>
+        <tr id="teen">
+            <td id="teen-txt">청소년</td>
+            <td>2000원</td>
+        </tr>
+        <tr id="adult">
+            <td id="adult-txt">성인</td>
+            <td>5000원</td>
+        </tr>
+    </table>
+    <hr>
+    <input type="text" value="" id="input">
+    <input type="button" value="조회" onclick="f()">
+</body>
+<script>
+    // 쌤 풀이 공부 후에 혼자 코드 작성해보자.
+    function f(){
+        // input 창에 들어간 데이터 가져오기
+        let age = document.getElementById("input").value;
+    
+        // map key-value 구조를 이용해서 id값 변수 선언, 할당해주기
+        const map = {아동:"kid", 청소년:"teen", 성인:"adult"};
+        let id = map[age];
+    
+        // 조건문으로 id값 확인. 먼저 undefined 경우 해결해주기 -> 다시 시도하라고 alert창 띄우기
+        if(id == undefined){
+            alert("다시 시도해주세요");
+        }
+        else{
+            // 그렇지 않은 경우, map 안에서 반복문을 돌면서 key를 가져와 초기화 해주기
+            // document 객체 이용해서 배경색 과 별표도 innerHTML 이용해서 초기화
+            for(let key in map){
+                document.getElementById(map[key]).style.backgroundColor = "#fff";
+                document.getElementById(map[key]+"-txt").innerHTML = key;
+            }
+            // 위에서 받아온 id값으로 배경색과 별표 넣어주기
+            document.getElementById(id).style.backgroundColor = "red";
+            document.getElementById(id+"-txt").innerHTML = "★"+document.getElementById(id+"-txt").innerHTML
+        }
+    
+        // input 창 초기화와 커서 깜빡임 focus 적용까지 
+        input.value = "";
+        input.focus();
+
+    }
+</script>
+</html>
