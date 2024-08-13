@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서객체모델실습</title>
+</head>
+<body>
+    <h2>요리법</h2>
+    <p>
+        요리명 <input type="text">
+    </p>
+    <div id="contents">
+        <textarea name="step" id=""></textarea>
+        <input type="button" value="단계추가" onclick="f2()">
+    </div>
+    <p>
+        <input type="button" value="등록">
+    </p>
+</body>
+<script>
+    // 노드 복제 > 생성 > 노드트리 추가
+    function f(){
+        const contents = document.getElementById("contents");
+        const cloneItem = contents.cloneNode(true);
+        const hr = document.createElement("hr");
+
+        const next = contents.appendChild(hr).appendChild(cloneItem);
+
+        // -> 문제 있어보임. 태그 안의 태그가 들어가 더블로 만들어짐
+    }
+
+
+    // 쌤풀이 - 요소를 만듦 - 마지막에 버튼요소에 복제노드를 추가해줌
+    function f2(){
+        const contents = document.getElementById("contents");
+        const btn = contents.lastElementChild;
+        const hr = document.createElement("hr");
+        const textarea = document.createElement("textarea");
+        textarea.setAttribute("name", "step");
+
+        contents.appendChild(hr);
+        contents.appendChild(textarea);
+        contents.appendChild(btn.cloneNode(true));
+    }
+
+    // 다시 풀어보기
+    // contents 클론을 해서 appendChild로 마지막에 hr을 붙이고 / 하나의 div 요소로 만들어서 contents lastElementChild 앞에 붙여준다.
+    function f3(){
+        const contents = document.getElementById("contents");
+        const cloneItem = contents.cloneNode(true);
+        const hr = document.createElement("hr");
+
+        // div 요소를 만들어서 그 안에 hr과 cloneItem을 넣어준다. 
+        const newDiv = document.createElement("div");
+        newDiv.appendChild(hr);
+        newDiv.appendChild(cloneItem);
+
+        document.body.insertBefore(newDiv, contents.nextElementSibling);
+    }
+</script>
+</html>

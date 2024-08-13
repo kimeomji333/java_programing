@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드제거</title>
+</head>
+<body>
+    <h2>노드제거</h2>
+    <div id="list">
+        <div id="item1">HTML</div>
+        <div id="item2" style="background-color: gold;">CSS</div>
+        <div>Spring</div>
+        <div>Java</div>
+    </div>
+    <input type="button" value="요소 노드 제거" onclick="removeNode()">
+    <input type="button" value="속성 노드 제거" onclick="removeAttr()">
+</body>
+<script>
+    function removeNode(){
+        // 부모를 찾고 자식 중 누구를 지울 것인지
+        const list = document.getElementById("list");
+        const item1 = document.getElementById("item1");
+        // 이렇게 리턴을 해주면, 나중에 다시 추가해서 사용할 수 있다. 참고하긩. append이용하면 맨 아래로 붙일 수 있군
+        const result = list.removeChild(item1)
+        console.log(result);
+    };
+
+    // removeAttribute 사용하는 것이 더 낫다.
+    function removeAttr(){
+        const item2 = document.getElementById("item2");
+        item2.removeAttribute("style");
+    }
+</script>
+</html>
