@@ -1,0 +1,59 @@
+CSS
+
+*{box-sizing: border-box; }
+
+box-sizing: content-box;
+	설정한 width/height값이 곧 요소 내부의 콘텐츠 크기
+
+box-sizing: border-box; 
+	설정한 width/height값이 안쪽 여백과 테두리까리 포함
+	
+	콘텐츠의 크기를 너비 300px이 아니라, 180px로 알아서 축소시켰다.  
+	border-box로 설정하면 요소의 width값은 콘텐츠 크기 + 좌우 paddind값 + 좌우border값으로 계산이 된것이다. 
+	즉, 요소의 크기를 width값과 동일하게 설정하고 싶다면 box-sizing: border-box로 설정해놓는다.  
+
+box model은 HTML 요소가 웹 페이지에서 차지하는 영역을 정의한 것이다.
+항상 보던 개발자 도구의 Style 탭의 최하단에 보이는 그림
+
+전체 크기 = 콘텐츠크기 + padding값 + border값 + margin값
+
+-> box-sizing 따로 지정해주지 않는다면 알아서 요소의 너비와 높이를 계산하게 된다. 기본값은 context-box이다.
+
+
+ul{ display: flex; }
+수평 레이아웃 시에 Flex(Flexible Box)를 이용한다. 2가지 개념으로 나뉜다.
+- Container : Items를 감싸는 부모요소, 각 Item을 정렬하기 위해서는 Container가 필수이다.
+적용하는 속성이 구분되어 있다는 점만 주의하자.
+Container에는 display, flex-flow, justify-content 등의 속성을 사용
+Items에는 order, flex, align-self 등의 속성을 사용
+
+Flex Container
+display		Flex Container를 정의
+flex-flow	flex-direction와 flex-wrap의 단축 속성
+flex-direction	Flex Items의 주 축을 설정			- 기본값 row
+	row
+	row-reverse
+	colunm : Items를 수직축(위에서 아래로)으로 표시
+	column-reverse
+flex-wrap	Flex Items의 여러 줄 묶음(줄 바꿈)을 설정 	- 기본값 nowrap
+justify-content 주 축의 정렬 방법을 설정
+align-content	교차 축의 정렬 방법을 설정(2줄 이상)
+align-items	교차 축에서 Items의 정렬 방법을 설정(1줄)
+gap		각 아이템 사이의 간격을 설정
+
+
+display 속성으로 container를 정의한다.
+
+display: block; 
+display: inline-block; 
+display: none;
+
+Block이나 Inline이 아닌 Flex
+display: flex		Block 특성의 Flex Container를 정의(수직쌓임)
+display: inline-flex	Inline 특성의 Flex Container를 정의(수평쌓임)
+
+https://www.heropy.dev/p/Ha29GI 참고
+
+
+
+ 

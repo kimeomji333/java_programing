@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box-sizing 에 대해서 공부해보자</title>
+    <style>
+        /* *{
+            box-sizing: border-box;
+        } */
+        .div1{
+            width: 300px;
+            padding: 30px;
+            margin: 30px;
+            border: 30px solid green;
+            box-sizing: content-box;
+        }
+        .div2{
+            width: 300px;
+            padding: 30px;
+            margin: 30px;
+            border: 30px solid plum;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">
+        content-box <br>설정한 width/height값이 곧 요소 내부의 콘텐츠 크기
+    </div>
+
+    <div class="div2">
+        border-box <br>설정한 width/height값이 안쪽 여백과 테두리까리 포함
+    </div>
+</body>
+</html>
