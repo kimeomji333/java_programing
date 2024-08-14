@@ -1,0 +1,27 @@
+24-08-14
+폼 객체
+	document.폼name
+
+내부의 input 태그 접근
+	폼객체.input태그name
+	폼객체.elements[n]
+	폼객체.elements[input태그name]
+
+정규 표현식
+	문자열의 형태를 정규해해서 표현한 식
+	특징을 잡아서 식으로 표현
+	문자열이 어떤 형태로, 어떤 특정한 문자가 들어가 있는지 등을 검사하고
+	문자 조합과 대응하기 위해 사용되는 패턴
+
+정규식 설명 페이지
+	https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Regular_expressions
+	-> 이해는 하되, 인터넷에서 가져다가 사용하긩
+
+정규식 검사 사이트
+	https://regexr.com/
+	https://regex101.com/
+
+유효성 검사 총 3번 가능
+프론트에서 데이터를 받을 때
+백엔드에서 받아서
+db에 넣기 전에

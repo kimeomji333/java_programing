@@ -43,18 +43,13 @@
             alert("다시 시도해주세요!")
         }
         else{
+            // 초기화 코드
             for(let key in map){
-                //document.getElementById("kid")
                 document.getElementById(map[key]).style.backgroundColor = "#fff";
-
-                //document.getElementById("kid-txt")
                 document.getElementById(map[key]+"-txt").innerHTML = key;
             }
 
-
-            // document.getElementById("adult")
             document.getElementById(id).style.backgroundColor = "red";
-            // document.getElementById("adult-txt")
             document.getElementById(id+"-txt").innerHTML
                 = "★"+document.getElementById(id+"-txt").innerHTML;
         }

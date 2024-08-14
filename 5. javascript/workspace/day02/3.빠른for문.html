@@ -15,14 +15,14 @@
         // console.log(i); // let i 필드명들을 가지고 온다. 
         console.log(arr[i]); // 모든 요소들을 순회하여 가지고 온다.
     }
-    // 객체도 key로 꺼내오면서 순회할 수 있다.
+    // 객체도 key로 꺼내오면서 객체의 속성을 순회할 수 있다.
     const mycar = {model:"Ferrari", color:"Red"}; 
     for(let key in mycar){          //"model", "color"
         console.log(mycar[key]);    //mycar["model"], mycar["color"]
     }
 
 
-    // for of 문 - 변수가 뒤에 오는 반복자의 값들을 꺼내오며 반복
+    // for of 문 - 변수가 뒤에 오는 반복자의 값(배열, 문자열, Set, Map과 같은 반복 가능한 iterable 객체)들을 꺼내오며 반복
     for(let data of arr){
         console.log(data);
     }
