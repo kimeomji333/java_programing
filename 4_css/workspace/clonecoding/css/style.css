@@ -94,7 +94,7 @@ header li img.no-filter{
 
 /* aside */
 .aside-left, .aside-right{
-    width: 20%; height: calc(100vh - 64px); ;
+    width: 20%; height: calc(100vh - 64px);
     margin: 20px 10px;
     display: flex;
     flex-direction: column;
@@ -152,11 +152,11 @@ header li img.no-filter{
     font-size: 12px;
     /* display: inline-flex; */
 }
-.article-content li p{
+.article-content p{
     font-size: 14px;
-    /* display: inline-flex; */
+    display: inline-flex;
 }
-.article-content li div{
+.article-content div{
     margin-bottom: 10px;
 }
 .article-content li{
