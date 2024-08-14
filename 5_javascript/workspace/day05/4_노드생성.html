@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드 생성</title>
+</head>
+<body>
+    <h2>노드 생성</h2>
+    <p id="el">새로운 문장(노드)이 이 앞에 추가됨</p>
+    <p id="attr">이 단락에 새로운 속성이 추가됨</p>
+    <p id="text"></p>
+    <input type="button" value="요소노드생성" onclick="createNode()">
+    <input type="button" value="속성노드생성" onclick="createAttr()">
+    <input type="button" value="텍스트노드생성" onclick="createText()">
+</body>
+<script>
+    function createNode(){
+        // 태그 이름을 적어주면 노드를 생성한다. 노드트리에 추가해야지 화면에 나타난다.
+        const newNode = document.createElement("p");
+        newNode.innerHTML = "새로운 요소";
+
+        const el = document.getElementById("el");
+        document.body.insertBefore(newNode, el); // 부모인 body 태그 찾기
+    }
+
+    // 속성 노드를 만들어서 세팅해준다.
+    function createAttr(){
+        // style 속성 노드가 만들어진다.
+        const newAttr = document.createAttribute("style");
+        // 어떤 값을 가지게 할 것인지
+        newAttr.value = "color:white; background-color:deepskyblue;"
+        // 속성 노드는 요소에게만 추가 
+
+        const attr = document.getElementById("attr");
+        attr.setAttributeNode(newAttr);
+
+        // 위와 같은 결과임. 보통 이 경우를 많이 사용
+        attr.setAttribute("style", "color:white; background-color:deepskyblue;");
+    }
+
+    function createText(){
+        const text = document.getElementById("text");
+        const newText = document.createTextNode("Hello Javascript! ");
+        text.appendChild(newText);
+    }
+</script>
+</html>

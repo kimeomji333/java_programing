@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서 바꾸기</title>
+    <style>
+        /* 인라인으로 하게 되면 우선순위가 가장 높기 때문에, 클래스를 미리 만들어놔 */
+        .redText{
+            color: red;
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+    <h2>문서 바꾸기</h2>
+    <p id="txt1">이 텍스트의 색깔이 변할거에요!</p>
+    <p id="txt2"></p>
+</body>
+<script>
+    // 해당하는 요소의 id를 찾는다. 가져와서 변수에 넣을 수 있다.
+    const pTag1 = document.getElementById("txt1");
+    console.log(pTag1);
+    
+    // pTag1.style = "color:red";
+    // pTag1.style = "font-weight:bold"; // 덮어씌워짐. 그래서 아래와 같이 사용한다.
+
+    pTag1.style.color = "blue";
+    pTag1.style.fontWeight = "bold";
+
+    const pTag2 = document.getElementById("txt2");
+
+    // innerHTML : 열고 닫는 태그 사이 공간 변수
+    pTag2.innerHTML = "Hello";
+    console.log(pTag2.innerHTML); //태그 사이의 값
+    // 변수 사용 방법: 공간, 값
+
+    // pTag2.class = ""; // 이 방법은 덮어쓰기가 되니, replace 문제를 해결하기 위해서 classList를 사용한다.
+    pTag2.classList.add("redText");
+    pTag2.classList.remove("redText");
+
+</script>
+</html>

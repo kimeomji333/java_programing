@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>콜백 공부</title>
+</head>
+<body>
+    <h2>콜백 공부</h2>    
+    <input type="button" value="식사가 끝났으면 눌러주세요." onclick="haveDinner(serveDessert)">
+    <input type="button" value="게임이 끝났으면 눌러주세요." onclick="playGame(celebrateWin)">
+</body>
+<script>
+    // 콜백함수는 특정 작업이 완료된 후에 호출되는 함수이다.
+    // 비동기 작업(서버 요청, 타이머 등)이 완료된 후에 콜백 함수가 호출되어 결과를 처리한다.
+
+    // 예제 1. 식사 후 디저트
+    function haveDinner(callback){
+        console.log("식사 중입니다.... ing ☆");
+
+        callback();
+    }
+    function serveDessert(){
+        console.log("식사가 끝이 났으면, 디저트를 제공합니다^^");
+    }
+
+    //식사를 시작하면서 디저트를 제공하는 함수를 콜백으로 전달한다.
+    // haveDinner(serveDessert);
+
+
+
+
+    // 예제 2. 게임에서 승리 후 축하
+    function playGame(callback){
+        console.log("게임 진행 중.....");
+        callback();
+    }
+    function celebrateWin(){
+        console.log("축하합니다! 승리하셨습니다!🎉");
+    }
+
+</script>
+</html>
