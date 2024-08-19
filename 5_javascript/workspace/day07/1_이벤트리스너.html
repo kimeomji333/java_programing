@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 리스터</title>
+    <style>
+        input{ outline: none;}
+    </style>
+</head>
+<body>
+    <h2>이벤트 리스터</h2>
+    <p><input type="button" value="이벤트 버튼" id="event"></p>
+    <p><input type="button" value="이벤트 삭제 버튼" id="del"></p>
+    <p id="text"></p>
+    <input type="text">
+    <input type="text">
+</body>
+<script>
+    const text = document.getElementById("text");
+    // window객체 onload 이벤트 사용은 특수 경우 
+    window.onload = function(){
+        const event = document.getElementById("event");
+        const del = document.getElementById("del");
+
+        // 타켓에 리스터(마우스를 올렸을때(event종류), (익명)함수)
+        event.addEventListener("mouseover", mouseoverBtn);
+        event.addEventListener("click", function(){
+            text.innerHTML = "<b>버튼을 클릭했어요</b>";
+        })
+        // 화살표함수 객체의 메소드로만 사용하지 않으면 다 사용가능
+        event.addEventListener("mouseout", ()=>{
+            text.innerHTML = "<b>버튼 밖으로 마우스가 나갔어어요</b>";
+        })
+
+        // 이벤트 삭제(지우려는 함수까지 같이 전달), 익명함수의 경우 이름이 없어서 이벤트 리스너 삭제 불가능
+        del.addEventListener("click", ()=>{
+            event.removeEventListener("mouseover", mouseoverBtn);
+        })
+        // 보통 지울일이 없으니 익명함수로 사용, 지울 경우는 함수로 만듦
+
+        const inputs = document.querySelectorAll("[type=text]");
+        // console.log(inputs); 배열
+        // inputs.addEventListener("focus", ()=>{
+            // inputs.style.border = "1px solid red"; 객체에 적용해야하는데, 위와 같이 배열에 style을 주니, 적용이 안됨 -> 반복문을 이용
+        // })
+        for(const tag of inputs){
+            tag.addEventListener("focus", ()=>{
+                tag.style.border = "1px solid red";
+            })
+            tag.addEventListener("blur", ()=>{
+                tag.style.border = "1px solid black";
+            })
+        }
+    }
+
+    function mouseoverBtn(){
+        text.innerHTML = "<b>버튼 위에 마우스가 올라갔어요</br>";
+    }
+</script>
+</html>

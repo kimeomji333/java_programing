@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 실습</title>
+    <link rel="stylesheet" href="./css/object_task.css">
+</head>
+<body>
+    <fieldset>
+		<legend>자동차 주행</legend>
+		<textarea id="status">현재 상태 표시</textarea>
+		<img src="./images/출발전.png" id="img"> <input placeholder="비밀번호 입력" id="pw">
+		<button onclick="mycar.engineStart()" id="on">시동 켜기</button>
+		<button onclick="mycar.engineStop();" id="off">시동 끄기</button>
+		<button onclick="history.go(0);" id="reset">초기화</button>
+	</fieldset>
+</body>
+<script>
+	const on = document.getElementById("on");
+	const off = document.getElementById("off");
+	const reset = document.getElementById("reset");
+	const status = document.getElementById("status");
+	const img = document.getElementById("img");
+	const pwTag = document.getElementById("pw");
+
+	let pw_input = prompt("자동차 초기 비밀번호 입력");
+	pwTag.style.visibility = "hidden";
+
+	let cnt = 0;
+
+	const mycar = {
+		pw:pw_input,
+		engine:false,
+		engineStart:function(){
+			//엔진이 켜져있는지
+			if(this.engine){
+				status.innerHTML = "시동이 이미 켜져있습니다.";
+			}
+			//엔진이 꺼져있는지
+			else{
+				//현재 비밀번호를 입력하는 입력칸의 visibility
+				let visibility = pwTag.style.visibility;
+				//눈에 보이지 않는 상태라면
+				//[시동 켜기]를 처음 눌렀을 때
+				if(visibility == "hidden"){
+					pwTag.style.visibility = "visible";
+				}
+				//눈에 보이는 상태라면
+				//[시동 켜기]를 이미 누른 적 있을 때
+				else{
+					pw = pwTag.value;
+					if(this.pw == pw){
+						img.src = "./images/시동켜기.gif";
+						status.innerHTML = "시동 켜짐"
+						pwTag.value = "";
+						pwTag.style.visibility = "hidden";
+						this.engine = true;
+						cnt = 0;
+					}
+					else{
+						cnt++;
+						status.innerHTML = `비밀번호 오류 : ${cnt}회`
+						if(cnt == 3){
+							img.src = "./images/경찰.png";
+							status.innerHTML = "경찰 출동";
+							pwTag.value = "";
+							pwTag.style.visibility = "hidden";
+							on.style.display = "none";
+							off.style.display = "none";
+						}
+					}
+				}
+			}
+		},
+		engineStop:function(){
+			if(!this.engine){
+				status.innerHTML = "시동이 이미 꺼져있습니다.";
+			}
+			else{
+				let visibility = pwTag.style.visibility;
+				if(visibility == "hidden"){
+					pwTag.style.visibility = "visible";
+				}
+				else{
+					pw = pwTag.value;
+					if(this.pw == pw){
+						img.src = "./images/시동끄기.gif";
+						status.innerHTML = "시동 꺼짐"
+						pwTag.value = "";
+						pwTag.style.visibility = "hidden";
+						this.engine = false;
+						cnt = 0;
+					}
+					else{
+						cnt++;
+						status.innerHTML = `비밀번호 오류 : ${cnt}회`
+						if(cnt == 3){
+							img.src = "./images/경찰.png";
+							status.innerHTML = "경찰 출동";
+							pwTag.value = "";
+							pwTag.style.visibility = "hidden";
+							on.style.display = "none";
+							off.style.display = "none";
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+</script>
+</html>
