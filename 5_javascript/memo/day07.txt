@@ -84,3 +84,21 @@ jQuery(제이쿼리)
 DAUM 주소 API
 	https://postcode.map.daum.net/guide
 	https://apis.map.kakao.com/web/
+
+
+데이터 수집 방법
+정적 데이터 만들어서 보내주는 방법
+
+
+
+
+
+
+
+to do list 급한 사항
+- 이번주 토요일 자격증 시험
+- 화요일 CS 스터디(마지막)
+- 매일 블로그 작성
+끝나면 
+- 자바스크립트 책 사서 공부하기
+- HTML, CSS 클론코딩 몇개 해보기

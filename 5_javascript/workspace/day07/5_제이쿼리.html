@@ -26,9 +26,9 @@
     // window.onload = function(){
     //     console.log("제이쿼리 시작!");
     // }
-    // $(function(){
-    //     console.log("제이쿼리 시작!");
-    // })
+    $(function(){
+        console.log("제이쿼리 시작!");
+    })
 
     // $(선택자).on("이벤트명", 이벤트리스너) : 선택된 대상들에게 이벤트리스너 등록
     // $(".redText").on("click", function(e){
@@ -45,7 +45,7 @@
     }
 
     // 제이쿼리로 찾은 요소는 jQyery 객체로 찾아지기 때문에 바닐라 js의 메소드나 프로퍼티는 사용할 수 없음
-    // console.log($("#text > span"))
+    // $("#text > span").setAttribute("class", "open");
     $("#text > span").attr("class", "open");
 
     // 제이쿼리로 클래스 추가, 삭제
