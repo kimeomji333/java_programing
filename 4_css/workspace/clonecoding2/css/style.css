@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    /* font-family: sans-serif; */
+}
+a{
+    text-decoration: none; /* 기본 밑줄 제거 */
+    color: #888;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+header{
+    margin: auto; /* 양쪽여백(margin)을 동등하게 맞춤 = 수평가운데정렬 */
+    width: 1080px;
+    height: 215px;
+    display: flex;
+    align-items: center; /* 하위 요소들 수직 가운데정렬 */
+    position: relative;
+}
+fieldset{
+    border: none;
+}
+.visually-hidden{
+    /* legend 안보이게 설정. 이렇게하면 접근성을 준수하면서 디자인을 해치지 않습니다. */
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.img_logo{
+    width: 65px;
+    height: 65px;
+}
+
+
+main{
+    background: #f2f4f7;
+    min-height: 700px;
+}
+footer{
+    background-color: darkcyan;
+    height: 310px;
+}

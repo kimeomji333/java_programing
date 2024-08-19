@@ -76,25 +76,25 @@ header li img.no-filter{
 /* main */
 /* 전체 페이지 레이아웃 */
 .container{
-    width: 100%; height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; 
-    flex-wrap: wrap;
-}
-.main_area{
-    height: 1200px;
     width: 100%;
-    flex: 2;
+    height: auto;
     padding: 0px;
     box-sizing: border-box;
 }
+.main_area{
+    width: 100%; height: auto;
+    display: flex;
+    /* flex: 2; */
+    flex-wrap: wrap;
+
+    
+}
 .main-content{
     margin-top: 120px; 
-    margin-left: 300px;
+    margin-left: 350px;
     margin-right: 340px; 
     /* padding: 20px; */
-    background-color: skyblue;
+    /* background-color: skyblue; */
 }
 .main2{
     border-bottom: 1px solid #eeeeee;
@@ -127,7 +127,6 @@ header li img.no-filter{
 .main3 div{
     display: flex;
     flex-direction: column;
-    margin: 0 20px;
 }
 .main3_1 .title strong{
     font-size: 20px;
@@ -196,8 +195,23 @@ header li img.no-filter{
     flex-wrap: wrap;
     /* flex-direction: column; */
 }
+.oneminnew img{
+    width: 20px; height: 20px;
+    margin-right: 5px;
+}
+.oneminnew-title{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    /* padding-top: 10px; */
+    /* align-items: center; */
+}
+.oneminnew{
+    padding-bottom: 5px;
+}
+
 .article{
-    height: 500px;
+    height: 420px;
 }
 
 .article-content ul li{
@@ -217,21 +231,9 @@ header li img.no-filter{
     display: inline;
 }
 .article-content div{
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
-.article-content li{
-}
-.oneminnew img{
-    width: 20px; height: 20px;
-    margin-right: 5px;
-}
-.oneminnew-title{
-    display: flex;
-    position: relative;
-    box-sizing: border-box;
-    /* padding-top: 10px; */
-    /* align-items: center; */
-}
+
 #one-title{
     margin-bottom: 8px;
 }

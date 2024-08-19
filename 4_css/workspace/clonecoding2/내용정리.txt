@@ -1,0 +1,12 @@
+- header와 footer는 고정 높이 이용하고, 
+- main은 사용 목적에 따라 높이 지정하자.
+
+    - 높이를 지정하면 overflow속성으로 스크롤을 생성할 수 있고, 
+    - 높이를 지정하지 않으면, 하위 요소들의 크기에 따라 유연하게 결정된다. 
+    - 또는 min-height값을 지정하자. 지정해준 최소 길이를 유지하게 된다.
+
+요소들을 배치할 때 
+- float
+- position
+- flex layout
+- grid layout
