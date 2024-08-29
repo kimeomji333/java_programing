@@ -91,7 +91,7 @@ public class UserController {
 	@GetMapping("logout")
 	public String logout(HttpServletRequest req) {
 		// 특정 키에 해당하는 데이터만 지우기
-		req.getSession().removeAttribute("loginUser");
+		// req.getSession().removeAttribute("loginUser");
 		// 초기화
 		req.getSession().invalidate();
 		return "/user/loginview";

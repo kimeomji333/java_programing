@@ -4,3 +4,6 @@ create table test_user(
     userpw varchar(300),
     username varchar(300)
 );
+select * from test_user;
+
+delete from test_user;
