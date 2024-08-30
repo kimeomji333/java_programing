@@ -17,7 +17,7 @@ public class HotelTests {
 	private Restaurant restaurant;
 	
 	@Test // Test 어노테이션을 붙이면 하나의 단위가 된다.
-	@DisplayName("테스트 이름")
+	@DisplayName("생성자로 주입")
 	public void testExist() {
 //		System.out.println(hotel.getChef());
 		
@@ -26,7 +26,7 @@ public class HotelTests {
 	}
 	
 	@Test
-	@DisplayName("두번째 테스트")
+	@DisplayName("세터로 주입")
 	public void testExist2() {
 		assertNotNull(restaurant.getChef());
 	}

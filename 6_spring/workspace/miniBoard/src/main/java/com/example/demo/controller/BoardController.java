@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,8 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.example.demo.mapper.BoardMapper;
-import com.example.demo.model.dao.BoardDAO;
 import com.example.demo.model.dto.BoardDTO;
 import com.example.demo.model.dto.UserDTO;
 
@@ -25,10 +22,6 @@ import jakarta.servlet.http.HttpServletResponse;
 @Controller
 @RequestMapping("/board/*")
 public class BoardController {
-	
-	@Autowired
-	private BoardMapper bmapper;
-	
 	// /views/user/joinview.jsp
 	//여러 요청 주소를 하나의 메소드에 매핑하는 방법
 	@GetMapping(value = {"writeview"})
@@ -37,7 +30,24 @@ public class BoardController {
 	//데이터 수집 -> 처리 -> 응답 생성 및 응답하기
 	@PostMapping("writeOk")
 	public String writeOk(BoardDTO board, HttpServletResponse resp) throws Exception{
-		if(bmapper.insertBoard(board) == 1) {
+		//DB처리
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/gb";
+		String user = "root";
+		String password = "1234";
+		
+		Connection conn = DriverManager.getConnection(url, user, password);
+		
+		String sql = "insert into test_board (boardtitle, boardcontents, userid) values(?,?,?)";
+		
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, board.getBoardtitle());
+		ps.setString(2, board.getBoardcontents());
+		ps.setString(3, board.getUserid());
+		
+		int result = ps.executeUpdate();
+		
+		if(result == 1) {
 			Cookie cookie = new Cookie("w", "t");
 			cookie.setMaxAge(30);
 			cookie.setPath("/");
@@ -62,18 +72,81 @@ public class BoardController {
 	//데이터 수집 -> [처리] -> 응답 생성 및 응답하기
 	@GetMapping(value = {"getview","modifyview"})
 	public void getview(int boardnum, Model model) throws Exception{
-		model.addAttribute("board",bmapper.getBoardByNum(boardnum));
+		//DB처리
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/gb";
+		String user = "root";
+		String password = "1234";
+		
+		Connection conn = DriverManager.getConnection(url, user, password);
+		
+		String sql = "select * from test_board where boardnum = "+boardnum;
+		
+		PreparedStatement ps = conn.prepareStatement(sql);
+
+		ResultSet rs = ps.executeQuery();
+		
+		if(rs.next()) {
+			BoardDTO board = new BoardDTO();
+			board.setBoardnum(rs.getInt("boardnum"));
+			board.setBoardtitle(rs.getString("boardtitle"));
+			board.setBoardcontents(rs.getString("boardcontents"));
+			board.setRegdate(rs.getString("regdate"));
+			board.setUserid(rs.getString("userid"));
+			
+			model.addAttribute("board",board);
+		}
 	}
 	
 	@GetMapping("getDetail")
 	@ResponseBody
 	public BoardDTO getDetail(int boardnum) throws Exception{
-		return bmapper.getBoardByNum(boardnum);
+		//DB처리
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/gb";
+		String user = "root";
+		String password = "1234";
+		
+		Connection conn = DriverManager.getConnection(url, user, password);
+		
+		String sql = "select * from test_board where boardnum = "+boardnum;
+		
+		PreparedStatement ps = conn.prepareStatement(sql);
+
+		ResultSet rs = ps.executeQuery();
+		
+		if(rs.next()) {
+			BoardDTO board = new BoardDTO();
+			board.setBoardnum(rs.getInt("boardnum"));
+			board.setBoardtitle(rs.getString("boardtitle"));
+			board.setBoardcontents(rs.getString("boardcontents"));
+			board.setRegdate(rs.getString("regdate"));
+			board.setUserid(rs.getString("userid"));
+			
+			return board;
+		}
+		return null;
 	}
 	
 	@PostMapping("modifyOk")
 	public String modifyOk(BoardDTO board) throws Exception{
-		if(bmapper.updateBoard(board) == 1) {
+		//DB처리
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/gb";
+		String user = "root";
+		String password = "1234";
+		
+		Connection conn = DriverManager.getConnection(url, user, password);
+		
+		String sql = "update test_board set boardtitle=?, boardcontents=? where boardnum="+board.getBoardnum();
+		
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, board.getBoardtitle());
+		ps.setString(2, board.getBoardcontents());
+
+		int result = ps.executeUpdate();
+		
+		if(result == 1) {
 			return "redirect:/board/getview?boardnum="+board.getBoardnum();
 		}
 		else {
@@ -83,26 +156,24 @@ public class BoardController {
 	
 	@GetMapping("remove")
 	public String remove(int boardnum) throws Exception {
-		if(bmapper.deleteBoardByNum(boardnum) == 1) {
-			
+		//DB처리
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		String url = "jdbc:mysql://localhost:3306/gb";
+		String user = "root";
+		String password = "1234";
+		
+		Connection conn = DriverManager.getConnection(url, user, password);
+		
+		String sql = "delete from test_board where boardnum="+boardnum;
+		
+		PreparedStatement ps = conn.prepareStatement(sql);
+
+		int result = ps.executeUpdate();
+		
+		if(result == 1) {
 		}
 		else {
-			
 		}
 		return "redirect:/user/main";
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

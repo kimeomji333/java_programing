@@ -40,7 +40,7 @@
 			<tbody>
 				<c:forEach var="board" items="${list}">
 					<tr>
-						<td>${board.boardnum}</td>
+						<td>${board.boardnum}</td> <!--getBoardnum 을 사용하는 것. 그래서 getter/setter가 필요하다-->
 						<td><a href="/board/getview?boardnum=${board.boardnum}">${board.boardtitle}</a></td>
 						<!--<td><a href="/board/getview.html?boardnum=${board.boardnum}">${board.boardtitle}</a></td>-->
 						<td>${board.userid}</td>
