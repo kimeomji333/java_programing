@@ -15,3 +15,4 @@ create table test_board(
 
 drop table test_board;
 select * from test_user;
+select * from test_board;
