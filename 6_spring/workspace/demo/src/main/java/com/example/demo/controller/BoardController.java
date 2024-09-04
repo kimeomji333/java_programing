@@ -52,9 +52,9 @@ public class BoardController {
 //		> GET방식의 요청인 경우 쿼리스트링(?param=value)이 있는지
 //		> POST방식의 요청인 경우 form 안에 input, textarea 등이 있는지
 //	3. 데이터 처리가 필요한지
-//		> 결과 페이지로 들고 가야 할 데이터가 있는지
-//		> 시스템의 변화가 있는지
-//		> 그 외에는 알아서
+//		> 결과 페이지로 들고 가야 할 데이터가 있는지(selectQuery)
+//		> 시스템의 변화가 있는지(insert, update, ...)
+//		> 그 외에는 알아서(문자전송, ...)
 	
 	@GetMapping("write")
 	public void write(@ModelAttribute("cri") Criteria cri, Model model) {
