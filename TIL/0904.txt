@@ -1,0 +1,112 @@
+@RequestParam
+    요청의 파라미터를 연결할 매개변수에 붙이는 어노테이션이다.
+    속성으로 
+        - name : 쿼리스트링 이름
+        - required : 필수여부 (false면 필수 아님)
+    쿼리스트링으로 키값이 없으면 null 처리 / 있으면 빈문자열 처리
+
+    (required = false) 를 이용해서 필수여부를 설정해주는 방법
+        쿼리스트링으로 키값이 없으면 null로 처리되는데 매개변수로 int 타입의 매개변수가 들어오면
+        null은 int로 변경할 수 없어서 서버에러가 발생한다.
+
+        필수입력이 false라고 하면 defaultValue 속성을 줘서 에러를 막을 수 있다.
+
+            public void list(@RequestParam(required = false, defaultValue = "1") int pagenum){} 
+
+
+    > 서버에서는 매개변수값의 필수여부에 따라 에러 처리를 확실히 해줘야 한다.
+        - required 속성값이 false라면, (필수입력X) defaultValue 속성을 지정
+        - required 속성값이 true라면, (필수입력O) 클라이언트가 해당 값을 입력하지 않고 요청을 보낼 것을 대비해서 예외처리를 해줘야 한다.
+
+
+
+
+Criteria API
+    Spring Boot Data JPA 내 기능 중 하나이다.
+    근데 이 기능을 사용한 건 아님?
+
+Criteria DTO  
+    페이징처리를 위해서 페이지처리를 위한 기준이 필요해. Criteria DTO 객체를 만들어서 데이터를 담아준다.
+
+    만약 많은 데이터를 담지 않는 경우라면(그게 쿼리스트링으로 할 수 있는 경우인건가?)
+
+    페이징 처리 말고 어떤 경우에 이용할 수 있을지 알아보자.
+    - 데이터 검색 및 필터링 조건 관리
+    - 쿼리 파라미터 전달
+    - 
+
+@ModelAttribute
+
+UriComponentsBuilder
+    여러개의 파라미터를 이용하여 URL를 작성할 때 편리하게 작성할 수 있도록 도와준다.
+
+
+
+BoardController
+3. 데이터 처리가 필요한지
+    > 결과 페이지로 들고 가야 할 데이터가 있는지(selectQuery)
+    > 시스템의 변화가 있는지(insert, update, ...)
+    > 그 외에는 알아서(문자전송, ...)
+
+
+게시글 작성 후에 제출 버튼을 누르면
+    POST 요청으로 form data를 제출해야한다.
+    a태그의 등록버튼을 누르면 href="javascript:sendit()
+
+지금은 서버 사이드 렌더링이니깐
+    ajax 를 이용하는 경우만 데이터 전송
+    그 외에는 View로 보낸다.
+
+
+Spring Boot AOP
+    관점 지향 프로그래밍을 지원하는 기술로 로깅, 보안, 트랙잭션 관리 등 공통 관심사를 모듈화하여 코드 중복을 줄이고 유지 보수성 향상에 도움을 준다.
+
+    주요 용어
+        Aspect
+            공통적인 기능들을 모듈화 한 것을 의미
+        Target
+            Aspect가 적용될 대상의 의미. 메소드, 클래스 등이 해당
+        Join point  
+            Aspect가 적용될 수 있는 시점을 의미. 메소드 실행 전/후
+        Advice
+            Aspect의 기능을 정의. 메소드 실행 전/후/예외처리 발생시 실행
+        Point cut
+            Advice를 적용할 메소드의 범위를 지정
+
+    주요 어노테이션
+        @Aspect
+            해당 클래스를 Aspect로 사용하겠다는 것을 명시
+        @Before
+            대상 '메소드'가 실행되기 전에 Advice를 실행
+        @AfterReturning
+            대상 '메소드'가 정상적으로 실행되고 반환된 후에 Advice를 실행
+        @AfterThrowing
+        @After
+        @Around
+            대상 '메소드' 실행 전/후/예외발생 시 Advice를 실행
+        
+    dependency 의존성 추가
+
+    프로젝트 패키지 구성
+
+    @Aspect, @Component 어노테이션 추가
+
+    -ing
+
+Thymeleaf 표현식
+    변수 표현식( ${} )
+    조건부 표현식( th:if, th:unless )
+    대체 표현식( th:text, th:href, th:src )
+        <a th:href="@{/profile/${user.id}}">Profile</a>
+    URL 표현식( @{url} )
+        <a th:href="@{/user/{id}(id=${user.id})}">View Profile</a>
+    리스트 표현식( th:each )
+        컬렉션을 반복하여 HTML요소를 생성
+        <ul>
+            <li th:each="item : ${items}" th:text="${item.name}"></li>
+        </ul>
+    ...
+
+
+
+
