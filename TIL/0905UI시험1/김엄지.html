@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오 문제</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <form action="insert.no" method="post"></form>
+    <h2>포트폴리오 문제</h2>
+    <fieldset>
+        <legend>공지사항 작성하기</legend>
+        <table>
+            <tbody>
+                <tr>
+                    <th>제목</th>
+                    <td colspan="2">
+                        <input class="inputbox-size" type="text" name="title" id="" placeholder="제목을 입력하시요" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td colspan="2">
+                        <textarea class="inputbox-size" name="content" id="" placeholder="내용을 입력하시요." required></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>첨부파일</th>
+                    <td class="selectfile">
+                        <input type="button" value="파일 선택" name="uploadFile">
+                    </td>
+                    <td>
+                        선택된 파일 없음
+                    </td>
+                </tr>
+            </tbody>
+            <!-- 이 사이에 공백 -->
+            <tr>
+                <td colspan="3" style="height: 20px;"></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="submit">
+                    <input type="submit" value="작성하기">
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+    <hr>
+    <table border="1" class="numbertable">
+        <th>번호</th>
+        <th colspan="2">제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회수</th>
+        <tr>
+            <td>9</td>
+            <td>공지사항 제목 9</td>
+            <td><input type="button" value="바로가기"></td>
+            <td>user01</td>
+            <td>2021-03-29</td>
+            <td>34</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>공지사항 제목 6</td>
+            <td><input type="button" value="바로가기"></td>
+            <td>answ445</td>
+            <td>2021-03-12</td>
+            <td>67</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>공지사항 제목 3</td>
+            <td><input type="button" value="바로가기"></td>
+            <td>testg12</td>
+            <td>2021-03-01</td>
+            <td>98</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>공지사항 제목 2</td>
+            <td><input type="button" value="바로가기"></td>
+            <td>palwe3</td>
+            <td>2021-01-02</td>
+            <td>85</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>공지사항 제목 1</td>
+            <td><input type="button" value="바로가기"></td>
+            <td>xml23</td>
+            <td>2020-12-24</td>
+            <td>124</td>
+        </tr>
+        <th colspan="4">전체공지사항 갯수</th>
+        <th colspan="2">5개</th>
+    </table>
+</body>
+</html>

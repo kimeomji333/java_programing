@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가입폼</title>
+    <link rel="stylesheet" href="./css/joinstyle.css">
+</head>
+<body>
+    <div id="wrap">
+        <form action="/user/join" method="post" name="joinForm"> 
+            <table>
+                <tbody>
+                    <tr>
+                        <th><label for="userid">아이디</label></th>
+                        <td>
+                            <input class="inputbox-style" type="text" name="userid" id="userid">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="userpw">패스워드</label></th>
+                        <td><input class="inputbox-style" type="password" name="userpw" id="userpw" onkeyup="pwCheck()"></td>
+                    </tr>
+                    <tr>
+                        <th><label for="userpw_re">패스워드 확인</label></th>
+                        <td><input class="inputbox-style" type="password" name="userpw_re" id="userpw_re" onkeyup="pwCheck()"></td>
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td>
+                            <input class="inputbox-style" type="email" name="email" id="email">
+                        </td>
+                    </tr>
+                    <tr class="addr_area">
+                        <th>주소</th>
+                        <td>
+                            <textarea class="inputbox-style"  name="addr" id="addr" rows="2" cols="30"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="height: 40px;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input class="buttonstyle" type="button" value="가 입" onclick="sendit()">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+<script src="./js/user.js"></script>
+</html>

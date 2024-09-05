@@ -1,0 +1,33 @@
+.inputbox-size{
+    width: 250px;
+}
+textarea{
+    height: 100px;
+}
+.selectfile{
+    width: 10px;
+}
+.submit{
+    text-align: center;
+}
+.numbertable th{
+    background-color: #ffa07a;
+    color: white;
+}
+.numbertable td{
+    background-color: #ffffe0;
+}
+.numbertable th:nth-child(1){
+    width: 40px;
+}
+.numbertable th:nth-child(2), .numbertable td:nth-child(2) {
+    width: 500px;
+}
+/* 왜 너비 같게 안되지 */
+.numbertable th:nth-child(4), .numbertable td:nth-child(5),
+.numbertable th:nth-child(3), .numbertable td:nth-child(4) {
+    width: 200px;
+}
+.numbertable th:nth-child(5), .numbertable td:nth-child(6) {
+    width:50px;
+}
