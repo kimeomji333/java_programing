@@ -1,5 +1,7 @@
 package com.example.demo.domain;
 
+import org.springframework.web.util.UriComponentsBuilder;
+
 import lombok.Data;
 
 @Data
@@ -24,4 +26,14 @@ public class Criteria {
 		this.pagenum = pagenum;
 		this.startrow = (this.pagenum - 1) * this.amount;
 	}
+	
+	public String getListLink() {
+		UriComponentsBuilder builder = UriComponentsBuilder.fromPath("")
+										.queryParam("pagenum", this.pagenum)
+										.queryParam("amount", this.amount)
+										.queryParam("tpye", this.type)
+										.queryParam("keyword", this.keyword);
+		return builder.toUriString();
+	}
+
 }

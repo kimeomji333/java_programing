@@ -74,7 +74,62 @@ Duration 클래스
 
 
 MyBatis 동적 태그들
+    if
+        <if test="조건식">
+            내용
+        </if>
 
+    choose, when, otherwise
+        <choose>
+            <when test="조건식">
+                내용
+            </when>
+            ...
+            <otherwise>
+                내용
+            </otherwise>
+        <choose>
+
+    where
+        태그 안의 내용으로 where절을 만들어주지만, 내용이 없다면 아무것도 작성되지 않는다.
+        -> 문법오류 해결과 함께
+            select * from t_board
+            where
+            <if test="userid != null">
+                userid = #{userid} and
+            </if>
+            boardnum > 0
+
+    trim
+        <trim prefix="a" prefixOverrides="b" sufifx="c" suffixOverrides="d">
+            b 내용 d
+        </trim>
+
+        결과 : a 내용 c
+
+    foreach
+        List, 배열, Map 등을 이용해서 루프를 처리
+        <foreach collection="컬렉션명" index="키의 이름" item="값이 이름">
+        </foreach>
+
+        ex.
+            arData = ["일", "이", "삼"]
+
+            <foreach collection="arData" index="i" item="data">
+                #{i} = #{data}
+            </foreach>
+
+            결과 : 0 = '일' 1 = '이' 2 = '삼'
+
+        ex.
+            arMap = {"userid":"apple", "userpw":"1234"}
+
+            <foreach collection="arMap" index="key" item="value">
+                #{key} = #{value} or
+            </foreach>
+
+            결과 : 'userid' = 'apple' or 'userpw' = '1234' or
+            
 
 MyBatis ${} 과 #{} 
     ${}
