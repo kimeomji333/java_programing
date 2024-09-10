@@ -19,7 +19,7 @@ table th{
 }
 table td input{
     width: 220px
-}
+} 
 .inputbox-style{
     border: none;
     border-bottom: 1px dashed black;
@@ -31,4 +31,13 @@ table td input{
     background-color: #c5e0b4;
     border: none;
     font-weight: bold;
+}
+#pw-txt{
+    font-size: 10px;
+    text-align: right;
+    padding-right: 30px;
+}
+#id-blur-txt, #pw-blur-txt, #re-blur-txt{
+    text-align: right;
+    padding-right: 30px;
 }

@@ -1,0 +1,23 @@
+09-10 화요일
+짧지만 중요한 내용
+
+REST(Representational State Transfer) - 전송 상태를 대표한다.
+	예를 들면, /board/3 게시판의 3번째 내용을 보여달라. 서버에 리스트(데이터)를 요청한다.
+	
+	"하나의 URI는 하나의 고유한 자원(리소스)을 대표한다"
+	하나의 주소에 하나의 리소스를 매칭시키며 설계한다.
+
+	기존의 방식
+	/board/write?boardnum=3
+	------------------------
+	REST ful API
+	요청 방식의 차이로 어떤 비즈니스 로직을 수행해야 하는지 알 수 있다.
+	/board/3
+
+	GET		Read
+	POST		Create
+	DELETE		Delete
+	PUT/PATCH	Update
+
+	back에 ajax 통신을 통해서 요청을 보낸다.	
+

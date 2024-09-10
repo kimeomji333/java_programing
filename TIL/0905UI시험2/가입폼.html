@@ -18,17 +18,35 @@
                         </td>
                     </tr>
                     <tr>
-                        <th><label for="userpw">패스워드</label></th>
-                        <td><input class="inputbox-style" type="password" name="userpw" id="userpw" onkeyup="pwCheck()"></td>
+                        <td colspan="2">
+                            <p id="id-blur-txt"></p>
+                        </td>
                     </tr>
                     <tr>
-                        <th><label for="userpw_re">패스워드 확인</label></th>
-                        <td><input class="inputbox-style" type="password" name="userpw_re" id="userpw_re" onkeyup="pwCheck()"></td>
+                        <th><label for="userpw">패스워드</label></th>
+                        <td>
+                            <input class="inputbox-style" type="password" name="userpw" id="userpw">
+                        </td>
                     </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p id="pw-txt"></p>
+                            <p id="pw-blur-txt"></p>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <th><label for="userpw_re">패스워드 확인</label></th>
+                        <td>
+                            <input class="inputbox-style" type="password" name="userpw_re" id="userpw_re">
+                        </td>
+                    <tr>
+                        <td colspan="2">
+                            <p id="re-blur-txt"></p>
+                        </td>
                     <tr>
                         <th>이메일</th>
                         <td>
-                            <input class="inputbox-style" type="email" name="email" id="email">
+                            <input class="inputbox-style" type="email" name="email" id="email">@<input type="text" class="inputbox-style">
                         </td>
                     </tr>
                     <tr class="addr_area">
@@ -42,7 +60,7 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <input class="buttonstyle" type="button" value="가 입" onclick="sendit()">
+                            <input class="buttonstyle" type="submit" value="가 입">
                         </td>
                     </tr>
                 </tbody>
@@ -50,5 +68,26 @@
         </form>
     </div>
 </body>
-<script src="./js/user.js"></script>
+<script>
+    document.getElementById("userpw").addEventListener("click",
+        function(){
+            document.getElementById("pw-txt").innerHTML = "영문자 대/소문자 특수문자, 숫자 포함 8 ~ 32자";
+        }
+    )
+    document.getElementById("userid").addEventListener("blur",
+        function(){
+            document.getElementById("id-blur-txt").innerHTML = "필수 입력 항목 입니다";
+        }
+    )
+    document.getElementById("userpw").addEventListener("blur",
+        function(){
+            document.getElementById("pw-blur-txt").innerHTML = "필수 입력 항목 입니다";
+        }
+    )
+    document.getElementById("userpw_re").addEventListener("blur",
+        function(){
+            document.getElementById("re-blur-txt").innerHTML = "필수 입력 항목 입니다";
+        }
+    )
+</script>
 </html>

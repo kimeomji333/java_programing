@@ -1,0 +1,2 @@
+https://developer.mozilla.org/ko/docs/Learn/JavaScript/First_steps
+
