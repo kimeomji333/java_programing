@@ -65,25 +65,78 @@ List 관련 메소드
     List<String> list = new ArrayList<>();
     List<String> list2 = new ArrayList<>();
 
-    list.add("one")
+    list.add("one");
+    list.add(0, "zero");
+    list.addAll(list2);     // 리스트 병합
 
+    list.indexOf("zero");   // 특정요소의 인덱스 반환
+    list.lastIndexOf("zero");
 
+    list.remove(0);
+    list.remove("one");
 
+    list.removeAll(list2);  // 차집합. list에서 list2에 있는 모든 값을 삭제
+    list.retainAll(list2);  // 교집합. list에서 list2에 있는 값을 제외한 모든 값을 삭제
 
+    list.clear();
+    list.isEmpty();
+    list.size();
+    list.contains("one");
+    list.containsAll(list2);    // list에 list2의 모든 값이 포함되어 있으면 true
+    list.removeIf(x -> x % 2 == 0)  // list에서 짝수인 수를 모두 제거
 
-
-    
 
 Array to List / List to Array
+    문자열 타입 배열을 List 로 변환
+        String[] temp = {"apple", "banana", "lemon"};
+        List<String> list = new ArrayList<>(Arrays.asList(temp));
 
+    List를 문자열 배열로 변환
+        List<String> list = new ArrayList<>();
+        String[] temp = list.toArray(new String[list.size()]);
+
+    정수 배열을 List로 변환
+        int[] temp = {1,2,3,4};
+        List<Integer> list = new ArrayList<>(Arrays.asList(temp));
+
+    List를 정수 배열로 변환
+        List<Integer> list = new ArrayList<>();
+        int[] temp = list.stream().mapToInt(x -> x).toArray();
 
 
 Collections 관련 메소드
+    int[] temp = {1,2,3,10,20};
+    List<Integer> list = new ArrayList<>(Arrays.asList(temp));
 
+    Collections.max(list);
+    Collections.min(list);
+
+    Collections.sort(list);
+    Collections.sort(list, Collections.reverseOrder());
+
+    Collections.reverse(list);
+
+    Collections.frequency(list, 3);     // List 내 원소의 갯수 반환
+
+    Collections.binarysearch(list, 10);  // 10은 3번째 위치에 존재
 
 
 Stack 관련 메소드
+    Stack<Integer> stack = new Stack<>();
 
+    stack.push(1);
+
+    stack.pop();
+
+    stack.clear();
+
+    stack.size();
+    
+    stack.empty();
+
+    stack.contains(1);
+
+    stack.peek();       // 최상단 요소 확인
 
 
 Queue 관련 메소드
@@ -91,8 +144,14 @@ Queue 관련 메소드
 
 
 HashSet 관련 메소드
+    HashSet : 중복 허용 X, 순서 X
+    LinkedHashSet : 중복 허용 X, 순서 O
+    TreeSet : 중복 허용 X, 이진탐색트리 형태로 데이터 자장, 정렬 O
 
-
+    HashSet<Integer> hs = new HashSet<>();
+    HashSet<Integer> hs2 = new HashSet<>();
+    
+    
 
 HashMap
 
