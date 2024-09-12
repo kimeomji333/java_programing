@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>List</title>
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<link href="/css/style.css" rel="stylesheet">
+</head>
+<body class="list">
+	
+	<div id="wrap" class="list">
+		<th:block th:replace="~{layout/header::header(${session.loginUser})}"></th:block>
+		<!-- 게시글 리스트 띄워주는 테이블 -->
+		<div class="tar w900">글 개수 : [[${pageMaker.total}]]</div>
+		<div class="list table">
+			<div class="thead tac">
+				<div class="row">
+					<div>번호</div>
+					<div>제목</div>
+					<div>작성자</div>
+					<div>날짜</div>
+					<div>조회수</div>
+				</div>
+			</div>
+			<div class="tbody">
+				<!-- 태그에 th:if="${조건식}" 속성을 달아 놓으면 해당 조건식이 참일 때만 그 태그가 생성된다. -->
+				<div th:if="${list == null or list.size() == 0}" class="row no-list">
+					<div>등록된 게시글이 없습니다.</div>
+				</div>
+				<!-- 태그에 th:each="변수명:${반복자}" 속성을 달아 놓으면 반복자에서 꺼내오면서 반복되는 횟수만큼 태그를 생성한다. -->
+				<div class="row" th:if="${list != null and list.size() > 0}" th:each="board:${list}">
+					<div>[[${board.boardnum}]]</div>
+					<div>
+						<a class="get" th:href="${board.boardnum}">
+							<sup class="new" th:if="${board.isNew}">New</sup>
+							<sup class="hot" th:if="${board.isHot}">Hot</sup>
+							[[${board.boardtitle}]]<span id="reply_cnt" th:text="${'[' + board.replyCnt + ']'}"></span>
+						</a>
+					</div>
+					<div>[[${board.userid}]]</div>
+					<div>[[${board.regdate}]]<th:block th:if="${board.regdate != board.updatedate}">(수정됨)</th:block></div>
+					<div>[[${board.readcount}]]</div>
+				</div>
+			</div>
+		</div>
+		<!-- 페이징 처리하는 테이블 -->
+		<table class="pagination">
+			<tbody>
+				<tr>
+					<td>
+						<a th:if="${pageMaker.prev}" class="btn changePage" th:href="${pageMaker.startPage-1}">&lt;</a>
+						<!-- #numbers.sequence(1,7) : [1,2,3,4,5,6,7] -->
+						<th:block th:each="i:${#numbers.sequence(pageMaker.startPage, pageMaker.endPage)}">
+							<a class="btn changePage" th:href="${i}" th:if="${pageMaker.cri.pagenum != i}">[[${i}]]</a>
+							<span class="nowPage" th:if="${pageMaker.cri.pagenum == i}">[[${i}]]</span>
+						</th:block>
+						<a th:if="${pageMaker.next}" class="btn changePage" th:href="${pageMaker.endPage+1}">&gt;</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- 글쓰기 버튼 배치하는 테이블 -->
+		<table class="btn_table">
+			<tbody>
+				<tr>
+					<td>
+						<a class="write btn" href="javascript:handleClickWrite()">글쓰기</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- 검색 -->
+		<div class="search_area">
+			<form name="searchForm" id="searchForm" action="/board/list">
+				<select name="type" id="type">
+					<option value="" th:selected="${pageMaker.cri.type == null}">검색</option>
+					<option value="T" th:selected="${pageMaker.cri.type == 'T'}">제목</option>
+					<option value="C" th:selected="${pageMaker.cri.type == 'C'}">내용</option>
+					<option value="W" th:selected="${pageMaker.cri.type == 'W'}">작성자</option>
+					<option value="TC" th:selected="${pageMaker.cri.type == 'TC'}">제목 또는 내용</option>
+					<option value="TW" th:selected="${pageMaker.cri.type == 'TW'}">제목 또는 작성자</option>
+					<option value="TCW" th:selected="${pageMaker.cri.type == 'TCW'}">제목 또는 내용 또는 작성자</option>
+				</select>
+				<input type="search" id="keyword" name="keyword" th:value="${pageMaker.cri.keyword}">
+				<a id="search-btn" class="btn" onclick="handleSearchBtn()">검색</a>
+				<input type="hidden" name="pagenum" th:value="${pageMaker.cri.pagenum}">
+				<input type="hidden" name="amount" th:value="${pageMaker.cri.amount}">
+			</form>
+		</div>
+	</div>
+	<div id="chat-circle" class="btn btn-raised">
+		<div id="chat-overlay"></div>
+		<span class="material-symbols-outlined">speaker_phone</span>
+	</div>
+	<div class="chat-box">
+		<div class="chat-box-header">
+			사용자 채팅 <span class="chat-box-toggle"><span
+				class="material-symbols-outlined">close</span></span>
+		</div>
+		<div class="chat-box-body">
+			<div class="chat-box-overlay"></div>
+			<div class="chat-logs"></div>
+			<!--chat-log -->
+		</div>
+		<div class="chat-input">
+			<form>
+				<input type="hidden" id="userid" name="userid">
+				<span class="echo-receiver"></span> <input type="text"
+					id="chat-input" placeholder="Send a message..."
+					onkeyup="sendEcho();" />
+				<button type="submit" class="chat-submit" id="chat-submit">
+					<span class="material-symbols-outlined">send</span>
+				</button>
+			</form>
+		</div>
+	</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script th:inline="javascript">
+	setTimeout(function(){
+		document.querySelector("#wrap>div:nth-child(1)").style.display = "none";
+	},1300)
+	function handleClickWrite(){
+		const form = document.searchForm;
+		form.action = "/board/write";
+		form.submit();
+	}
+	function handleSearchBtn(){
+		const form = document.searchForm;
+		//유효성 검사
+		form.pagenum.value = 1;
+		form.submit();
+	}
+	
+	$(".changePage").click(function(e){
+		//e(이벤트)의 기본 작동 막기
+		e.preventDefault();
+		let pagenum = e.target.getAttribute("href");
+		//console.log(pagenum);
+		const form = document.searchForm;
+		form.pagenum.value = pagenum;
+		form.submit();
+	})
+	$(".get").click(function(e){
+		e.preventDefault();
+		let boardnum = e.target.getAttribute("href");
+		let listLink = /*[[${pageMaker.cri.listLink}]]*/'';
+		// /board/get?pagenum=4&amount=10&type=T&keyword=지우개&boardnum=99
+		location.href = '/board/get'+listLink+"&boardnum="+boardnum;
+	})
+	
+</script>
+</html>
+
+
+
+
+
+
+
+

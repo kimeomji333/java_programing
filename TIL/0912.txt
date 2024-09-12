@@ -1,0 +1,150 @@
+Thymeleaf  문법 간단히
+    Spring Boot에서 지원하는 View 템플릿
+
+    JSP와 달리 Servlet Code로 변환되지 않기 때문에 비즈니스 로직과 분리되어 View에 집중할 수 있다.
+
+    문법
+        th:text="${}"
+            일반 텍스트를 반환할 때 사용
+            JSP의 EL 표현식인 ${}와 마찬가지로 컨트롤러에서 전달받은 데이터에 접근 가능
+
+        th:utext="${}"
+            text와 동일하게 텍스트를 반환하지만, HTML 태그를 사용 가능하게 해준다.
+
+        th:src="${}"
+            이미지 src 사용시
+
+        th:href="@{}", th:href="||"
+            <a> 태그의 href 속성과 동일
+            괄호 안에 클릭시 이동하고자 하는 url를 넣는다.
+
+        th:value="${}"
+            input의 value에 값을 삽입할 때 사용한다.
+            여러개의 값을 넣을 땐 + 기호를 사용한다.
+
+        th:style="${}"
+            스타일 적용시
+            background에서 url 적용시 위에 같이 하면 된다.
+
+        th:if="${}", th:unless="${}"
+            조건문에 해당하는 속성. 각각 if와 else를 뜻한다.
+
+        th:block, th:each="변수 : ${list}"
+            가상 태그를 만드는 데 사용한다. 사용이 끝나면 문서에서 사라지게 된다.
+            주로 조건문, 반복문에 많이 사용된다.
+
+        th:each
+            반복(iteration)처리를 위해 사용한다.
+            루프 처리 중 상태를 추적하는 데 유용한 매커니즘은 status 변수가 제공되어 index, count 등을 쉽게 얻을 수 있다.
+
+                <tr th:each="product : ${productList}">
+                    <td th:text=${product.seq}></td>
+                    <td th:text=${product.name}></td>
+                    ...
+                </tr>
+
+        #numbers.sequence
+            컬렉션 없이 단순 반복 처리하고 싶다면 Numbers Class의 Utility method인 #numbers.sequence 를 사용하여 먼저 원하는 반복 횟수 만큼의 배열을 생성한 뒤 th:each 의 컬렉션에 넣어주면 된다.
+
+                <th:block th:each="num : ${#numbers.sequence(1,5)}">
+                    <div th:text=${num}"></div>
+                </th:block>
+
+        status (반복 상태 변수)
+            타임리프에서 th:each 사용할 때 반복의 상태 정보를 담고 있는 객체이다.
+            이를 이용하여 index, count 등의 값을 쉽게 추출할 수 있다.
+
+            - index     : 현재 반복 인덱스 (0부터 시작)
+            - count     : 현재 반복 인덱스 (1부터 시작)
+            - size      : 총 요소 수
+            ...
+
+            status 변수는 기본적으로 반복대상 오브젝트명 + "Stat" 변수명으로 접근 할 수 있다.
+
+            <div th:each="num : ${#numbers.sequence(1,3)}">
+                <p th:text=${'index : ' + numStat.index}"></p> 
+            </div>
+
+
+JavaScript 문자열 자르기 - split
+    String.aplit(대상 문자열, 구분자);
+
+    - 구분자로 분리
+        const text = "apple banana orange";
+        const words = text.split(" ");
+        console.log(words); 
+        ["apple", "banana", "orange"]
+
+    - 정규표현식으로 자르기 / 여러기호의 문자열 자르기
+        const text = "apple1banana2orange";
+        const words = text.split(/\d/);  -> 숫자를 구분자로 사용
+        console.log(words);
+        ["apple", "banana", "orange"]
+
+            여러 구분자를 사용하는 경우
+                정규 표현식에서 대괄호는 문자 집합을 정의하는데 사용
+                여러 개의 구분자를 정의할 수 있다.
+
+                    const text = "apple banana orange";
+                    const words = text.split(/[ ,;]+/);
+
+                    [ ,;]+ : 공백, 쉼표, 세미콜론 이 하나 이상 연속해서 나타날 수 있는 부분에서 문자열을 나누도록 지정
+
+                    \d+ : 하나 이상의 숫자를 의미
+
+            -> get.html 42번째 줄에서 확장자 자르기 위한 split('[.]') 를 사용했음. 나중에 확인해보기
+
+    - 구분자와 배열인덱스
+        const text = "a,b,c,d,e";
+        const limited = text.split(",", 3);
+        console.log(limited);
+        ["a", "b", "c"]
+
+    주의 사항
+    - 구분자가 빈문자열일 경우, 각각의 문자로 나누어 배열로 반환
+    - 구분자가 문자열에 포함되어 있지 않으면 원래 문자열을 요소로 가진 배열이 반환
+
+
+MIME 타입
+    웹에서 파일의 종류를 알려주는 표준 방법. Multipurpose Internet Mail Extensions
+
+    예를 들어
+        웹 브라우저에서 웹사이트를 방문할 때, 웹사이트는 다양한 파일을 보여준다.
+        이 파일들은 이미지, 비디오, 문서 등 다양한 형식일 수 있다. 
+        MIME 타입은 웹 브라우저가 파일의 종류를 알고 적절하게 처리할 수 있도록 도와준다. 
+
+    어떻게 작동할까?
+        웹사이트에서 파일을 전송할 때, 서버는 파일의 종류를 MIME 타입으로 알려준다. (응답타입을 나타냄)
+        파일의 유형을 "문자열" 형태로 나타낸다.
+            이미지 : JPEG 이미지 파일의 MIME 타입은 image/jpeg
+            문서 : PDF 문서 파일의 MIME 타입은 application/pdf
+            웹 페이지 : HTML 문서의 MIME 타입은 text/html
+            
+    일반적으로 슬래시(/)로 구분된 'type' 과 'subtype'의 두 부분으로 구성된다.
+        type/subtype
+            - type
+                video or text와 같이 데이터 타입이 속하는 일반 카테고리를 나타낸다.
+            - subtype
+                MIME 타입이 나타내는 지정된 타입의 정확한 데이터 종류를 식별한다.
+
+
+Builder Pattern
+    빌더 패턴은 복잡한 객체의 생성 과정과 표현 방법을 분리하여 다양한 구성의 인스턴스를 만드는 생성 패턴이다. 생성자에 들어갈 매개 변수를 메서드로 하나하나 받아들이고 마지막에 통합 빌드해서 객체를 생성하는 방식이다.
+    예를 들면, 서브웨이 주문
+
+
+Content-Disposition
+    일반적인 HTTP 응답에서 Content-Disposition header는
+        컨텐츠가 브라우저에 inline 되어야 하는 웹페이지 자체이거나 일부인지
+        attachment로써 다운로드 되거나 로컬에 저장될 용도로 쓰이는 건지
+    알려주는 헤더이다.
+
+    즉, 웹서버가 파일을 어떻게 처리할지 Content-Disposition를 사용해 웹 브라우저에게 알려주는 지시사항이다. 주로 두 가지 방식이 있다.
+        - 파일 다운로드
+            Content-Disposition: attachment; filename="example.txt"
+
+        - 파일 보기
+            Content-Disposition: inline
+
+
+

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="view.AddProductView"/>
     <fullyQualifiedTypeName name="view.ModifyProductView"/>
     <fullyQualifiedTypeName name="model.Session"/>
     <fullyQualifiedTypeName name="controller.ProductController"/>
@@ -36,7 +35,6 @@
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="model.dto.ProductDTO"/>
     <fullyQualifiedTypeName name="controller.MovieController"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="model.dto.TheaterDTO"/>
     <fullyQualifiedTypeName name="model.dao.TheaterDAO"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
     <fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
     <fullyQualifiedTypeName name="algorithm.MyFood"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
 </qualifiedTypeNameHistroy>

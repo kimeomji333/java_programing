@@ -66,6 +66,7 @@ jQuery > .appendTo()
     $(A).append(B) // A 사이의 마지막에 B 가 추가 된다.
     $(A).appendTo(B) // A 가 B 사이의 마지막에 추가 된다. 해당 선택자의 마지막 자식으로 jQuery 객체 추가
 
+
 UUID(Universally Unique IDentifier, 범용 고유 식별자)
     네트워크 상에서 고유성이 보장되는 id를 만들기 위한 표준 규약
 
