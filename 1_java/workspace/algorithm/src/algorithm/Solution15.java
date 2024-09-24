@@ -16,8 +16,9 @@ public class Solution15 {
 		ArrayList<Integer> list = new ArrayList<>();
 		for(int i = 0; i < my_strings.length; i++) {
 			String str = my_strings[i];
+			answer += my_strings[i].substring(parts[i][0], parts[i][1]+1);
 		}
 		
-		answer += my_strings[i].substring(0, 0);
+		System.out.println(answer);
 	}
 }
