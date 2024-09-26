@@ -1,0 +1,28 @@
+Dispatcher Servlet
+    Spring MVC에서 제공하는 핵심 기능 중 하나로 
+    웹 애플리케이션의 모든 HTTP 요청을 받아서 처리하는 컨트롤러로 
+    전달/결과를 클라이언트에게 반환하는 매개체 역할
+
+    핸들러 맵핑, 비동기 요청 처리, 웹 소켓 처리 등을 지원하게 되면서 중요한 기능이 되었다. 
+
+동작 방식
+    (이하 "~~ 인터페이스를 구현한 객체" 를 줄여서 부르겠음)
+
+    1. 요청이 들어오면
+        Dispatcher Servlet은 이 요청을 처리할 핸들러를 찾기 위해 요청 전달 
+        > Handler Mapping은 요청 처리한 핸들러를 찾아 
+        > Dispatcher Servlet 로 반환
+    2. Dispatcher Servlet은 핸들러 전달 
+        > HandlerAdapter
+    3. HandlerAdapter는 핸들러 실행(RestController), 결과를 반환(Service or Response Entity) 
+        - Response Entity는 다시 Dispatcher Servlet 에서 클라이언트에게 결과 반환
+        - ModelAndView or Spring 등의 결과를 반환받았다면 (@Controller) 객체를 처리하기 위해 ViewResolver에게 전달
+    4. ViewResolver는 객체를 처리할 뷰를 찾아 Dispatcher Servlet에게 반환하고, 클라이언트에게 뷰를 반환
+
+Dispatcher Servlet은 다양한 기능을 기본적으로 지원해주기 때문에 간단하게 웹 어플리케이션을 개발할 수 있다. 
+    - annotation 지원 
+    - 유연한 구조 : 필요에 따라서 HandlerMapping, HandlerAdapter, ViewResolver 커스터마이징도 가능하다.
+    - 모듈화 가능 : Dispatcher Servlet를 상속받은 클래스를 구현하여 패키지별로 다른 Dispatcher Servlet을 구현할 수 있다.
+	-> 도메인별로 기능을 분리하거나, 독립적인 개발 및 배포가 가능하여 유지보수성, 확장성을 높일 수 있다.
+	    @ComponentScan 을 통해 모듈화의 범위를 지정하여 해당 모듈에서만 사용하는 Bean을 등록할 수 있다.
+    - 자동 데이터 바인딩 : 클라이언트의 요청 데이터를 자바 객체의 필드와 데이터를 매핑해준다. 데이터가 맵핑되는 객체 = DTO(파라미터에 @RequestBody 를 사용)

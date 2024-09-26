@@ -1,0 +1,179 @@
+@RequestParam
+    요청의 파라미터를 연결할 매개변수에 붙이는 어노테이션이다.
+    속성으로 
+        - name : 쿼리스트링 이름
+        - required : 필수여부 (false면 필수 아님)
+    쿼리스트링으로 키값이 없으면 null 처리 / 있으면 빈문자열 처리
+
+    (required = false) 를 이용해서 필수여부를 설정해주는 방법
+        쿼리스트링으로 키값이 없으면 null로 처리되는데 매개변수로 int 타입의 매개변수가 들어오면
+        null은 int로 변경할 수 없어서 서버에러가 발생한다.
+
+        필수입력이 false라고 하면 defaultValue 속성을 줘서 에러를 막을 수 있다.
+
+            public void list(@RequestParam(required = false, defaultValue = "1") int pagenum){} 
+
+    > 서버에서는 매개변수값의 필수여부에 따라 에러 처리를 확실히 해줘야 한다.
+        - required 속성값이 false라면, (필수입력X) defaultValue 속성을 지정
+        - required 속성값이 true라면, (필수입력O) 클라이언트가 해당 값을 입력하지 않고 요청을 보낼 것을 대비해서 예외처리를 해줘야 한다.
+
+
+Criteria API
+    Spring Boot Data JPA 내 기능 중 하나이다.
+    근데 이 기능을 사용한 건 아님?
+
+
+Criteria 클래스
+    Hibernate와 같은 ORM 프레임워크에서 사용되는 개념이다.
+        데이터베이스 쿼리를 작성할 때 조건을 지정하는 데 유용하다.
+        객체 지향적인 방식으로 쿼리를 작성할 수 있으며, SQL을 직접 작성하지 않고도 데이터를 조회하거나 수정할 수 있다.
+    
+    주요 기능
+        - 조건 설정
+        - 정렬
+        - 페이징
+        - 조인
+        - 집계 함수
+
+    오늘 페이징처리를 위해서 페이지처리를 위한 기준이 필요해. Criteria DTO 객체를 만들어서 데이터를 담아주기 위해서 언급되었다. 
+
+
+페이징처리
+    대량의 데이터에서 일부만을 조회하여 페이지 단위로 결과를 나누어 보여주는 것을 의미한다.
+
+
+@ModelAttribute
+    Spring MVC에서 폼 데이터를 처리하거나 모델 객체를 웹 애플리케이션의 컨트롤러에 전달할 때 사용된다.
+    - Controller 메소드에서 웹 폼 데이터를 쉽게 바인딩하고
+        HTML 폼 데이터를 Java 객체에 자동으로 바인딩할 수 있다. 폼 필드와 Java 객체의 필드를 매핑하여 데이터를 처리한다.
+
+        @PostMapping("/submitForm")
+        public String submitForm(@ModelAttribute User user) {
+            // User 객체는 폼 데이터로 자동 바인딩됨
+            // 예: user.getName(), user.getEmail() 등
+            return "resultPage";
+        }
+
+    - Model 객체를 설정하며
+        Controller 메소드나 메서드 매개변수에 사용할 수 있으며, 메소드가 호출되기 전에 모델 객체를 초기화하거나 설정할 수 있다.
+
+        @ModelAttribute("user")
+        public User createUser() {
+            return new User(); // 빈 User 객체를 반환
+        }
+
+        @GetMapping("/showForm")
+        public String showForm() {
+            // 모델에 'user' 객체가 자동으로 추가됨
+            return "formPage";
+        }
+
+    - 다양한 데이터를 처리하는 데 유용하다.
+        Controller 메소드의 반환값은 모델에 추가되어 뷰로 전달할 수 있다. 
+
+    - @ModelAttribute 사용하지 않을 경우,
+        - @RequestParam을 사용하여 폼 필드와 메서드 매개변수를 매핑하는 방법
+            폼필드를 개별적으로 받아 User 객체를 수동으로 생성하고, 모델에 추가한다.
+
+            @Controller
+            public class UserController {
+
+                @PostMapping("/submitForm")
+                public String submitForm(@RequestParam("username") String username,
+                                        @RequestParam("email") String email,
+                                        Model model) {
+                    User user = new User();
+                    user.setUsername(username);
+                    user.setEmail(email);
+                    model.addAttribute("user", user);
+                    return "resultPage";
+                }
+            }
+
+        - HttpServletRequest를 사용한 폼 데이터 추출
+            @Controller
+            public class UserController {
+
+                @PostMapping("/submitForm")
+                public String submitForm(HttpServletRequest request, Model model) {
+                    String username = request.getParameter("username");
+                    String email = request.getParameter("email");
+                    User user = new User();
+                    user.setUsername(username);
+                    user.setEmail(email);
+                    model.addAttribute("user", user);
+                    return "resultPage";
+                }
+            }
+
+
+UriComponentsBuilder
+    스프링 프레임워크를 사용할 때, 여러개의 파라미터를 이용하는 경우 URI를 손쉽게 생성할 수 있도록 도와준다. 
+
+    예시 코드
+        public String getListLink(){
+            UriComponentsBuilder builder = UriComponentsBuilder.fromPath("") // 쿼리스트링 앞에 붙는 문자열이다.
+                    .queryParam("pagenum", this.pagenum)
+                    .queryParam("amount", this.amount)
+                    ...
+        return builder.toUriString(); //UriComponentsBuilder에서 구성한 URI를 문자열 형태로 반환
+        }
+
+
+게시글 작성 후에 제출 버튼을 누르면
+    POST 요청으로 form data를 제출해야한다.
+    a태그의 등록버튼을 누르면 href="javascript:sendit()
+
+
+지금은 서버 사이드 렌더링이니깐
+    ajax 를 이용하는 경우만 데이터 전송
+    그 외에는 View로 보낸다.
+나중에는 서버에서 데이터 전송 방식으로 진행
+
+
+Spring Boot AOP
+    관점 지향 프로그래밍을 지원하는 기술로 로깅, 보안, 트랙잭션 관리 등 공통 관심사를 모듈화하여 코드 중복을 줄이고 유지 보수성 향상에 도움을 준다.
+
+    주요 용어
+        Aspect
+            공통적인 기능들을 모듈화 한 것을 의미
+        Target
+            Aspect가 적용될 대상의 의미. 메소드, 클래스 등이 해당
+        Join point  
+            Aspect가 적용될 수 있는 시점을 의미. 메소드 실행 전/후
+        Advice
+            Aspect의 기능을 정의. 메소드 실행 전/후/예외처리 발생시 실행
+        Point cut
+            Advice를 적용할 메소드의 범위를 지정
+
+    주요 어노테이션
+        @Aspect
+            해당 클래스를 Aspect로 사용하겠다는 것을 명시
+        @Before
+            대상 '메소드'가 실행되기 전에 Advice를 실행
+        @AfterReturning
+            대상 '메소드'가 정상적으로 실행되고 반환된 후에 Advice를 실행
+        @AfterThrowing
+        @After
+        @Around
+            대상 '메소드' 실행 전/후/예외발생 시 Advice를 실행
+        
+    순서
+        - dependency 의존성 추가
+        - 프로젝트 패키지 구성
+        - @Aspect, @Component 어노테이션 추가
+
+
+Thymeleaf 표현식
+    변수 표현식( ${} )
+    조건부 표현식( th:if, th:unless )
+    대체 표현식( th:text, th:href, th:src )
+        <a th:href="@{/profile/${user.id}}">Profile</a>
+    URL 표현식( @{url} )
+        <a th:href="@{/user/{id}(id=${user.id})}">View Profile</a>
+    리스트 표현식( th:each )
+        컬렉션을 반복하여 HTML요소를 생성
+        <ul>
+            <li th:each="item : ${items}" th:text="${item.name}"></li>
+        </ul>
+    ...

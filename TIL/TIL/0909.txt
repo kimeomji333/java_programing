@@ -1,0 +1,150 @@
+th:replace="~{} 구문"
+    ~{} 는 타임리프가 템플릿 파일의 경로를 찾기 위해 사용하는 구문이다.
+
+게시글 조회수
+    mapper.xml 에 쿼리 작성
+        <update id="updateReadCount">
+            update t_board
+            set viewcnt = viewcnt + 1
+            where boardnum = #{boardnum}
+        </update>
+    mapper 인터페이스에 메소드 추가, 구현체에 Override 작성
+        public interface Mapper {
+            void increaseReadCount(long boardnum);
+        }
+
+        @Override
+        public void increaseReadCount(long boardnum) {
+            BoardDTO 
+        }
+    Service 구현체 read 메소드 
+
+
+게시글 수정
+
+게시글 삭제
+
+
+New, Hot 만들기
+DateTimeFormatter 클래스를 이용해서 String 타입을 LocalDateTime 형식으로 출력하고 파싱하는데 사용되는 클래스이다.
+
+    현재 시간 정보와 시간 형태의 문자열을 해석하는 해석기를 이용해서
+    차이가 2시간 이내면 New 를 붙일 것임
+
+Duration
+    java.package 를 이용해서 두 시간 사이에 걸린 시간 정보를 구함
+
+    .toHours() 시 정보
+
+DateTimeFormatter 클래스
+    날짜와 시간의 포맷팅 및 파싱을 처리하는데 사용된다.
+    - 포맷팅 : 날짜와 시간을 지정된 형식으로 문자열로 변환한다.
+    - 파싱 : 문자열을 지정된 형식에 따라 날짜와 시간 객체로 변환한다.
+
+    ofPattern(String pattern)
+        사용자 정의 패턴을 사용하여 포맷터를 생성
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyy-MM-dd");
+
+    parse(CharSquence text)
+        문자열을 날짜와 시간 객체로 파싱
+        LocalDate date = LocalDate.parse("2024-09-09", formatter);    
+
+    format(TemporalAccessor temporal)
+        날짜와 시간 객체를 문자열로 포맷
+        String formattedDate = date.format(formatter);
+
+Duration 클래스
+    두 시점 사이의 시간 간격을 표현
+    
+    ofHours(long hours)
+        시간 단위로 Duration을 생성
+        Duration duration = Duration.ofHours(1);  // 1시간
+
+    toHours():
+        Duration duration = Duration.ofMinutes(90);
+        long hours = duration.toHours();  // 1시간  
+
+    parse(CharSquence text)
+        ISO-8601 형식의 문자열을 Duration 객체로 파싱
+        Duration duration = Duration.parse("PT2H30M");  // 2시간 30분
+
+
+
+검색
+
+
+MyBatis 동적 태그들
+    if
+        <if test="조건식">
+            내용
+        </if>
+
+    choose, when, otherwise
+        <choose>
+            <when test="조건식">
+                내용
+            </when>
+            ...
+            <otherwise>
+                내용
+            </otherwise>
+        <choose>
+
+    where
+        태그 안의 내용으로 where절을 만들어주지만, 내용이 없다면 아무것도 작성되지 않는다.
+        -> 문법오류 해결과 함께
+            select * from t_board
+            where
+            <if test="userid != null">
+                userid = #{userid} and
+            </if>
+            boardnum > 0
+
+    trim
+        <trim prefix="a" prefixOverrides="b" sufifx="c" suffixOverrides="d">
+            b 내용 d
+        </trim>
+
+        결과 : a 내용 c
+
+    foreach
+        List, 배열, Map 등을 이용해서 루프를 처리
+        <foreach collection="컬렉션명" index="키의 이름" item="값이 이름">
+        </foreach>
+
+        ex.
+            arData = ["일", "이", "삼"]
+
+            <foreach collection="arData" index="i" item="data">
+                #{i} = #{data}
+            </foreach>
+
+            결과 : 0 = '일' 1 = '이' 2 = '삼'
+
+        ex.
+            arMap = {"userid":"apple", "userpw":"1234"}
+
+            <foreach collection="arMap" index="key" item="value">
+                #{key} = #{value} or
+            </foreach>
+
+            결과 : 'userid' = 'apple' or 'userpw' = '1234' or
+            
+
+MyBatis ${} 과 #{} 
+    ${}
+        파라미터가 String 형태로 들어와 자동적으로 '파라미터'형태
+        ex. 
+            #{userid}의 userid의 값이 apple이라면 쿼리문에는 userid='apple'
+
+    #{}
+        파라미터가 바로 출력
+        해당 컬럼의 자료형에 맞춰 파라미터의 자료형이 변경
+        
+
+MyBatis 코드 모듈화
+    <sql id="cri">
+        코드
+
+    사용할 때는
+    <include refid="cri"></include>

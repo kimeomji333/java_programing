@@ -1,0 +1,147 @@
+*{ box-sizing: border-box; margin: 0; padding: 0;}
+
+#wrap{
+    height: 100%;
+}
+
+#join{
+    width: 1920px;
+    height: 100vh;
+    background-image: url(./images/first.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+#join .first1{
+    width: 100%;
+    height: 77px;
+    display: flex;
+    align-items: center; 
+}
+
+#join .left-logo{
+    margin-left: 240px;
+}
+
+/* start!!! */
+#join .join-box{
+    position:absolute;
+    left: 734px;
+    top: 121px;
+    width: 451px;
+    height: 724px; 
+    background-color: #FFFFFF;
+    border-radius: 20px;
+}
+
+#join .join-box h2{
+    margin-top: 35px;
+    margin-left: 35px;
+    margin-bottom: 35px;
+    font-weight: bold;
+    font-size: 24px;
+    color: #111;
+}
+
+#join .join-box .input-box{
+    /* margin-left: 35px; */
+    margin: 0 32px;
+}
+
+#join .join-box .input-box label{
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #111;
+}
+
+#join .join-box .input-box input{
+    width: 379.49px;
+    height: 43.92px;
+    border:none;
+    background: #F7F7F7;
+    border-radius: 10px;
+}
+
+#join .join-box .input-box .userid-input-box{
+    width: 278.02px;
+}
+
+#join .join-box .input-box #checking-userid{
+    width: 96px;
+}
+
+#join .join-box .input-box .phone_number-input-box{
+    width: 243px;
+}
+
+#join .join-box .input-box #checking-phone_number{
+    width: 131px;
+}
+
+#join .join-box .input-box .checking-box-style {
+    border: none;
+    background-color: #0B98FF;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+#join .submit-box #checking-submit{
+    border: none;
+    background-color: #0B98FF;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    width: 88.27px;
+    height: 43.92px;
+    border-radius: 10px;
+    margin-left: 180px;   
+    margin-top: 25px;
+}
+
+#join .join-box .input-box .warning-text{
+    width: 379.49px;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 8px;
+    margin-bottom: 25px; 
+    padding: 0; 
+}
+
+#join .join-box .input-box .checking-button-box{
+    width: 88.27px;
+    height: 43.92px;
+} 
+
+#join .join-box .input-box #nickname, #phone_number{
+    margin-bottom: 15px;
+}
+
+#join .join-box .input-box #password{
+    margin-bottom: 9px;
+}
+
+#join .join-box .input-box #email{
+    width: 175px;
+}
+
+#join .join-box .input-box select{
+    width: 183px;
+    height: 43.92px;
+    border:none;
+    background: #F7F7F7;
+    border-radius: 10px;
+    font-size: 14px; 
+    padding-left: 10px;
+}
+
+input::placeholder{
+    color: #AAAAAA;
+    font-size: 14px;
+    padding-left: 12px;
+}   
