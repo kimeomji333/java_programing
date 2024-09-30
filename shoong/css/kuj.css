@@ -7,7 +7,7 @@ a{ text-decoration: none; }
     height: 100%;
     width: 1920px;
     height: 100vh;
-    background-image: url(./images/first.jpg);
+    background-image: url(../images/first.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
