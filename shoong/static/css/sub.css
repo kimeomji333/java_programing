@@ -1,0 +1,79 @@
+/* 서브 상단 */
+#sub_top {
+    width:100%;
+    height:330px;
+    margin-bottom:50px;
+    padding-top:160px;
+    background: url(../images/sub_top.jpg) no-repeat;
+    text-align: center;
+    color:#fff;
+}
+#sub_top p a{
+    font-size: 15px;
+    color:#fff;
+}
+#sub_top div {
+    margin-top:10px;
+    font-size: 45px;
+    font-family: 'Pretendard-Bold';
+}
+
+/* 좌측 메뉴 */
+#left_menu {
+    width:200px;
+}
+#left_menu .mini_box {
+    width:200px; 
+    height:80px; 
+    padding:20px 15px; 
+    background: #f4f4f4 url(../images/mini_box.png) no-repeat right 10px bottom 10px; 
+    border-radius: 15px;
+}
+#left_menu .mini_box a {
+    font-size: 18px; 
+    font-family: 'Pretendard-Bold';
+}
+#left_menu .mini_box a p {
+    font-size: 12px; 
+    margin-top:5px;
+    font-family: 'Pretendard-Regular';
+}
+
+#left_menu .menu>div{
+    margin-top:17px;
+    font-size:15px;
+}
+#left_menu .menu>div p{
+    font-family: 'Pretendard-Bold';
+    margin-bottom:12px;
+}
+#left_menu .menu>div li{
+    line-height: 23px;
+    color:#555;
+    cursor: pointer;
+}
+#left_menu .menu>div li:hover{
+    color: #888;
+}
+#left_menu .menu>div li a{
+    display: block;
+    color:#555;
+    border-radius: 5px;
+}
+#left_menu .menu>div li a:hover{
+    color: #999;
+}
+#left_menu .menu>div li div{
+    display: flex;    
+    justify-content: space-between;
+    align-items: center;
+}
+#left_menu .menu>div li .hidden_menu{
+    margin-left: 20px;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+/* 우측 컨텐츠 */
+.inner .content{height:2000px;}

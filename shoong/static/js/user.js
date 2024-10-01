@@ -2,7 +2,7 @@
 //document.getElementById("checking-userid").addEventListener("click", checkId);
 
 function checkId(){
-    const userid = document.getElementById("userid");
+    const userid = document.getElementById("user_id");
     const idMessage = document.getElementById("idMessage");
 
     if(userid.value == ""){

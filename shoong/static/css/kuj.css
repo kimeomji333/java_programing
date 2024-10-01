@@ -3,7 +3,7 @@
 *{ box-sizing: border-box; margin: 0; padding: 0;}
 a{ text-decoration: none; }
 
-#wrap{
+#first_page{
     height: 100%;
     width: 1920px;
     height: 100vh;
@@ -19,10 +19,10 @@ a{ text-decoration: none; }
     display: flex;
     align-items: center; 
 }
-.left-logo{
+.left_logo{
     margin-left: 240px;
 }
-.white-box{
+.white_box{
     position:absolute;
     left: 734px;
     top: 121px;
@@ -31,7 +31,7 @@ a{ text-decoration: none; }
     background-color: #FFFFFF;
     border-radius: 20px;
 }
-.white-box h2{
+.white_box h2{
     margin-top: 35px;
     margin-left: 35px;
     margin-bottom: 35px;
@@ -39,7 +39,7 @@ a{ text-decoration: none; }
     font-size: 24px;
     color: #111;
 }
-.white-box .checking-box-style{
+.white_box .checking_box_style{
     border: none;
     background-color: #0B98FF;
     color: #FFFFFF;
@@ -47,47 +47,47 @@ a{ text-decoration: none; }
     font-weight: bold;
     margin-left: 5px;
 }
-.input-box{
+.input_box{
     margin: 0 32px;
 }
-.input-box label{
+.input_box label{
     display: block;
     margin-bottom: 4px;
     font-weight: bold;
     font-size: 14px;
     color: #111;
 }
-.input-box input{
+.input_box input{
     border:none;
     background: #F7F7F7;
     border-radius: 10px;
 }
 
 /* 회원가입 */
-#join .input-box input{
+#join .input_box input{
     width: 379.49px;
     height: 43.92px;
 }
-#join .input-box .userid-input-box{
+#join .input_box .user_id_input_box{
     width: 278.02px;
 }
-#join .input-box #checking-userid{
+#join .input_box #checking_user_id{
     width: 96px;
 }
-#join .input-box .phone_number-input-box{
+#join .input_box .phone_number_input_box{
     width: 243px;
 }
-#join .input-box #checking-phone_number{
+#join .input_box #checking_phone_number{
     width: 131px;
 }
-#join .submit-box #checking-join-submit{
+#join .submit_box #checking_join_submit{
     width: 88.27px;
     height: 43.92px;
     border-radius: 10px;
     margin-left: 180px;   
     margin-top: 25px;
 }
-#join .input-box .warning-text{
+#join .input_box .warning_text{
     width: 379.49px;
     font-size: 12px;
     color: #aaa;
@@ -95,16 +95,16 @@ a{ text-decoration: none; }
     margin-bottom: 25px; 
     padding: 0; 
 }
-#join .input-box #nickname, #phone_number{
+#join .input_box #nickname, #phone_number{
     margin-bottom: 15px;
 }
-#join .input-box #password{
+#join .input_box #password{
     margin-bottom: 9px;
 }
-#join .input-box #email{
+#join .input_box #email{
     width: 175px;
 }
-#join .input-box select{
+#join .input_box select{
     width: 183px;
     height: 43.92px;
     border:none;
@@ -125,65 +125,86 @@ input::placeholder{
     height: 50px;
     border-radius: 10px;
 }
-#login .userid-input-box{
+#login .user_id_input_box{
     margin-bottom: 38px;
 }
-#login .submit-box #checking-login-submit{
+#login .submit_box #checking_login_submit{
     margin: 0 32px;
     margin-top: 57px;
     margin-bottom: 15px;
 }
-#login .search-button{
+#login .search_button{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 57px;
 }
-#login .search-button span{
+#login .search_button span{
     color: #828282;
     font-weight: bold;
     font-size: 16px;
     margin: 0 10px;
 }
-#login .search-button a{
+#login .search_button a{
     color: #828282;
     font-weight: bold;
     font-size: 14px;
 }
-#login .sns-button{
+#login .sns_button{
     margin: 0 35px;
 }
-#login .sns-login-button{
+#login .sns_login_button{
     width: 382px;
     height: 50px;
     border-radius: 10px;
     margin-bottom: 15px;
     overflow: hidden; /* 자식 요소가 넘치는 경우 숨기기 */
 }
-#login .sns-login-button #google-login-box{
+#login .sns_login_button #google_login_box{
     background-color: #F7F7F7;
 }
-#login .sns-login-button #kakao-login-box{
+#login .sns_login_button #kakao_login_box{
     background-color: #FFEB3B;
 }
-#login .sns-login-button #naver-login-box{
+#login .sns_login_button #naver_login_box{
     background-color: #00C73C;
 }
-#login .sns-login-button .items{
+#login .sns_login_button .items{
     display: flex;
     align-items: center; /* 수직 중앙 정렬 */
 }
-#login .sns-login-button .items img{
+#login .sns_login_button .items img{
     width: 27px;
     height: 27px;
     margin: 11px;
 }
-#login .sns-login-button .items span{
+#login .sns_login_button .items span{
     flex: 1;
     display: flex;
     justify-content: center;
     font-size: 14px;
     font-weight: bold;
     color: #474747;
+}
+/* 여기까지 로그인페이지 */
+
+/* 마이페이지 - 내 계정 */
+#my_account .bluebar{
+    width: 1200px;
+    border: 1px solid rgb(0, 107, 223);
+}
+
+#my_account .account_top{
+    margin-top: 29px;
+    margin-bottom: 23px;
+}
+#my_account .account_content{
+
+}
+
+
+
+div,footer{
+    outline: 1px solid black;
 }
 
