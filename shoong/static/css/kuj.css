@@ -95,7 +95,7 @@ a{ text-decoration: none; }
     margin-bottom: 25px; 
     padding: 0; 
 }
-#join .input_box #nickname, #phone_number{
+#join .input_box .nickname_margin, .phone_number_input_box{
     margin-bottom: 15px;
 }
 #join .input_box #password{
@@ -186,25 +186,185 @@ input::placeholder{
     font-weight: bold;
     color: #474747;
 }
-/* 여기까지 로그인페이지 */
 
 /* 마이페이지 - 내 계정 */
 #my_account .bluebar{
     width: 1200px;
     border: 1px solid rgb(0, 107, 223);
 }
-
 #my_account .account_top{
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
     margin-top: 29px;
     margin-bottom: 23px;
 }
+#my_account .account_top .my_account_title{
+    font-weight: bold;
+    font-size: 30px;
+    margin: 0;
+}
+#my_account .account_top .my_account_sub_title{
+    font-size: 20px;
+}
 #my_account .account_content{
+    display: flex;
+}
+#my_account .account_content .account_info, .point_mgmt{
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 30px 50px;
+    width: 585px;
+    height: 177px;
+    position: relative;
+}
+#my_account .account_content .account_info{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 30px;
+}
+#my_account .account_content .account_info span{
+    font-size: 18px;
+}
+#my_account .account_content .account_info .account_item{
+    margin-bottom: 12px;
+}
+#my_account .account_content .account_info .account_item .account_label{
+    display: inline-block;
+    font-weight: bold;
+    width: 80px;
+}
+#my_account .account_content .point_mgmt{
+    display: flex;
+    justify-content: space-between;
+}
+#my_account .account_content .point_mgmt .point_mgmt_title{
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+#my_account .account_content .point_mgmt .point_score{
+    font-weight: bold;
+    font-size: 50px;
+    color: #006BDF;
+}
+#my_account .account_content .account_edit_btn, .point_mgmt_btn{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #006BDF;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #006BDF;
+    width: 132px;
+    height: 40px;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
 
+/* 마이페이지 - 내 계정 - 회원정보 수정 */
+#my_account .account_edit_content{
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    width: 1200px;
+    height: 273px;
+    display: inline-flex;
+    gap: 10px;
+    padding: 34px 0;
+    position: relative;
+ }
+#my_account .account_edit_content .account_profile_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 340px;
+}
+#my_account .account_edit_content .account_profile_box .profile_image{
+    position: relative;
+    width: 139px;
+    height: 139px;
+}
+#my_account .account_edit_content .account_profile_box .profile_image .profile_edit_icon{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 34px;
+    height: 34px;
+}
+#my_account .account_edit_content .account_edit_info_box1{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 520px;
+    padding: 0 50px;
+}
+#my_account .account_edit_content .account_edit_info_box1 .account_edit_item{
+    display: flex;
+    align-items: center;
+    margin-bottom: 3px;
+    height: 40px;
+}
+#my_account .account_edit_content .account_edit_info_box1 .account_edit_item .account_edit_label{
+    display: inline-block;
+    width: 80px;
+    font-weight: bold;
+    font-size: 18px;
+}
+#my_account .account_edit_content .account_edit_info_box1 .account_edit_item input{
+    border: 1px solid #eee;
+    border-radius: 10px;
+    width: 373px;
+    height: 37.46px;
+    padding: 0 5px;
+}
+#my_account .account_edit_content .account_finish_btn{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #006BDF;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #006BDF;
+    width: 132px;
+    height: 40px;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+#my_account .leave_box{
+    margin: 5px;
+}
+
+/* 마이페이지 - 내 일정 - 좋아요 계획 목록 */
+#my_schedule .bluebar{
+    width: 1200px;
+    border: 1px solid rgb(0, 107, 223);
+}
+#my_schedule .account_top{
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    margin-top: 29px;
+    margin-bottom: 23px;
+}
+#my_schedule .account_top .my_account_title{
+    font-weight: bold;
+    font-size: 30px;
+    margin: 0;
+}
+#my_schedule .account_top .my_account_sub_title{
+    font-size: 20px;
+}
+#my_schedule .schedule_content{
+    
 }
 
 
 
+/* 마이페이지 - 내 일정 - 좋아요 후기 목록 */
+/* 라인잡기 */
 div,footer{
-    outline: 1px solid black;
+    /* outline: 1px solid black; */
 }
-

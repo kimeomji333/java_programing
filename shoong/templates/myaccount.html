@@ -40,31 +40,48 @@
             <div id="left_menu"></div>
             <!-- 우측 컨텐츠 -->
             <div class="content">
- 
                 <div id="my_account">
                     <div class="bluebar"></div>
                     <div class="account_top">
                         <h2 class=" my_account_title">내 계정</h2>
                         <div class="my_account_sub_title"></div>
                     </div>
-
                     <div class="account_content">
                         <div class="account_info">
-                            <p>아이디</p>
-                            <p>닉네임</p>
-                            <p>이메일</p>
-                            <p>전화번호</p>
-                            <!-- 수정버튼 누르면 보여질 페이지 경로 어떻게..? -->
-                            <a href="/myaccount_edit.html" class="account_info_edit_btn">회원정보 수정</a>
+                            <div class="account_info_box1">
+                                <div class="account_item">
+                                    <span class="account_label">아이디</span>
+                                    <span id="user_id">user1</span>
+                                </div>
+                                <div class="account_item">
+                                    <span class="account_label">닉네임</span>
+                                    <span id="nickname">nickname</span>
+                                </div>
+                                <div class="account_item">
+                                    <span class="account_label">이메일</span>
+                                    <span id="email">email</span>
+                                </div>
+                                <div class="account_item">
+                                    <span class="account_label">전화번호</span>
+                                    <span id="phone_number">010-0000-0000</span> 
+                                </div>
+                            </div>
+                            <div class="account_info_box2">
+                                <a href="#" class="account_edit_btn">회원정보 수정</a>
+                            </div>
                         </div>
+
                         <div class="point_mgmt">
-                            <h3>총 보유 포인트</h3>
-                            <div class="point_score">P</div>
-                            <a href="/myaccount_point.html" class="point_mgmt_btn">포인트 관리</a>
+                            <div class="point_mgmt_box1">
+                                <h3 class="point_mgmt_title">총 보유 포인트</h3>
+                                <div class="point_score">P</div>
+                            </div>
+                            <div class="point_mgmt_box2">
+                                <a href="#" class="point_mgmt_btn">포인트 관리</a>
+                            </div>
                         </div>
                     </div>
-                </div>  
-
+                </div> 
             </div>
         </div>
     </div>
