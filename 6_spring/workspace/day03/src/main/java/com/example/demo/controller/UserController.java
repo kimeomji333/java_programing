@@ -40,7 +40,7 @@ public class UserController {
 		String sql = "insert into test_user values(?,?,?)";
 		
 		PreparedStatement ps = conn.prepareStatement(sql);
-		ps.setString(1,  dto.getUserid());
+		ps.setString(1, dto.getUserid());
 		ps.setString(2, dto.getUserpw());
 		ps.setString(3, dto.getUsername());
 		

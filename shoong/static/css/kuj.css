@@ -357,14 +357,23 @@ input::placeholder{
 #my_schedule .account_top .my_account_sub_title{
     font-size: 20px;
 }
-#my_schedule .schedule_content{
-    
-}
+#my_schedule .account_top .array_box{}
+#my_schedule .schedule_content{}
+#my_schedule .schedule_content .schedule_content_item{}
+#my_schedule .schedule_content .schedule_content_item .item1{}
+#my_schedule .schedule_content .schedule_content_item .item2{}
+#my_schedule .schedule_content .schedule_content_item .item3{}
+
+#my_schedule .schedule_content .schedule_content_item .thin_blue_bar{}
+#my_schedule .schedule_content .schedule_content_item .item4{}
+#my_schedule .schedule_content .schedule_content_item .thin_gray_bar{}
+#my_schedule .schedule_content .schedule_content_item .item5{}
+
 
 
 
 /* 마이페이지 - 내 일정 - 좋아요 후기 목록 */
 /* 라인잡기 */
 div,footer{
-    /* outline: 1px solid black; */
+    outline: 1px solid black;
 }
