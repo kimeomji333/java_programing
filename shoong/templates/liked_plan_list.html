@@ -54,19 +54,20 @@
                     
                     <!-- 일정 항목들을 담을 곳 -->
                     <div class="schedule_content" id="schedule_list">
+                        <!-- 하얀박스 -->
                         <div class="schedule_content_item">
                             <!-- 나라이름, 하트 -->
                             <div class="item1">
-                                <div class="country_name">일본</div>
+                                <div class="country_name">나라이름</div>
                                 <div class="like_box">
-                                    <img src="../static/images/like_icon.png" alt="">
+                                    <img src="../static/images/like_icon.png" alt="하트" class="like_icon" onclick="remove_item(this)">
                                 </div>
                             </div>
 
                             <!-- 도시이름, 3박4일 -->
                             <div class="item2">
-                                <div class="city_name">오사카 외 1</div>
-                                <div class="nights_and_days">3박4일</div>
+                                <div class="city_name">도시이름 외 1</div>
+                                <div class="nights_and_days">2박3일</div>
                             </div>
 
                             <!-- 일정기간, 아이디 -->
@@ -81,8 +82,10 @@
                             <!-- 인원수, 0명-->
                             <div class="item4">
                                 <div class="people_num">인원 수</div>
-                                <div class="people_count">2</div>
-                                <div class="myeong">명</div>
+                                <div class="people_count_myeong">
+                                    <div class="people_count">2</div>
+                                    <div class="myeong">명</div>
+                                </div>
                             </div>
 
                             <!-- 회색바-->
@@ -91,8 +94,10 @@
                             <!-- 방문장소, 0개 -->
                             <div class="item5">
                                 <div class="place_name">방문장소</div>
-                                <div class="place_count">15</div>
-                                <div class="gae">개</div>
+                                <div class="place_count_gae">
+                                    <div class="place_count">15</div>
+                                    <div class="gae">개</div>
+                                </div>
                             </div>
 
                         </div>

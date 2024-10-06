@@ -344,6 +344,7 @@ input::placeholder{
 }
 #my_schedule .account_top{
     display: flex;
+    position: relative;
     align-items: flex-end;
     gap: 10px;
     margin-top: 29px;
@@ -357,17 +358,112 @@ input::placeholder{
 #my_schedule .account_top .my_account_sub_title{
     font-size: 20px;
 }
-#my_schedule .account_top .array_box{}
-#my_schedule .schedule_content{}
-#my_schedule .schedule_content .schedule_content_item{}
-#my_schedule .schedule_content .schedule_content_item .item1{}
-#my_schedule .schedule_content .schedule_content_item .item2{}
-#my_schedule .schedule_content .schedule_content_item .item3{}
+#my_schedule .account_top .array_box{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
 
-#my_schedule .schedule_content .schedule_content_item .thin_blue_bar{}
-#my_schedule .schedule_content .schedule_content_item .item4{}
-#my_schedule .schedule_content .schedule_content_item .thin_gray_bar{}
-#my_schedule .schedule_content .schedule_content_item .item5{}
+#my_schedule .schedule_content{
+    position: relative;
+    background-color: #DBECFF;
+    border-radius: 15px;
+    width: 1200px;
+    padding: 20px;
+    min-height: 100vh;
+}
+#my_schedule .schedule_content .schedule_content_item{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    width: 370px;
+    height: 300px;
+    padding: 30px;
+}
+#my_schedule .schedule_content .schedule_content_item .item1, .item2, .item3, .item4, .item5{
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+#my_schedule .schedule_content .schedule_content_item .item1{
+    margin-bottom: 14px;
+}
+#my_schedule .schedule_content .schedule_content_item .item1 .country_name{
+    font-size: 15px;
+}
+#my_schedule .schedule_content .schedule_content_item .item1 .like_box{
+    width: 47.19px;
+    height: 40.87px;
+}
+#my_schedule .schedule_content .schedule_content_item .item2{
+    margin-bottom: 26px;
+}
+#my_schedule .schedule_content .schedule_content_item .item2 .city_name{
+    font-size: 30px;
+    font-weight: bold;
+}
+#my_schedule .schedule_content .schedule_content_item .item2 .nights_and_days{
+    font-size: 20px;
+    font-weight: bold;
+    color: #306AA8;
+}
+#my_schedule .schedule_content .schedule_content_item .item3{
+    margin-bottom: 12px;
+}
+#my_schedule .schedule_content .schedule_content_item .item3 .travel_period{
+    font-size: 15px;
+    color: #888;
+}
+#my_schedule .schedule_content .schedule_content_item .item3 .author{
+    font-size: 15px;
+    color: #888;
+}
+
+#my_schedule .schedule_content .schedule_content_item .thin_blue_bar{
+    border: 1px solid #006BDF;
+    margin-bottom: 15px;
+}
+#my_schedule .schedule_content .schedule_content_item .item4{
+    margin-bottom: 13px;
+}
+#my_schedule .schedule_content .schedule_content_item .item4 .people_num{
+    font-size: 15px;
+}
+#my_schedule .schedule_content .schedule_content_item .item4 .people_count_myeong{
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+#my_schedule .schedule_content .schedule_content_item .item4 .people_count_myeong .people_count{
+    font-size: 20px;
+    font-weight: bold;
+}
+#my_schedule .schedule_content .schedule_content_item .item4 .myeong{
+    font-size: 15px;
+}
+#my_schedule .schedule_content .schedule_content_item .thin_gray_bar{
+    border: 1px solid #eee;
+    margin-bottom: 13px;
+}
+#my_schedule .schedule_content .schedule_content_item .item5{
+}
+#my_schedule .schedule_content .schedule_content_item .item5 .place_name{
+    font-size: 15px;
+}
+#my_schedule .schedule_content .schedule_content_item .item5 .place_count_gae{
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+}
+
+#my_schedule .schedule_content .schedule_content_item .item5 .place_count_gae .place_count{
+    font-size: 20px;
+    font-weight: bold;
+}
+#my_schedule .schedule_content .schedule_content_item .item5 .place_count_gae .gae{
+    font-size: 15px;
+}
 
 
 
@@ -375,5 +471,5 @@ input::placeholder{
 /* 마이페이지 - 내 일정 - 좋아요 후기 목록 */
 /* 라인잡기 */
 div,footer{
-    outline: 1px solid black;
+    /* outline: 1px solid black; */
 }
