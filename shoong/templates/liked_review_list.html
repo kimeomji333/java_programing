@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+          $("#header").load("./layout/header.html");
+          $("#left_menu").load("./layout/left_menu.html");
+          $("#footer").load("./layout/footer.html");
+        });
+    </script>
+
+    <title>Shoong_sub</title>
+</head>
+<body>
+<div id="wrap">
+    <!-- 헤더 불러오기 -->
+    <div id="header">
+        <!-- <th:block th:replace="~{layout/header::header}"></th:block> -->
+    </div>
+
+    <!-- 서브 상단 -->
+    <div id="sub_top">
+        <p>
+            <a href="#">홈</a>
+            > 
+            <a href="#">마이페이지</a>
+            > 
+            <a href="#">내 일정</a>
+        </p>
+        <div>관심 후기 목록</div>
+    </div>
+
+    <div class="container">
+        <div class="inner flex">
+            <!-- 좌측 메뉴 불러오기 -->
+            <div id="left_menu"></div>
+            <!-- 우측 컨텐츠 -->
+            <div class="content">
+
+                <div id="my_schedule">
+                    <div class="bluebar"></div>
+                    <div class="account_top">
+                        <h2 class=" my_account_title">내 일정</h2>
+                        <div class="my_account_sub_title">관심 후기 목록</div>
+                    </div>
+                    
+                    <!-- 일정 항목들을 담을 곳 -->
+                    <div class="schedule_container" id="schedule_list">
+                        <!-- 사진박스 -->
+                        <div class="review_content">
+                            <div class="image_container">
+                                <img src="../static/images/review_background_img.png" alt="배경이미지" class="background_image">
+
+                                <!-- 날짜, 조회수 -->
+                                <div class="date_and_views">
+                                   <div class="date">2024.04.04</div>
+                                   <div class="views">조회수</div>
+                                   <div class="views_count">1444</div>
+                                </div>
+                                <!-- 하트 -->
+                                <div class="like_box">
+                                    <img src="../static/images/like_icon.png" alt="하트" class="like_icon">
+                                </div>
+                                <!-- 제목 -->
+                                <div class="title_text">인도에서 죽을뻔한 나의 여정</div>
+                                <!-- 작성자 이름 -->
+                                 <div class="author_name_nim">
+                                     <div class="author_name">한상혁</div>
+                                     <div class="nim">님</div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 푸터 불러오기 -->
+    <div id="footer">
+        <!-- <th:block th:replace="~{layout/footer::footer}"></th:block> -->
+    </div>
+</div>
+</body>
