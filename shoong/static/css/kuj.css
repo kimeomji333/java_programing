@@ -365,11 +365,14 @@ input::placeholder{
 }
 #my_schedule .schedule_content{
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
     background-color: #DBECFF;
     border-radius: 15px;
     width: 1200px;
     padding: 20px;
-    min-height: 100vh;
 }
 #my_schedule .schedule_content .schedule_content_item{
     background-color: #fff;
@@ -508,7 +511,6 @@ input::placeholder{
     top: 30px;
     right: 30px;
 } 
-
 #my_schedule .schedule_container .review_content .title_text{
     position: absolute;
     bottom: 30px;
@@ -533,5 +535,5 @@ input::placeholder{
 
 /* 라인잡기 */
 div,footer{
-    outline: 1px solid black;
+    /* outline: 1px solid black; */
 }
