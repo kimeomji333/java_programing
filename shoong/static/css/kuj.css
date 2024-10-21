@@ -80,6 +80,22 @@ a{ text-decoration: none; }
 #join .input_box #checking_phone_number{
     width: 131px;
 }
+#join .input_box #checking_phone_number_auth{
+    width: 131px;
+}
+#join .input_box .phone_auth_box{
+	position: relative;
+}
+#join .input_box .phone_auth_box .phone_number_auth{}
+#join .input_box .phone_auth_box .countdown_warning_text{
+	position: absolute;
+	top: 13.5px;
+	right: 160px;
+	color: red;
+	font-size: 12px;
+	font-weight: bold;
+	z-index: 1000;
+}
 #join .submit_box #checking_join_submit{
     width: 88.27px;
     height: 43.92px;
@@ -210,14 +226,6 @@ input::placeholder{
 #my_account .account_content{
     display: flex;
 }
-#my_account .account_content .account_info, .point_mgmt{
-    border: 1px solid #ddd;
-    border-radius: 15px;
-    padding: 30px 50px;
-    width: 585px;
-    height: 177px;
-    position: relative;
-}
 #my_account .account_content .account_info{
     display: flex;
     justify-content: space-between;
@@ -234,6 +242,14 @@ input::placeholder{
     font-weight: bold;
     width: 80px;
 }
+#my_account .account_content .account_info, .point_mgmt{
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 30px 50px;
+    width: 585px;
+    height: 177px;
+    position: relative;
+}
 #my_account .account_content .point_mgmt{
     display: flex;
     justify-content: space-between;
@@ -243,7 +259,11 @@ input::placeholder{
     font-size: 18px;
     margin-bottom: 40px;
 }
-#my_account .account_content .point_mgmt .point_score{
+#my_account .account_content .point_mgmt .point_box{
+	display:flex;
+	gap: 10px;
+}
+#my_account .account_content .point_mgmt .point_box .point_score, .point_lan{
     font-weight: bold;
     font-size: 50px;
     color: #006BDF;
@@ -285,12 +305,20 @@ input::placeholder{
     width: 139px;
     height: 139px;
 }
+#my_account .account_edit_content .account_profile_box .profile_image .image{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	overflow: hidden; /* 이미지가 부모 요소를 넘지 않도록 함 */
+    border-radius: 50%;
+}
 #my_account .account_edit_content .account_profile_box .profile_image .profile_edit_icon{
     position: absolute;
     bottom: 0;
     right: 0;
     width: 34px;
     height: 34px;
+	z-index: 10;
 }
 #my_account .account_edit_content .account_edit_info_box1{
     display: flex;
@@ -323,19 +351,70 @@ input::placeholder{
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #006BDF;
+    border: none;
     border-radius: 10px;
     font-size: 15px;
-    color: #006BDF;
     width: 132px;
     height: 40px;
     position: absolute;
     bottom: 30px;
     right: 30px;
 }
+#my_account .account_edit_content .account_finish_btn:hover{
+	background-color: #006BDF;
+	color: white;
+}
+
 #my_account .leave_box{
     margin: 5px;
+	cursor: pointer;
 }
+#my_account .leave_box:hover{
+	color: #006BDF;
+	text-decoration: underline;
+}
+#my_account .popup_overlay{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 999;
+}
+#my_account .popup{
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: calc(50% - 15px); /* 스크롤바 너비를 고려한 조정 */
+    transform: translate(-50%, -50%);
+	text-align: center;
+	width: 300px;
+	padding: 30px 20px;
+	background-color: white;
+	border-radius: 8px;
+	z-index: 1000;
+}
+#my_account .popup p{
+	margin-bottom: 20px;	
+}
+#my_account .popup button{
+	margin: 0 10px;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+	border-radius: 7px;
+}
+#my_account .popup .btn_yes{
+	background-color: #0B98FF;
+	color: white;
+}
+#my_account .popup .btn_no{
+	background-color: #ccc;
+}
+
+
 
 /* 마이페이지 - 내 일정 - 관심 계획 목록 */
 #my_schedule .bluebar{
@@ -368,7 +447,7 @@ input::placeholder{
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: space-between;
+    justify-content: flex-start;
     background-color: #DBECFF;
     border-radius: 15px;
     width: 1200px;
@@ -379,7 +458,7 @@ input::placeholder{
     border: 1px solid #ddd;
     border-radius: 15px;
     width: 370px;
-    height: 300px;
+    height: 320px;
     padding: 30px;
 }
 #my_schedule .schedule_content .schedule_content_item .item1, .item2, .item3, .item4, .item5{
@@ -398,12 +477,24 @@ input::placeholder{
     width: 47.19px;
     height: 40.87px;
 }
+#my_schedule .schedule_content .schedule_content_item .item1 .like_box .like_icon{
+	cursor: pointer;
+	transition: transform 0.1s sease;
+}	
+#my_schedule .schedule_content .schedule_content_item .item1 .like_box .like_icon:hover{
+	transform: scale(1.2);
+}
 #my_schedule .schedule_content .schedule_content_item .item2{
     margin-bottom: 26px;
 }
-#my_schedule .schedule_content .schedule_content_item .item2 .city_name{
+#my_schedule .schedule_content .schedule_content_item .item2 .city_name_oe{
+	display: flex;
+	gap: 8px;
     font-size: 30px;
     font-weight: bold;
+}
+#my_schedule .schedule_content .schedule_content_item .item2 .city_name_oe .oe_city_gae{
+	display: flex;
 }
 #my_schedule .schedule_content .schedule_content_item .item2 .nights_and_days{
     font-size: 20px;
@@ -417,9 +508,12 @@ input::placeholder{
     font-size: 15px;
     color: #888;
 }
-#my_schedule .schedule_content .schedule_content_item .item3 .author{
+#my_schedule .schedule_content .schedule_content_item .item3 .author_nim{
     font-size: 15px;
     color: #888;
+	display: flex;
+    align-items: baseline;
+    gap: 5px;
 }
 #my_schedule .schedule_content .schedule_content_item .thin_blue_bar{
     border: 1px solid #006BDF;
@@ -477,13 +571,20 @@ input::placeholder{
     position: relative;
     width: 532px;
     height: 372px;
-    background-image: url("../../static/images/review_background_img.png");
+    background-image: url("/images/review_background_img.png");
     background-size: cover;
     background-color: rgba(255, 255, 255, 0.4);
     border-radius: 15px;
     overflow: hidden;
     z-index: 1;
     gap: 30px;
+}
+#my_schedule .schedule_container .review_content .like_box .like_icon{
+	cursor: pointer;
+	transition: transform 0.1s sease;
+}	
+#my_schedule .schedule_container .review_content .like_box .like_icon:hover{
+	transform: scale(1.2);
 } 
 #my_schedule .schedule_container .review_content .date_and_views{
     position: absolute;
@@ -531,6 +632,42 @@ input::placeholder{
 } 
 #my_schedule .schedule_container .review_content .author_name_nim .author_name{} 
 #my_schedule .schedule_container .review_content .author_name_nim .nim{} 
+
+/* 마이페이지 - 내 계정 - 포인트 관리 */
+#my_point .point_item{}
+#my_point .point_item .point_table{
+	width: 100%;
+	border-collapse: separate;
+	border: 1px solid #ddd;
+	border-collapse: collapse;
+	border-radius: 10px;
+	border-radius: 10px;
+  	border-style: hidden;
+  	box-shadow: 0 0 0 1px #ddd;
+}
+#my_point .point_item .point_table th, td{ 
+	border: 1px solid #ddd;
+	padding: 10px;
+	text-align: center;
+	font-size: 14px;
+}
+#my_point .point_item .point_table tr:first-child th:first-child {
+	border-top-left-radius: 10px;
+}
+#my_point .point_item .point_table tr:first-child th:last-child {
+border-top-right-radius: 10px;
+}
+#my_point .point_item .point_table tr:last-child td:first-child {
+border-bottom-left-radius: 10px;
+}
+#my_point .point_item .point_table tr:last-child td:last-child {
+border-bottom-right-radius: 10px;
+}
+#my_point .point_item .point_table .point_positive{
+	color: #006BDF;
+}
+#my_point .point_item .point_table .point_negative{
+}
 
 
 /* 라인잡기 */
