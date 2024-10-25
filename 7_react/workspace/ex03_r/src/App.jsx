@@ -20,14 +20,15 @@ const App = () => {
                     </ul>
                 </nav>
                 <Routes>
-                    <Route path='/' element={<Home></Home>}></Route>
-                    <Route path='/create' element={<Create></Create>}></Route>
+                    <Route path='/' element={<Home movies={movies} setMovies={setMovies}></Home>}></Route>
+                    <Route path='/create' element={<Create movies={movies} setMovies={setMovies}></Create>}></Route>
                 </Routes>
             </div>
         </Route>
     )
 }
-const Home = () => {
+const Home = ({movies,setMovies}) => {
+
     return (
         <div>
             <h1>Movie</h1>
@@ -56,7 +57,18 @@ const Home = () => {
         </div>
     )
 }
-const Create = () => {
+const Create = ({movies,setMovies}) => {
+    const [inputs,setInputs] = useState({id:'',title:'',genre:'',release_date:''});
+
+    const write = () => {
+        const isDuplicate = movies.some((movie) => movie.id == inputs.id)
+        if(isDuplicate){
+            alert("이미 존재하는 ID입니다.");
+            return;
+        }
+        setMovies([...movies,inputs]);
+        setInputs({id:'',title:'',genre:'',release_date:''});
+    }
 
     return (
         <div>
