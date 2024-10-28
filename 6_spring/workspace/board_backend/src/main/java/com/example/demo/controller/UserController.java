@@ -29,39 +29,22 @@ public class UserController {
 	@Autowired
 	private UserService service;
 	
-	@GetMapping("checkId")
-	public ResponseEntity<String> checkId(String userid) {
-		if(service.checkId(userid)) {
-//			return new ResponseEntity<String>("O", HttpStatusCode.valueOf(200));
+//	회원가입
+	@PostMapping("join")
+	public ResponseEntity<String> join(@RequestBody UserDTO user, HttpServletResponse resp) {
+		if(service.join(user)) {
+			Cookie cookie = new Cookie("joinid", user.getUserid());
+			cookie.setPath("/");
+			cookie.setMaxAge(60);
+			resp.addCookie(cookie);
 			return new ResponseEntity<String>("O", HttpStatus.OK);
 		}
 		else {
-			return new ResponseEntity<String>("X", HttpStatus.OK);
+			return new ResponseEntity<String>("ERROR: ???", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
-	@GetMapping("logout")
-	public ResponseEntity<String> logout(HttpServletRequest req) {
-		req.getSession().invalidate();
-		return new ResponseEntity<String>("O", HttpStatus.OK);
-	}
-	
-	@PostMapping("join")
-	public ResponseEntity<String> join(@RequestBody UserDTO user, HttpServletResponse resp) {
-//		if(service.join(user)) {
-//			Cookie cookie = new Cookie("joinid", user.getUserid());
-//			cookie.setPath("/");
-//			cookie.setMaxAge(60);
-//			resp.addCookie(cookie);
-//			return new ResponseEntity<String>("O", HttpStatus.OK);
-//		}
-//		else {
-//			return new ResponseEntity<String>("ERROR: ???", HttpStatus.INTERNAL_SERVER_ERROR);
-//		}
-		System.out.println(user);
-		return null;
-	}
-	
+//	로그인
 	@GetMapping("login")
 	public ResponseEntity<String> login(String userid,String userpw,HttpServletRequest req) {
 		HttpSession session = req.getSession();
@@ -69,9 +52,12 @@ public class UserController {
 			session.setAttribute("loginUser", userid);
 			return new ResponseEntity<String>("O", HttpStatus.OK);
 		}
+		System.out.println(userid);
+		System.out.println(userpw);
 		return new ResponseEntity<String>("X", HttpStatus.OK);
 	}
 	
+//	회원가입 확인
 	@GetMapping("joinCheck")
 	public ResponseEntity<String> joinCheck(HttpServletRequest req){
 		if(req.getHeader("Cookie") != null) {
@@ -85,6 +71,7 @@ public class UserController {
 		return new ResponseEntity<String>("", HttpStatus.OK);
 	}
 	
+//	로그인 확인
 	@GetMapping("loginCheck")
 	public ResponseEntity<String> loginCheck(HttpServletRequest req){
 		Object temp = req.getSession().getAttribute("loginUser");
@@ -92,6 +79,25 @@ public class UserController {
 			return new ResponseEntity<String>((String)temp, HttpStatus.OK);
 		}
 		return new ResponseEntity<String>("", HttpStatus.OK);
+	}
+	
+//	아이디 중복 확인
+	@GetMapping("checkId")
+	public ResponseEntity<String> checkId(String userid) {
+		if(service.checkId(userid)) {
+			//return new ResponseEntity<String>("O", HttpStatusCode.valueOf(200));
+			return new ResponseEntity<String>("O", HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<String>("X", HttpStatus.OK);
+		}
+	}
+	
+//	로그아웃
+	@GetMapping("logout")
+	public ResponseEntity<String> logout(HttpServletRequest req) {
+		req.getSession().invalidate();
+		return new ResponseEntity<String>("O", HttpStatus.OK);
 	}
 }
 

@@ -2,14 +2,15 @@ package com.example.demo.domain;
 
 import lombok.Data;
 
+//페이징 정보(화면 하단 페이지 번호) 계산용 클래스
 @Data
 public class PageDTO {
-	private int startPage;
-	private int endPage;
-	private int realEnd;
-	private long total;
+	private int startPage;	//현재 page 그룹의 시작페이지 번호
+	private int endPage;	//현재 page 그룹의 끝페이지 번호
+	private int realEnd;	//실제 마지막 page 번호. endPage가 realEnd보다 클 수 없으므로 이를 통해 연산
+	private long total;		//전체 게시글 수
 	private boolean prev, next;
-	private Criteria cri;
+	private Criteria cri;	//현재 페이지 번호와 페이지당 게시글 수를 담고 있다. 
 	
 	public PageDTO(long total,Criteria cri) {
 		this.cri = cri;
@@ -28,10 +29,8 @@ public class PageDTO {
 		this.endPage = this.endPage > this.realEnd ? this.realEnd : this.endPage; 
 		
 		this.prev = this.startPage != 1;
-		this.next = this.endPage < this.realEnd;
-		
+		this.next = this.endPage < this.realEnd;	
 	}
-	
 }
 
 

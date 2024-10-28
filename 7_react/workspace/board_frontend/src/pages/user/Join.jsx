@@ -2,6 +2,7 @@ import Button from "../../components/Button";
 import DaumPostcode from "../../components/DaumPostCode";
 import { useNavigate } from "react-router-dom";
 import Hobby from "../../components/Hobby";
+import axios from 'axios';
 
 const Join = () => {
     const navigate = useNavigate();
@@ -188,22 +189,22 @@ const Join = () => {
         }
         console.log(user);
 
-        const xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = () => {
-            if(xhr.readyState == XMLHttpRequest.DONE){
-                if(xhr.status == 200){
-                    alert("회원가입 성공!");
-                    navigate("/");
-                }
-                else{
-                    console.log(xhr.responseText);
-                }
-            }
-        }
+        // const xhr = new XMLHttpRequest();
+        // xhr.onreadystatechange = () => {
+        //     if(xhr.readyState == XMLHttpRequest.DONE){
+        //         if(xhr.status == 200){
+        //             alert("회원가입 성공!");
+        //             navigate("/");
+        //         }
+        //         else{
+        //             console.log(xhr.responseText);
+        //         }
+        //     }
+        // }
 
-        xhr.open("POST","/api/user/join");
-        xhr.setRequestHeader("Content-Type","application/json; charset=utf-8")
-        xhr.send(JSON.stringify(user));
+        // xhr.open("POST","/api/user/join");
+        // xhr.setRequestHeader("Content-Type","application/json; charset=utf-8")
+        // xhr.send(JSON.stringify(user));
 
         // Content-Type을 application/x-www-form-urlencoded로 설정하는 방법
         //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -215,6 +216,16 @@ const Join = () => {
         // }
 
         // xhr.send(params.toString()); // URL 인코딩된 문자열 전송
+
+        axios.post('/api/user/join',user)
+        .then((resp)=>{
+            alert("회원가입 성공!");
+            navigate("/");
+        })
+        .catch((err)=>{
+            alert("회원가입 실패!");
+        })
+
     }
 
     return (

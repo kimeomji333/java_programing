@@ -5,6 +5,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
@@ -17,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.demo.domain.BoardDTO;
 import com.example.demo.domain.Criteria;
 import com.example.demo.domain.FileDTO;
+import com.example.demo.domain.PageDTO;
 import com.example.demo.mapper.BoardMapper;
 import com.example.demo.mapper.FileMapper;
 import com.example.demo.mapper.ReplyMapper;
@@ -35,8 +37,13 @@ public class BoardServiceImpl implements BoardService{
 	private FileMapper fmapper;
 	
 	@Override
-	public List<BoardDTO> getList(Criteria cri) {
+	public HashMap<String, Object> getList(Criteria cri) {
+		//실제 결과들을 담아줄 HashMap
+		HashMap<String, Object> result = new HashMap<>();
+		
 		List<BoardDTO> list = bmapper.getList(cri);
+		long total = bmapper.getTotal(cri);
+		
 		//현재 시간 정보
 		LocalDateTime now = LocalDateTime.now();
 		//시간 형태의 문자열을 해석하는 해석기
@@ -58,25 +65,25 @@ public class BoardServiceImpl implements BoardService{
 				board.setHot(true);
 			}
 		}
-		return list;
+		//여기까지 왔다면 리스트 페이지를 생성하기 위한 모든 데이터들의 준비가 끝났으므로, result에 전부 추가
+		result.put("list", list);
+		result.put("pageMaker", new PageDTO(total, cri));
+		
+		return result;
 	}
 
 	@Override
-	public long getTotal(Criteria cri) {
-		return bmapper.getTotal(cri);
-	}
-
-	@Override
-	public boolean regist(BoardDTO board, MultipartFile[] files) throws Exception{
+	public long regist(BoardDTO board, MultipartFile[] files) throws Exception{
 		if(bmapper.insertBoard(board) != 1) {
-			return false;
+			return -1;
 		}
+		
+		long boardnum = bmapper.getLastNum(board.getUserid());
 		if(files == null || files.length == 0) {
-			return true;
+			return boardnum;
 		}
 		else {
 			//방금 등록한 게시글 번호
-			long boardnum = bmapper.getLastNum(board.getUserid());
 			System.out.println("파일 개수 : "+files.length);
 			
 			for(int i=0;i<files.length-1;i++) {
@@ -109,38 +116,45 @@ public class BoardServiceImpl implements BoardService{
 				//실제 파일 업로드
 				file.transferTo(new File(path));
 			}
-			return true;
+			return boardnum;
 		}
 	}
 	
 	@Override
-	public BoardDTO getDetail(long boardnum) {
-		return bmapper.getBoardByBoardnum(boardnum);
-	}
-	
-	@Override
-	public long getLastNum(String userid) {
-		return bmapper.getLastNum(userid);
-	}
-	
-	@Override
-	public void increaseReadCount(long boardnum) {
+	public HashMap<String, Object> getDetail(long boardnum, String loginUser) {
+		HashMap<String, Object> result = new HashMap<>();
+		
 		BoardDTO board = bmapper.getBoardByBoardnum(boardnum);
-		//bmapper.updateReadCount(boardnum,board.getReadcount()+1) : 기존 게시글의 readcount 보다 1 증가시켜서 업데이트
-		//bmapper.updateReadCount(boardnum,board.getReadcount()-1) : 기존 게시글의 readcount 보다 1 감소시켜서 업데이트
-		//bmapper.updateReadCount(10,7) : 10번 게시글의 readcount를 7로 업데이트
-		bmapper.updateReadCount(boardnum,board.getReadcount()+1);
-	}
-
-	@Override
-	public boolean modify(BoardDTO board, MultipartFile[] files, String updateCnt) throws Exception {
-		System.out.println(files);
-		if(bmapper.updateBoard(board) != 1) {
-			return false;
+		List<FileDTO> files = fmapper.getFiles(boardnum);
+		
+		//내 게시글이 아니라면 조회수 증가 로직
+		if(board != null && !board.getUserid().equals(loginUser)) {
+			bmapper.updateReadCount(boardnum, board.getReadcount()+1);
+			//수정전 board 변수니깐 업데이트 해줌
+			board.setReadcount(board.getReadcount()+1);
 		}
+		
+		result.put("board", board);
+		result.put("files", files);
+		
+		return result;
+	}
+	
+	@Override
+	public long modify(BoardDTO board, MultipartFile[] files, String[] deleteFiles) throws Exception {
+		System.out.println(files);
+		long boardnum = board.getBoardnum();
+		//실패시 원래대로 돌아가기 위한 이전의 정보 검색
+		BoardDTO orgBoard = bmapper.getBoardByBoardnum(boardnum);
+		//DB의 데이터 수정 실패시
+		if(bmapper.updateBoard(board) != 1) {
+			return -1;
+		}
+		
+		//수정 성공시
 		List<FileDTO> orgFileList = fmapper.getFiles(board.getBoardnum());
 		if(orgFileList.size() == 0 && (files == null || files.length == 0)) {
-			return true;
+			return boardnum;
 		}
 		else {
 			if(files != null && files.length != 0) {
@@ -191,24 +205,28 @@ public class BoardServiceImpl implements BoardService{
 						//DB상에서도 삭제
 						fmapper.deleteFileBySystemname(systemname);
 					}
-					//board 원래대로 돌리기
+					//board 원래대로 돌리기(orgBoard 이용)
+					//따로 구현은 안함
+				}
+				//강제탈출이 아닌 정상 종료되었을 경우
+				else {
+					//지워져야 할 파일(기존에 있었던 파일들 중 수정된 파일)들의 이름 추출
+					for(String systemname : deleteFiles) {
+						File file = new File(saveFolder,systemname);
+						if(file.exists()) {
+							file.delete();
+						}
+						fmapper.deleteFileBySystemname(systemname);
+					}
+					return boardnum;
 				}
 			}
-			//지워져야 할 파일(기존에 있었던 파일들 중 수정된 파일)들의 이름 추출
-			String[] deleteNames = updateCnt.split("\\\\");
-			for(String systemname : deleteNames) {
-				File file = new File(saveFolder,systemname);
-				if(file.exists()) {
-					file.delete();
-				}
-				fmapper.deleteFileBySystemname(systemname);
-			}
-			return true;
 		}
+		return -1;
 	}
 	
 	@Override
-	public boolean remove(long boardnum) {
+	public long remove(long boardnum) {
 		if(bmapper.deleteBoard(boardnum) == 1) {
 			rmapper.deleteRepliesByBoardnum(boardnum);
 			List<FileDTO> files = fmapper.getFiles(boardnum);
@@ -224,14 +242,9 @@ public class BoardServiceImpl implements BoardService{
 					fmapper.deleteFileBySystemname(fdto.getSystemname());
 				}
 			}
-			return true;
+			return boardnum;
 		}
-		return false;
-	}
-	
-	@Override
-	public List<FileDTO> getFiles(long boardnum) {
-		return fmapper.getFiles(boardnum);
+		return -1;
 	}
 	
 }
