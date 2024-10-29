@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
@@ -14,11 +15,16 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.mapper.FileMapper;
+
 @Service
 public class FileServiceImpl implements FileService {
 	
 	@Value("${file.dir}")
 	private String saveFolder;
+	
+	@Autowired
+	private FileMapper fmapper;
 
 	@Override
 	public HashMap<String, Object> getTumbnailResource(String systemname) throws Exception {
@@ -37,10 +43,17 @@ public class FileServiceImpl implements FileService {
 	}
 
 	@Override
-	public Resource downloadFile(String systemname, String orgname) throws Exception {
+	public HashMap<String, Object> downloadFile(String systemname) throws Exception {
 		Path path = Paths.get(saveFolder+systemname);
 		Resource resource = new InputStreamResource(Files.newInputStream(path));
-		return resource;
+		
+		String orgname = fmapper.getFileBySystemname(systemname).getOrgname();
+		
+		HashMap<String, Object> result = new HashMap<>();
+		result.put("resource", resource);
+		result.put("orgname", orgname);
+
+		return result;
 	}
 
 }

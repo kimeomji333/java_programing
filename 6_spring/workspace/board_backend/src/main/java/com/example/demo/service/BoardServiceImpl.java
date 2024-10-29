@@ -86,7 +86,7 @@ public class BoardServiceImpl implements BoardService{
 			//방금 등록한 게시글 번호
 			System.out.println("파일 개수 : "+files.length);
 			
-			for(int i=0;i<files.length-1;i++) {
+			for(int i=0;i<files.length;i++) {
 				MultipartFile file = files[i];
 				
 				//apple.png

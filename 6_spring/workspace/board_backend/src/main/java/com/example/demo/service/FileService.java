@@ -6,5 +6,5 @@ import org.springframework.core.io.Resource;
 
 public interface FileService {
 	HashMap<String, Object> getTumbnailResource(String systemname) throws Exception;
-	Resource downloadFile(String systemname, String orgname) throws Exception;
+	HashMap<String, Object> downloadFile(String systemname) throws Exception;
 }

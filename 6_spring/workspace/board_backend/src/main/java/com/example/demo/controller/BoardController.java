@@ -36,7 +36,9 @@ public class BoardController {
 	
 //	글 작성
 	@PostMapping("write")
-	public ResponseEntity<Long> write(BoardDTO board, MultipartFile[] files) throws Exception{
+	public ResponseEntity<Long> write(BoardDTO board, MultipartFile[] files, HttpServletRequest req) throws Exception{
+		String userid = (String)req.getSession().getAttribute("loginUser");
+		board.setUserid(userid);
 		long boardnum = service.regist(board, files);
 		if(boardnum != -1) {
 			return new ResponseEntity<>(boardnum, HttpStatus.OK);
@@ -44,6 +46,9 @@ public class BoardController {
 		else {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+//		System.out.println(board);
+//		System.out.println(files);
+//		return null;
 	}
 	
 //	목록 조회

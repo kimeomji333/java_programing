@@ -71,7 +71,7 @@ const List = () => {
             for(const board of list){
                 elList.push(
                     // navigate에서 state이름으로 데이터를 넘겨주는 방식(렌더링이 일어나는 props랑은 다름)
-                    <div className="row" key={board.boardnum} onClick={()=>{ navigate(`/board/${board.boardnum}`, {state:pageMaker.cri}) }}> 
+                    <div className="row" key={board.boardnum} onClick={()=>{ navigate(`/board/${board.boardnum}`, {state:cri}) }}> 
                         <div>{board.boardnum}</div>
                         <div>
                             {board.hotBoard?<sup className="hot">Hot</sup>:""}
@@ -98,7 +98,7 @@ const List = () => {
             <>
                 <div id="wrap" className="list">
                     <Header></Header>
-                    <div className="tar w1000 board-cnt">글 개수 : 0</div>
+                    <div className="tar w1000 board-cnt">글 개수 : {pageMaker.total}</div>
                     <div className="list table">
                         <div className="thead tac">
                             <div className="row">
@@ -118,7 +118,9 @@ const List = () => {
                         <tbody>
                             <tr>
                                 <td>
-                                    <a className="write btn">글쓰기</a>
+                                    <a className="write btn" onClick={()=>{
+                                        navigate("/board/write", {state:cri})
+                                    }}>글쓰기</a>
                                 </td>
                             </tr>
                         </tbody>

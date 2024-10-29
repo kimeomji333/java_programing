@@ -11,18 +11,19 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.service.FileService;
 
-@RequestMapping("/file/*")
+@RequestMapping("/api/file/*")
 @Controller
 public class FileController {
 	@Autowired
 	private FileService service;
 	
-	@GetMapping("thumbnail")
-	public ResponseEntity<Resource> thumbnail(String systemname) throws Exception{
+	@GetMapping("thumbnail/{systemname}")
+	public ResponseEntity<Resource> thumbnail(@PathVariable("systemname") String systemname) throws Exception{
 		HashMap<String, Object> datas = service.getTumbnailResource(systemname);
 		String contentType = (String)datas.get("contentType");
 		Resource resource = (Resource)datas.get("resource");
@@ -31,9 +32,11 @@ public class FileController {
 		headers.add(HttpHeaders.CONTENT_TYPE, contentType);
 		return new ResponseEntity<Resource>(resource,headers,HttpStatus.OK);
 	}
-	@GetMapping("download")
-	public ResponseEntity<Resource> download(String systemname, String orgname) throws Exception{
-		Resource resource = service.downloadFile(systemname,orgname);
+	@GetMapping("download/{systemname}")
+	public ResponseEntity<Resource> download(@PathVariable("systemname") String systemname) throws Exception{
+		HashMap<String, Object> result = service.downloadFile(systemname);
+		Resource resource = (Resource)result.get("resource");
+		String orgname = (String)result.get("orgname");
 		HttpHeaders headers = new HttpHeaders();
 		String dwName = "";
 		dwName = URLEncoder.encode(orgname,"UTF-8").replaceAll("\\+", "%20");
