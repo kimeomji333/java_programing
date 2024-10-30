@@ -16,6 +16,13 @@ const Header = () => {
     }
 
     const goList = () => {
+        const cri = {
+            pagenum:1,
+            amount:10,
+            type:"a",
+            keyword:""
+            // starrow:
+        }
         navigate("/board/list", {})
     }
 

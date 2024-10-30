@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Header from "../../layout/Header";
 import { useLocation, useNavigate } from "react-router-dom";
 import Pagination from "../../components/Pagination";
+import Dropdown from "../../components/Dropdown";
 
 const List = () => {
     const navigate = useNavigate();
@@ -31,6 +32,21 @@ const List = () => {
         next:false,
         cri:null
     })
+
+    const [inputs, setInputs] = useState("");
+    const inputKeyword = (e) => {
+        setInputs(e.target.value);
+    }
+    const clickSearch = (e) => {
+        e.preventDefault();
+        const changedCri = {
+            ...cri, 
+            type:document.getElementById("type").value,
+            keyword:inputs,
+            pagenum:1
+        };
+        setCri(changedCri);
+    }
 
     useEffect(()=> {
         //login check 먼저 해야하는데, <- Header로 만들었으니, 굳이 쓸 필요는 없겠네
@@ -94,6 +110,13 @@ const List = () => {
                 </div>
             )
         }
+
+        const searchType = {"전체":"a", "제목":"T", "내용":"C", "작성자":"W", "제목 또는 내용":"TC", "제목 또는 작성자":"TW", "제목 또는 내용 또는 작성자":"TCW"}
+
+        const changeType = (value) => {
+            const changedCri = {...cri, type:value}
+            setCri(changedCri);
+        } 
         return (
             <>
                 <div id="wrap" className="list">
@@ -127,8 +150,9 @@ const List = () => {
                     </table>
                     <div className="search_area">
                         <form name="searchForm" id="searchForm" action="/board/list" className="row">
-                            <input type="search" id="keyword" name="keyword" />
-                            <a id="search-btn" className="btn">검색</a>
+                        <Dropdown list={searchType} name={"type"} width={250} value={cri.type} onChange={changeType} />
+                            <input type="search" id="keyword" name="keyword" onChange={inputKeyword} value={inputs} />
+                            <a id="search-btn" className="btn" onClick={clickSearch}>검색</a>
                             <input type="hidden" name="pagenum" />
                             <input type="hidden" name="amount" />
                         </form>

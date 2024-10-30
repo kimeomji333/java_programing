@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -82,7 +83,7 @@ public class BoardController {
 	}
 	
 //	수정
-	@PostMapping("{boardnum}")
+	@PutMapping("{boardnum}")
 	public ResponseEntity<Long> modify(BoardDTO board, MultipartFile[] files, String[] deleteFiles) throws Exception{
 		long boardnum = service.modify(board,files,deleteFiles);
 		if(boardnum != -1) {

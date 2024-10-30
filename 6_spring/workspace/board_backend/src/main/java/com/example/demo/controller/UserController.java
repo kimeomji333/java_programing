@@ -52,8 +52,6 @@ public class UserController {
 			session.setAttribute("loginUser", userid);
 			return new ResponseEntity<String>("O", HttpStatus.OK);
 		}
-		System.out.println(userid);
-		System.out.println(userpw);
 		return new ResponseEntity<String>("X", HttpStatus.OK);
 	}
 	
