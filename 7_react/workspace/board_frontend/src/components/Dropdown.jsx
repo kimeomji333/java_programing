@@ -17,7 +17,7 @@ const Dropdown = ({list, name, width, onChange, value}) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedValue, setSelectedValue] = useState(value);
     const [selectedLabel, setSelectedLabel] = useState("");
-    const DropdownRef = useRef(null);
+    const dropdownRef = useRef(null);
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
@@ -41,7 +41,7 @@ const Dropdown = ({list, name, width, onChange, value}) => {
 
     useEffect(()=>{
         const handleClickOutside = (e) => {
-            if(DropdownRef.current && !DropdownRef.current.contains(e.target)){
+            if(dropdownRef.current && !dropdownRef.current.contains(e.target)){
                 setIsOpen(false);
             }
         }
@@ -62,16 +62,15 @@ const Dropdown = ({list, name, width, onChange, value}) => {
     },[label, value])
 
     return (
-        <>
-            <div ref={DropdownRef} className={`common-dropdown ${isOpen?'show':''}`} style={{width:`${width}px`}}>
-                <input type="hidden" defaultValue={selectedValue} name={name} id={name} />
-                <input type="button" className="dropdown-button" defaultValue={selectedLabel} style={{width:`${width}px`}} onClick={toggleDropdown} />
-                <div className={`dropdown-content ${isOpen?'show':''}`}         >
-
-                </div>
-                
-            </div>    
-        </>
+        <div ref={dropdownRef} className={`common-dropdown ${isOpen?'show':''}`} style={{width:`${width}px`}}>
+            <input type="hidden" defaultValue={selectedValue} name={name} id={name} />
+            <input type="button" className="dropdown-button" defaultValue={selectedLabel} style={{width:`${width}px`}} onClick={toggleDropdown} />
+            <div className={`dropdown-content ${isOpen?'show':''}`}>
+                <ul style={{width:`${width}px`}}>
+                    {elList}
+                </ul>
+            </div>
+        </div>    
     )
 }
 export default Dropdown;

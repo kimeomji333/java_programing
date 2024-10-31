@@ -61,6 +61,7 @@ const List = () => {
         axios.get(`/api/board/list/${cri.pagenum}`, {params:cri}).then((resp)=>{
             setData(resp.data);
             setPagemaker(resp.data.pageMaker);
+            setInputs(resp.data.pageMaker.cri.keyword);
         })
     },[cri])
 

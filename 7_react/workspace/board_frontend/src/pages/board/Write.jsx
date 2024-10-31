@@ -52,7 +52,6 @@ const Write = () => {
             }
             reader.readAsDataURL(file);
         }
-        console.log(files);
     }
 
     const removeFile = (id) => {

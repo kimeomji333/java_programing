@@ -20,10 +20,10 @@ const Header = () => {
             pagenum:1,
             amount:10,
             type:"a",
-            keyword:""
-            // starrow:
+            keyword:"",
+            starrow:0
         }
-        navigate("/board/list", {})
+        navigate("/board/list", {state:cri})
     }
 
     useEffect(()=>{

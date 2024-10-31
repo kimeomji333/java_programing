@@ -14,11 +14,98 @@ const Get = () => {
     const [loginUser, setLoginUser] = useState();
 
     const remove = () => {
-        axios.delete(`api/board/${board.boardnum}`)
+        axios.delete(`/api/board/${board.boardnum}`)
         .then((resp)=>{
             alert(`${resp.data}번 게시글 삭제!`)
             navigate(`/board/list`, {state:cri})
         })
+    }
+
+    const [nowPage, setNowPage]  = useState(1);
+    const [list, setList] = useState([]); //댓글 리스트
+    const [replyCnt, setReplyCnt] = useState(0);
+        
+    const openReplyForm = (e) => {
+        e.target.style.display = 'none';
+        e.target.nextElementSibling.style.display = 'flex';
+        document.getElementById("replycontents").focus();
+    }
+    const clickRegist = (e) => {
+        const replycontents = document.getElementById("replycontents");
+        if(replycontents.value == ""){
+            alert("댓글 내용을 입력하세요!");
+            replycontents.focus();
+            return;
+        }
+        const reply = {replycontents:replycontents.value, userid:loginUser, boardnum:board.boardnum};
+        axios.post(`/api/reply/regist`, reply)
+        .then(resp => {
+            alert(`${resp.data}번 댓글 등록 완료!`);
+            reply.replynum = resp.data;
+            if(list.length == 5){
+                setNowPage(Math.ceil((replyCnt+1)/5));
+            }
+            else{
+                setList([...list, reply]);
+            }
+            replycontents.value = "";
+            document.querySelector(".btn.regist").style.display = "inline-block";
+            const replyForm = document.getElementsByClassName("replyForm")[0];
+            replyForm.style.display = 'none';
+        })
+    }
+    const clickCancel = (e) => {
+        const replycontents = document.getElementById("replycontents");
+        replycontents.value = "";
+        document.querySelector(".btn.regist").style.display = "inline-block";
+        const replyForm = document.getElementsByClassName("replyForm")[0];
+        replyForm.style.display = 'none';
+    }
+
+
+    const modifyReply = (e, replynum) => {
+        const replyTag = document.querySelector(`.reply${replynum}`);
+        const replycontents = replyTag.innerHTML.trim();
+        replyTag.innerHTML = `<textarea class='${replynum} mdf'>${replycontents}</textarea>`
+        e.target.classList.add("hdd");
+        e.target.nextElementSibling.classList.remove("hdd");
+        document.querySelector(".mdf").focus();
+    }
+
+    const modifyReplyOk = (e,replynum) => {
+        const replycontents = document.querySelector(".mdf");
+        if(replycontents.value == ""){
+            alert("수정할 댓글 내용을 입력하세요!");
+            replycontents.focus();
+            return;
+        }
+        const reply = {replynum:replynum, replycontents:replycontents.value, userid:loginUser};
+        axios.put(`/api/reply/${replynum}`, reply)
+        .then(resp=>{
+            alert(`${resp.data}번 댓글 수정 완료!`);
+            const updatedList = list.map((item) => {
+                if(item.replynum == replynum){
+                    return reply;
+                }
+                else{
+                    return item;
+                }
+            })
+            setList(updatedList);
+        })
+    }
+    const removeReply = (e,replynum) => {
+        if(window.confirm("댓글 을 삭제하시겠습니까?")){
+            axios.delete(`/api/reply/${replynum}`)
+            .then(resp=>{
+                const replyTag = document.querySelector(`.reply${replynum}`);
+                if(replyTag){
+                    replyTag.remove();
+                }
+                setList(list => list.filter(item => item.replynum !== replynum));
+                alert(`${resp.data}번 댓글이 삭제되었습니다.`);
+            })
+        }
     }
 
     useEffect(()=> {
@@ -34,12 +121,80 @@ const Get = () => {
             }
         })
     },[])
+
+    useEffect(()=>{
+        axios.get(`/api/reply/${boardnum}/${nowPage}`)
+        .then(resp => {
+            setList(resp.data.list);
+            setReplyCnt(resp.data.replyCnt);
+        })
+    },[nowPage])
     
 
     if(!board){
         return <>로딩중...</>
     }
     else{
+        //댓글리스트, 페이지리스트
+        const replyList = [];
+        const paging = [];
+
+        let endPage = Math.ceil(nowPage/5)*5;
+        let startPage = endPage - 4;
+        endPage = (endPage-1)*5 >= replyCnt ? Math.ceil(replyCnt/5) : endPage;
+        let prev = startPage != 1;
+        let next = endPage*5 < replyCnt;
+
+        const changePage =(e) => {
+            e.preventDefault();
+            const page = e.target.getAttribute("href");
+            setNowPage(page);
+        }
+        if(prev){
+            paging.push(<a className="changePage page-btn" href={startPage-1} key={startPage-1} onClick={changePage}>&lt;</a>)
+        }
+        for(let i = startPage; i <= endPage; i++){
+            if(i == nowPage){
+                paging.push(<span className="nowPage" key={i}>{i}</span>);
+            }
+            else{
+                paging.push(<a href={i} className="changePage page-btn" key={i} onClick={changePage}>{i}</a>);
+                
+            }
+        }
+        if(next){
+            paging.push(<a className="changePage page-btn" href={endPage+1} key={endPage+1} onClick={changePage}>&gt;</a>)
+        }
+        if(list == null || list.length == 0){
+            replyList.push(<li className="no-reply" key={`li0`}>등록된 댓글이 없습니다.</li>);
+        }
+        for(let i =0; i < list.length; i++){
+            const reply = list[i];
+            replyList.push(
+                <li className={`li${reply.replynum} row`} key={`li${reply.replynum}`}>
+                    <div className="row">
+                        <strong className={`userid${reply.userid}`}>{reply.userid}</strong>
+                        <p className={`reply${reply.replynum}`}>{reply.replycontents}</p>
+                    </div>
+                    <div>
+                        <strong></strong>
+                    </div>
+                    <div>
+                        {
+                            reply.userid == loginUser ? 
+                            <>
+                                <Button value="수정" className={"modify btn"} onClick={(e)=> { modifyReply(e,reply.replynum) }} />
+                                <Button value="수정 완료" className={"mfinish btn hdd"} onClick={(e)=>{ modifyReplyOk(e,reply.replynum) }} />
+                                <Button value="삭제" className={"remove btn"} onClick={(e)=>{ removeReply(e,reply.replynum) }} />
+
+                            </>
+                            :""
+                        }
+                    </div>
+                </li>
+            )
+        }
+
         return (
             <>
                 <div id="wrap" className="get">
@@ -108,7 +263,24 @@ const Get = () => {
                     </tbody>
                 </table>
                 <div className="reply_line">
-                   
+                    <input type="button" value="댓글 등록" className="btn regist" onClick={openReplyForm}/>
+                    <div className="replyForm row" style={{display:"none"}}>
+                        <div>
+                            <h4>작성자</h4>
+                            <input type="text" name="userid" value={loginUser} readOnly />
+                        </div>
+                        <div>
+                            <h4>내 용</h4>
+                            <textarea name="replycontents" id="replycontents" placeholder="Contents"></textarea>
+                        </div>
+                        <div>
+                            <input type="button" value="등록" className="btn finish" onClick={clickRegist} />
+                            <input type="button" value="취소" className="btn cancel"onClick={clickCancel} />
+                        </div>
+                    </div>
+                    <ul className="replies">{replyList}</ul>
+                    <div className="page">{paging}</div>
+                    <div></div>
                 </div>
             </div>
             </>

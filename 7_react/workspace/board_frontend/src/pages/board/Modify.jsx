@@ -61,7 +61,7 @@ const Modify = () => {
                         return {
                             //나머지들(num, key)은 그대로
                             ...item,
-                            //눈에 보여질 파일 명은 기존들..........
+                            //눈에 보여질 파일 명은 기존것으로 바뀌어야 하므로 fdto로 원상보구기
                             file:{
                                 name:fdto.orgname,
                                 systemname:fdto.systemname
@@ -70,10 +70,11 @@ const Modify = () => {
                             thumbnail:isThumbnail?`/api/file/thumbnail/${fdto.systemname}`:""
                         }
                     }
-                    //그 외에는
+                    //그 외에는 상관 없는 item들이므로 그대로 다시 return
                     return item;
                 });
-                //
+                //여기까지 왔으면 원상복귀 된 모습의 새로운 배열이 완성됐다. 
+                //렌더링 변화를 위해 Files State 변화
                 setFiles(newFiles);
             }
         }
@@ -154,7 +155,7 @@ const Modify = () => {
         const formData = new FormData()
         uploadFiles.current.map(file =>{
             if(file){
-                formData.append("file", file);
+                formData.append("files", file);
             }
         })
         deleteFiles.current.map(systemname => {
@@ -168,7 +169,7 @@ const Modify = () => {
         axios.put(`/api/board/${boardnum}`, formData)
         .then((resp) => {
             alert(`${resp.data}번 게시글 수정 완료!`);
-            navigate(`/board/${boardnum}`)
+            navigate(`/board/${boardnum}`, {state:cri});
         })
     }
 

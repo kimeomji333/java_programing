@@ -28,7 +28,7 @@ const Pagination = ({pageMaker}) => {
             elList.push(<span className="nowPage" key={i}>{i}</span>)
         }
         else{
-            elList.push(<a className="btn changePage" href={i} key={i}>{i}</a>)
+            elList.push(<a className="btn changePage" href={i} key={i} onClick={clickBtn}>{i}</a>)
         }
     }
     return (
